@@ -10,19 +10,19 @@ cat <<EOF > repair.conf
 dir_exp:$dir_name
 tag_id:$bug_id
 src_directory:$dir_name/src
-binary_path:$dir_name/src/xmllint
-config_command:CC=crepair-cc ./configure CFLAGS="-g -O0" --enable-static --disable-shared --without-threads --without-lzma
+binary_path:$dir_name/src/tools/tiff2ps
+config_command:CC=crepair-cc ./configure CFLAGS="-g -O0" --enable-static --disable-shared
 build_command:make CC=crepair-cc CXX=crepair-cxx CFLAGS="-g -O0 -static" CXXFLAGS="-g -O0 -static" LDFLAGS="-static"
 test_input_list:\$POC
-poc_list:$script_dir/../tests/1.xml
+poc_list:$script_dir/../tests/1.tif
+klee_flags:--link-llvm-lib=/CrashRepair/lib/libcrepair_proxy.bca
 EOF
 
 cd $dir_name/src
-sed -i 's/fabs/fabs_trident/g' ./xmlschemastypes.c
-sed -i 's/fabs/fabs_trident/g' ./xpath.c
+sed -i 's/fabs/fabs_trident/g' libtiff/tif_luv.c
+sed -i 's/fabs/fabs_trident/g' tools/tiff2ps.c
+git add  libtiff/tif_luv.c tools/tiff2ps.c
 git config --global user.email "you@example.com"
 git config --global user.name "Your Name"
-git add  ./xmlschemastypes.c ./xpath.c
 git commit -m 'replace fabs with proxy function'
-
 

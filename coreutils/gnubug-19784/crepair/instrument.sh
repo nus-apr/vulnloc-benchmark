@@ -6,13 +6,40 @@ bug_id=$(echo $script_dir | rev | cut -d "/" -f 2 | rev)
 dir_name=$1/$benchmark_name/$project_name/$bug_id
 
 
-cat <<EOF > repair.conf
+cat <<EOF > $script_dir/repair.conf
 dir_exp:$dir_name
 tag_id:$bug_id
 src_directory:$dir_name/src
 binary_path:$dir_name/src/src/make-prime-list
-config_command:FORCE_UNSAFE_CONFIGURE=1 CC=crepair-cc ./configure CFLAGS="-g -O0 -static -fPIE -Wno-error" CXXFLAGS="-g -O0 -static -fPIE -Wno-error"
-build_command:make CC=crepair-cc CXX=crepair-cxx CFLAGS="-ggdb -fPIC -fPIE -g -O0 -Wno-error" CXXFLAGS="-ggdb -fPIC -fPIE -g -O0 -Wno-error" LDFLAGS="-static"
+config_command:skip
+build_command:make CC=crepair-cc CXX=crepair-cxx CFLAGS="-ggdb -fPIC -fPIE -g -O0 -Wno-error" CXXFLAGS="-ggdb -fPIC -fPIE -g -O0 -Wno-error" LDFLAGS="-static" src/make-prime-list
 test_input_list:15
 klee_flags:--link-llvm-lib=/CrashRepair/lib/libcrepair_proxy.bca
+EOF
+
+
+cat <<EOF > $dir_name/bug.json
+{
+  "project": {
+    "name": "$project_name"
+  },
+  "name": "$bug_id",
+  "binary": "$dir_name/src/src/make-prime-list",
+  "crash": {
+    "command": "15",
+    "input": "",
+    "extra-klee-flags": "",
+    "expected-exit-code": 1
+  },
+  "source-directory": "src",
+  "build": {
+    "directory": "src",
+    "binary": "$dir_name/src/src/make-prime-list",
+    "commands": {
+      "prebuild": "exit 0",
+      "clean": "make clean  > /dev/null 2>&1",
+      "build": "make CC=crepair-cc CXX=crepair-cxx CFLAGS='-ggdb -fPIC -fPIE -g -O0 -Wno-error' CXXFLAGS='-ggdb -fPIC -fPIE -g -O0 -Wno-error' LDFLAGS='-static' src/make-prime-list > /dev/null 2>&1 "
+    }
+  }
+}
 EOF

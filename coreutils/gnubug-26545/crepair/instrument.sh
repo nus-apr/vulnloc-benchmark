@@ -14,7 +14,7 @@ binary_path:$dir_name/src/src/shred
 config_command:skip
 build_command:make CC=crepair-cc CXX=crepair-cxx CFLAGS="-ggdb -fPIC -fPIE -g -O0 -Wno-error" CXXFLAGS="-ggdb -fPIC -fPIE -g -O0 -Wno-error" LDFLAGS="-static" src/shred
 test_input_list:-n4 -s7 \$POC
-poc_list:$script_dir/tests/1.txt
+poc_list:$script_dir/../tests/1.txt
 klee_flags:--link-llvm-lib=/CrashRepair/lib/libcrepair_proxy.bca
 EOF
 
@@ -28,7 +28,7 @@ cat <<EOF > $dir_name/bug.json
   "binary": "$dir_name/src/src/shred",
   "crash": {
     "command": "-n4 -s7 \$POC",
-    "input": "$script_dir/tests/1.txt",
+    "input": "$script_dir/../tests/1.txt",
     "extra-klee-flags": "",
     "expected-exit-code": 1
   },

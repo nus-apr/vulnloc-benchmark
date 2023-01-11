@@ -25,7 +25,7 @@ binary_path:$dir_name/src/tools/tiffmedian
 config_command:skip
 build_command:make CC=crepair-cc CXX=crepair-cxx CFLAGS="-g -O0 -static" CXXFLAGS="-g -O0 -static" LDFLAGS="-static"
 test_input_list:\$POC foo
-poc_list:$script_dir/tests/1.tif
+poc_list:$script_dir/../tests/1.tif
 EOF
 
 cat <<EOF > $dir_name/bug.json
@@ -37,7 +37,7 @@ cat <<EOF > $dir_name/bug.json
   "binary": "$dir_name/src/tools/tiffmedian",
   "crash": {
     "command": "\$POC out.tiff",
-    "input": "$script_dir/tests/1.tif",
+    "input": "$script_dir/../tests/1.tif",
     "extra-klee-flags": "",
     "expected-exit-code": 1
   },

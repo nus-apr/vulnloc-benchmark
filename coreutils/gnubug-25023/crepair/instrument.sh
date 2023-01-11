@@ -15,7 +15,7 @@ binary_path:$dir_name/src/src/pr
 config_command:skip
 build_command:make CC=crepair-cc CXX=crepair-cxx CFLAGS="-ggdb -fPIC -fPIE -g -O0 -Wno-error" CXXFLAGS="-ggdb -fPIC -fPIE -g -O0 -Wno-error" LDFLAGS="-static" src/pr
 test_input_list:"-S\$(printf "\t\t\t")" a -m \$POC
-poc_list:$script_dir/tests/1.txt
+poc_list:$script_dir/../tests/1.txt
 klee_flags:--link-llvm-lib=/CrashRepair/lib/libcrepair_proxy.bca
 mask_arg:0,1,2
 EOF
@@ -30,7 +30,7 @@ cat <<EOF > $dir_name/bug.json
   "binary": "$dir_name/src/src/pr",
   "crash": {
     "command": "\"-S\$(printf \"\\t\\t\\t\")\" a -m \$POC",
-    "input": "$script_dir/tests/1.txt",
+    "input": "$script_dir/../tests/1.txt",
     "extra-klee-flags": "",
     "expected-exit-code": 1
   },

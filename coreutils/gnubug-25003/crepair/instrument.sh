@@ -5,6 +5,12 @@ project_name=$(echo $script_dir | rev | cut -d "/" -f 3 | rev)
 bug_id=$(echo $script_dir | rev | cut -d "/" -f 2 | rev)
 dir_name=$1/$benchmark_name/$project_name/$bug_id
 
+cd $dir_name/src
+make clean
+FORCE_UNSAFE_CONFIGURE=1 CC=wllvm CXX=wllvm++ ./configure CFLAGS='-g -O0 -static -fPIE' CXXFLAGS="$CFLAGS"
+make CFLAGS="-fPIC -fPIE -L/klee/build/lib  -lkleeRuntest" CXXFLAGS=$CFLAGS src/make-prime-list -j32
+
+
 cat <<EOF > $script_dir/repair.conf
 dir_exp:$dir_name
 tag_id:$bug_id

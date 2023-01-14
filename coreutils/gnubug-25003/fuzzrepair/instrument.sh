@@ -19,11 +19,12 @@ sed -i "1440i AFL_INIT_SET02(\"./split\", \"${dir_name}/src/dummy\");" src/split
 # not bulding man pages
 sed -i '229d' Makefile.am
 
-$script_dir/../config.sh $1
 cd $dir_name/src
 # create a dummy file; this path must match the one in instrumentation
 touch dummy
-# do make 
-make clean
 
+make clean
+make distclean
+
+CC="afl-clang-fast" $script_dir/../config.sh $1
 $script_dir/../build.sh $1

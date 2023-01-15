@@ -31,4 +31,9 @@ fi
 cd $dir_name/src
 sed -i "s|//#include \"${LIBPATCH_DIR}/helpers/argv-fuzz-inl.h\"|#include \"${LIBPATCH_DIR}/helpers/argv-fuzz-inl.h\"|g" src/make-prime-list.c
 
+# build with AFL instrumentation
+cd $dir_name/src/
+make clean
+make distclean
+CC="afl-clang-fast" CXX="afl-clang-fast++" $script_dir/../config.sh $1
 $script_dir/../build.sh $1

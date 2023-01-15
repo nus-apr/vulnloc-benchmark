@@ -18,10 +18,13 @@ sed -i "869i AFL_INIT_SET0234(\"./pr\", \"${dir_name}/src/dummy\", \"-m\", \"${d
 # not bulding man pages
 sed -i '229d' Makefile.am
 
-$script_dir/../config.sh $1
 cd $dir_name/src
 # create dummy file - this one much match the path in instrumentation
 echo a > dummy
-# do make
+
+# build with AFL instrumentation
+cd $dir_name/src/
 make clean
+make distclean
+CC="afl-clang-fast" CXX="afl-clang-fast++" $script_dir/../config.sh $1
 $script_dir/../build.sh $1

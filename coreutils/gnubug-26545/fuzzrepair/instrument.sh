@@ -22,11 +22,13 @@ sed -i '1309i break;' src/shred.c
 sed -i "1268i AFL_INIT_SET03(\"./shred\", \"${dir_name}/src/dummy\");" src/shred.c
 sed -i "1264i #include \"${LIBPATCH_DIR}/helpers/argv-fuzz-inl.h\"" src/shred.c
 
-
-$script_dir/../config.sh $1
 cd $dir_name/src
 # create dummy file - this needs to be the same as path in instrumentation
 touch dummy
-# do make
+
+# build with AFL instrumentation
+cd $dir_name/src/
 make clean
+make distclean
+CC="afl-clang-fast" CXX="afl-clang-fast++" $script_dir/../config.sh $1
 $script_dir/../build.sh $1

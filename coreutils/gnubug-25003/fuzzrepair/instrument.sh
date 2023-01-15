@@ -23,8 +23,9 @@ cd $dir_name/src
 # create a dummy file; this path must match the one in instrumentation
 touch dummy
 
+# build with AFL instrumentation
+cd $dir_name/src/
 make clean
 make distclean
-
-CC="afl-clang-fast" $script_dir/../config.sh $1
+CC="afl-clang-fast" CXX="afl-clang-fast++" $script_dir/../config.sh $1
 $script_dir/../build.sh $1

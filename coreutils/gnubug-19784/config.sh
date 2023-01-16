@@ -16,11 +16,11 @@ if [[ -n "${CXXFLAGS}" ]]; then
   PROJECT_CXXFLAGS="${PROJECT_CXXFLAGS} ${CXXFLAGS}"
 fi
 
-if [[ -n "${R_CFLAGS}"]]; then
+if [[ -n "${R_CFLAGS}" ]]; then
   PROJECT_CFLAGS="${R_CFLAGS}"
 fi
 
-if [[ -n "${R_CXXFLAGS}"]]; then
+if [[ -n "${R_CXXFLAGS}" ]]; then
   PROJECT_CFLAGS="${R_CXXFLAGS}"
 fi
 

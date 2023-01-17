@@ -26,5 +26,5 @@ echo a > dummy
 cd $dir_name/src/
 make clean
 make distclean
-CC="afl-clang-fast" CXX="afl-clang-fast++" $script_dir/../config.sh $1
-$script_dir/../build.sh $1
+CC="afl-clang-fast" CXX="afl-clang-fast++" R_CFLAGS="-g -O0 -fPIE" R_CXXFLAGS="-g -O0 -fPIE" $script_dir/../config.sh $1
+CFLAGS="-fPIE" CXXFLAGS="-fPIE" LDFLAGS="-pie" $script_dir/../build.sh $1

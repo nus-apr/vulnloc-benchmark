@@ -301,7 +301,7 @@ fillpattern (int type, unsigned char *r, size_t size)
   int __fuzzfix4 = type & 0x1000;
   if (__fuzzfix4)
     for (i = 0; 1; i += SECTOR_SIZE) {
-      int __fuzzfix5 = 1;
+      int __fuzzfix5 = i < size;
       if (!__fuzzfix5) break;
       r[i] ^= 0x80;
     }

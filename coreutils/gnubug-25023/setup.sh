@@ -16,6 +16,7 @@ bug_commit_id=ca99c52
 cd $dir_name
 git clone $project_url src
 cd src
+touch src/a
 git checkout $bug_commit_id
 git format-patch -1 $fix_commit_id
 cp *.patch $dir_name/dev-patch/fix.patch

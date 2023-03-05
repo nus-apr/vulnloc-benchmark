@@ -88,7 +88,7 @@ instrument () {
     local directory="$1"
     local buggy_source="$directory/$gold_file"
     restore_original $buggy_source
-    sed -i '816i ANGELIX_OUTPUT(int, sp->bytes_per_line, "sp->bytes_per_line");' "$buggy_source"
+    sed -i '2470i ANGELIX_OUTPUT(int, es, "es");' "$buggy_source"
     add-header "$buggy_source"
 }
 

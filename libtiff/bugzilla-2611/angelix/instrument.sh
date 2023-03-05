@@ -100,7 +100,7 @@ golden_directory="$root_directory/src-gold"
 if [ ! -d golden_directory ]; then
   cp -rf $buggy_directory $golden_directory
   cd $golden_directory
-  patch -R -f -p 1 < $dir_name/dev-patch/fix.patch
+  patch -f -p 1 < $dir_name/dev-patch/fix.patch
 fi
 
 if [ ! -d "$root_directory/angelix" ]; then
@@ -116,7 +116,13 @@ instrument $golden_directory
 
 cat <<EOF > $root_directory/angelix/oracle
 #!/bin/bash
-$setup_dir_path/test.sh /experiment 1 \${1:-}
+setup_dir_path=$setup_dir_path
+binary_path="./tools/tiffmedian"
+case "\$1" in
+    1)
+        POC=\$setup_dir_path/tests/1.tif
+        \${ANGELIX_RUN:-eval} timeout 10 \$binary_path \$POC foo > \$binary_path.log 2>&1
+esac
 EOF
 chmod u+x $root_directory/angelix/oracle
 

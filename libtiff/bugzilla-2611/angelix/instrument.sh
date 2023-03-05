@@ -7,7 +7,7 @@ dir_name=$1
 setup_dir_path=/setup/$benchmark_name/$project_name/$bug_id
 
 set -euo pipefail
-gold_file=libtiff/tif_ojpeg.c
+gold_file=$2
 
 
 clean-source () {

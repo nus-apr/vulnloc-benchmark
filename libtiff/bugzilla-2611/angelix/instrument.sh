@@ -120,7 +120,7 @@ binary_path="./tools/tiffmedian"
 case "\$1" in
     1)
         POC=\$setup_dir_path/tests/1.tif
-        timeout 10 \${ANGELIX_RUN:-eval} \$binary_path \$POC foo > \$binary_path.log 2>&1
+        \${ANGELIX_RUN:-eval} \$binary_path \$POC foo > \$binary_path.log 2>&1
 esac
 EOF
 chmod u+x $root_directory/angelix/oracle

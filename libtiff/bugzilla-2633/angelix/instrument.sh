@@ -5,8 +5,7 @@ project_name=$(echo $script_dir | rev | cut -d "/" -f 3 | rev)
 bug_id=$(echo $script_dir | rev | cut -d "/" -f 2 | rev)
 dir_name=$1
 setup_dir_path=/setup/$benchmark_name/$project_name/$bug_id
-
-set -euo pipefail
+crash_file="tools/tiff2ps.c"
 gold_file=$2
 
 
@@ -86,7 +85,7 @@ add-angelix-runner () {
 
 instrument () {
     local directory="$1"
-    local buggy_source="$directory/$gold_file"
+    local buggy_source="$crash_file"
     restore_original $buggy_source
     sed -i '2470i ANGELIX_OUTPUT(int, es, "es");' "$buggy_source"
     add-header "$buggy_source"
@@ -121,7 +120,7 @@ binary_path="./tools/tiff2ps"
 case "\$1" in
     1)
         POC=\$setup_dir_path/tests/1.tif
-        \${ANGELIX_RUN:-eval} timeout 10 \$binary_path \$POC > \$binary_path.log 2>&1
+        timeout 10  \${ANGELIX_RUN:-eval} \$binary_path \$POC > \$binary_path.log 2>&1
 esac
 
 ret=\$?
@@ -142,7 +141,7 @@ chmod u+x $root_directory/angelix/oracle
 
 cat <<EOF > $root_directory/angelix/config
 #!/bin/bash
-./configure CFLAGS="-g -O0" --enable-static --disable-shared
+./configure --enable-static --disable-shared
 EOF
 chmod +x $root_directory/angelix/config
 

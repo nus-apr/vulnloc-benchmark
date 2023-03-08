@@ -147,6 +147,6 @@ chmod +x $root_directory/angelix/config
 
 cat <<EOF > $root_directory/angelix/build
 #!/bin/bash
-make -e
+CFLAGS="-fsanitize=address" make -e
 EOF
 chmod u+x $root_directory/angelix/build

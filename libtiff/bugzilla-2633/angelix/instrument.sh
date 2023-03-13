@@ -8,6 +8,8 @@ setup_dir_path=/setup/$benchmark_name/$project_name/$bug_id
 crash_file="tools/tiff2ps.c"
 gold_file=$2
 
+apt-get install -y gcc-multilib libtool automake valgrind
+echo " --klee-solver-timeout 100 --klee-timeout 120 --klee-search dfs --klee-max-forks 100 " > /tmp/ANGELIX_ARGS
 
 clean-source () {
     local directory="$1"
@@ -85,7 +87,7 @@ add-angelix-runner () {
 
 instrument () {
     local directory="$1"
-    local buggy_source="$crash_file"
+    local buggy_source="$1/$crash_file"
     restore_original $buggy_source
     sed -i '2470i ANGELIX_OUTPUT(int, es, "es");' "$buggy_source"
     add-header "$buggy_source"
@@ -120,22 +122,10 @@ binary_path="./tools/tiff2ps"
 case "\$1" in
     1)
         POC=\$setup_dir_path/tests/1.tif
-        \${ANGELIX_RUN:-eval} \$binary_path \$POC > \$binary_path.log 2>&1
+        valgrind --error-exitcode=123 \${ANGELIX_RUN:-eval} \$binary_path \$POC > \$binary_path.log 2>&1
 esac
 
-ret=\$?
-if [[ ret -eq 0 ]]
-then
-   err=\$(cat \$binary_path.out | grep 'AddressSanitizer'  | wc -l)
-    if [[ err -eq 0 ]]
-    then
-      exit 0
-    else
-      exit 128
-    fi;
-else
-   exit \$ret
-fi
+
 EOF
 chmod u+x $root_directory/angelix/oracle
 
@@ -147,6 +137,6 @@ chmod +x $root_directory/angelix/config
 
 cat <<EOF > $root_directory/angelix/build
 #!/bin/bash
-CFLAGS="-fsanitize=address" make -e
+make -e
 EOF
 chmod u+x $root_directory/angelix/build

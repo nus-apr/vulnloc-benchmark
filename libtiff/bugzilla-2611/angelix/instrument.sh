@@ -85,11 +85,20 @@ add-angelix-runner () {
 
 instrument () {
     local directory="$1"
-    local buggy_source="$crash_file"
+    local buggy_source="$1/$crash_file"
     restore_original $buggy_source
     sed -i '816i ANGELIX_OUTPUT(int, sp->bytes_per_line, "sp->bytes_per_line");' "$buggy_source"
     add-header "$buggy_source"
 }
+
+instrument_gold () {
+    local directory="$1"
+    local buggy_source="$1/$crash_file"
+    restore_original $buggy_source
+    sed -i '825i ANGELIX_OUTPUT(int, sp->bytes_per_line, "sp->bytes_per_line");' "$buggy_source"
+    add-header "$buggy_source"
+}
+
 
 
 root_directory=$1
@@ -111,7 +120,7 @@ clean-source $golden_directory
 
 
 instrument $buggy_directory
-instrument $golden_directory
+instrument_gold $golden_directory
 
 cat <<EOF > $root_directory/angelix/oracle
 #!/bin/bash

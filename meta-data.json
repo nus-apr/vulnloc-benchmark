@@ -228,7 +228,7 @@
         "bug_id": "CVE-2017-15232",
         "source_file": "jquant1.c",
         "line_numbers": [533],
-        "failing_test": "1",
+        "failing_test": "2",
         "passing_test": "",
         "count_neg": 1,
         "count_pos": 0,

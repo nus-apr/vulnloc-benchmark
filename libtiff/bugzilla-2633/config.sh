@@ -21,6 +21,18 @@ if [[ -n "${LDFLAGS}" ]]; then
   PROJECT_LDFLAGS="${PROJECT_LDFLAGS} ${LDFLAGS}"
 fi
 
+if [[ -n "${R_CFLAGS}" ]]; then
+  PROJECT_CFLAGS="${R_CFLAGS}"
+fi
+
+if [[ -n "${R_CPPFLAGS}" ]]; then
+  PROJECT_CPPFLAGS="${R_CPPFLAGS}"
+fi
+
+if [[ -n "${R_LDFLAGS}" ]]; then
+  PROJECT_LDFLAGS="${R_LDFLAGS}"
+fi
+
 PROJECT_CONFIG_OPTIONS=" --enable-static --disable-shared"
 if [[ -n "${CONFIG_OPTIONS}" ]]; then
   PROJECT_CONFIG_OPTIONS="${PROJECT_CONFIG_OPTIONS} ${CONFIG_OPTIONS}"

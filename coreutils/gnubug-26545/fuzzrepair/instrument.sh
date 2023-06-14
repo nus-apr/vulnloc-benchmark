@@ -15,18 +15,20 @@ cd $dir_name/src
 # not bulding man pages
 sed -i '217d' Makefile.am
 # remove and recreate output so that it does not grow too big.
-sed -i '1370i FILE* file_ptr = fopen(file[i], "w"); fclose(file_ptr);' src/shred.c
+# sed -i '1370i FILE* file_ptr = fopen(file[i], "w"); fclose(file_ptr);' src/shred.c
 # -u option can cause a lot of files to be writting to disk during fuzzing; disable that
-sed -i '1309i break;' src/shred.c
+# sed -i '1309i break;' src/shred.c
 # for AFL argv fuzz
 sed -i "1268i AFL_INIT_SET03(\"./shred\", \"${dir_name}/src/dummy\");" src/shred.c
 sed -i "1264i #include \"${LIBPATCH_DIR}/helpers/argv-fuzz-inl.h\"" src/shred.c
 
-
-$script_dir/../config.sh $1
 cd $dir_name/src
 # create dummy file - this needs to be the same as path in instrumentation
 touch dummy
-# do make
+
+# build with AFL instrumentation
+cd $dir_name/src/
 make clean
-$script_dir/../build.sh $1
+make distclean
+CC="afl-clang-fast" CXX="afl-clang-fast++" R_CFLAGS="-g -O0 -fPIE" R_CXXFLAGS="-g -O0 -fPIE" $script_dir/../config.sh $1
+CFLAGS="-fPIE" CXXFLAGS="-fPIE" LDFLAGS="-pie" $script_dir/../build.sh $1

@@ -25,4 +25,4 @@ cd $dir_name/src/
 make clean
 make distclean
 CC="afl-clang-fast" CXX="afl-clang-fast++" $script_dir/../config.sh $1
-R_CFLAGS="-g -O0 -fPIE" R_LDFLAGS="-pie" $script_dir/../build.sh $1
+R_CFLAGS="-g -O0 -fPIE -fsanitize=address" R_LDFLAGS="-pie -fsanitize=address" $script_dir/../build.sh $1

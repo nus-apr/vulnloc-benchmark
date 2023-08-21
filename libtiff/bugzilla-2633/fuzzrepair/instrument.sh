@@ -1,5 +1,5 @@
 #!/bin/bash
-script_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
+script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" &>/dev/null && pwd)"
 benchmark_name=$(echo $script_dir | rev | cut -d "/" -f 4 | rev)
 project_name=$(echo $script_dir | rev | cut -d "/" -f 3 | rev)
 bug_id=$(echo $script_dir | rev | cut -d "/" -f 2 | rev)
@@ -22,8 +22,7 @@ bear $script_dir/../build.sh $1
 cd $LIBPATCH_DIR/rewriter
 ./rewritecond $fix_file -o $fix_file
 ret=$?
-if [[ ret -eq 1 ]]
-then
+if [[ ret -eq 1 ]]; then
    exit 128
 fi
 
@@ -31,5 +30,5 @@ fi
 cd $dir_name/src/
 make clean
 make distclean
-CC="afl-clang-fast" CXX="afl-clang-fast++" R_CFLAGS="-g -O0" R_CPPFLAGS="-g -O0" R_LDFLAGS="-pie" $script_dir/../config.sh $1
-R_CFLAGS="-fsanitize=address -g -O0 -fPIE" R_CPPFLAGS="-fsanitize=address -g -O0 -fPIE" R_LDFLAGS="-pie" $script_dir/../build.sh $1
+CC="afl-clang-fast" CXX="afl-clang-fast++" R_CFLAGS="-g -O0 -fsanitize=address" R_CPPFLAGS="-g -O0 -fsanitize=address" R_LDFLAGS="-pie" $script_dir/../config.sh $1
+R_CFLAGS="-fsanitize=address -g -O0 -fPIE" R_CPPFLAGS="-fsanitize=address -g -O0 -fPIE" R_LDFLAGS="-pie -fsanitize=address" $script_dir/../build.sh $1

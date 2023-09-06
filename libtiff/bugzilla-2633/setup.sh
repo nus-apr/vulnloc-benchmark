@@ -20,6 +20,7 @@ cd src
 git checkout $bug_commit_id
 git format-patch -1 $fix_commit_id
 cp *.patch $dir_name/dev-patch/fix.patch
-sed -i '2470i if(0) return;' tools/tiff2ps.c
-sed -i '2441i if(0) return;' tools/tiff2ps.c
+
+sed -i '2443i if(0) return;' tools/tiff2ps.c
+
 ./autogen.sh

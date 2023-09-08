@@ -13,7 +13,7 @@ then
 fi
 
 
-case "$2" in
+case "$TEST_ID" in
     1)
         POC="15"
         export ASAN_OPTIONS=detect_leaks=0,halt_on_error=0

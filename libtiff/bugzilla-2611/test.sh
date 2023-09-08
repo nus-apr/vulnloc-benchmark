@@ -15,7 +15,7 @@ then
 fi
 
 
-case "$2" in
+case "$TEST_ID" in
     1)
         POC=$script_dir/tests/1.tif
         timeout 10 $BINARY_PATH $POC foo > $BINARY_PATH.log 2>&1

@@ -3,13 +3,13 @@ script_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 benchmark_name=$(echo $script_dir | rev | cut -d "/" -f 3 | rev)
 project_name=$(echo $script_dir | rev | cut -d "/" -f 2 | rev)
 bug_id=$(echo $script_dir | rev | cut -d "/" -f 1 | rev)
-dir_name=$1/$benchmark_name/$project_name/$bug_id
+dir_name=/experiments/$benchmark_name/$project_name/$bug_id
 BINARY_PATH="$dir_name/src/src/split"
-TEST_ID=$2
+TEST_ID=$1
 
-if [ -n "$3" ];
+if [ -n "$2" ];
 then
-  BINARY_PATH=$3
+  BINARY_PATH=$2
 fi
 
 

@@ -34,6 +34,6 @@ git add $SRC_FILE
 git commit -m 'add formatted file'
 cd $script_dir
 cp  $TRANS_FILE $SRC_FILE
-bash build.sh $1
+bash build.sh
 
 

@@ -11,7 +11,7 @@ $script_dir/../config.sh $1
 cd $dir_name/src
 sed -i '789i if(0) return 0;\n' libtiff/tif_ojpeg.c
 make clean
-bear $script_dir/../build.sh $1
+bear $script_dir/../build.sh
 cd $LIBPATCH_DIR/rewriter
 ./rewritecond $fix_file -o $fix_file
 ret=$?
@@ -25,4 +25,4 @@ cd $dir_name/src/
 make clean
 make distclean
 CC="afl-clang-fast" CXX="afl-clang-fast++" $script_dir/../config.sh $1
-R_CFLAGS="-g -O0 -fPIE -fsanitize=address" R_LDFLAGS="-pie -fsanitize=address" $script_dir/../build.sh $1
+R_CFLAGS="-g -O0 -fPIE -fsanitize=address" R_LDFLAGS="-pie -fsanitize=address" $script_dir/../build.sh

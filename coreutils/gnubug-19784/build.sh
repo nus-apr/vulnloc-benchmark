@@ -6,8 +6,12 @@ bug_id=$(echo $script_dir | rev | cut -d "/" -f 1 | rev)
 dir_name=/experiment/$benchmark_name/$project_name/$bug_id
 cd $dir_name/src
 
-PROJECT_CFLAGS="-fsanitize=address -ggdb -fPIC -fPIE -g -O0 -Wno-error"
-PROJECT_CXXFLAGS="-fsanitize=address -ggdb -fPIC -fPIE -g -O0 -Wno-error"
+if [[ -z "${OPT}" ]]; then # if not set, use -O0
+  OPT=-O0
+fi
+
+PROJECT_CFLAGS="-fsanitize=address -ggdb -fPIC -fPIE -g -Wno-error ${OPT}"
+PROJECT_CXXFLAGS="-fsanitize=address -ggdb -fPIC -fPIE -g -Wno-error ${OPT}"
 PROJECT_LDFLAGS="-fsanitize=address -pie"
 
 if [[ -n "${CFLAGS}" ]]; then

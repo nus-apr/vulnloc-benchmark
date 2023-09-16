@@ -11,8 +11,8 @@ if [[ -z "${OPT}" ]]; then # if not set, use -O0
   OPT=-O0
 fi
 
-PROJECT_CFLAGS="-g -static ${OPT}"
-PROJECT_LDFLAGS="-static"
+PROJECT_CFLAGS="-fsanitize=address -g -static ${OPT}"
+PROJECT_LDFLAGS="-fsanitize=address -static"
 
 if [[ -n "${CFLAGS}" ]]; then
   PROJECT_CFLAGS="${PROJECT_CFLAGS} ${CFLAGS}"

@@ -72,7 +72,7 @@ if __name__ == "__main__":
                 shell=True,
                 env=my_env,
             )
-            # print("timeout 12s /jasper/src/appl/imginfo -f /data/" + i + ".jp2 1>/dev/null 2>/dev/null")
+            # print("timeout 12s /jasper/src/appl/imginfo -f /experiment/" + i + ".jp2 1>/dev/null 2>/dev/null")
             # print("timeout 12s /projects/jasper/src/appl/imginfo -f /workspace/jasper/poc/" + i + ".jp2 1>/dev/null 2>/dev/null")
             # print(i, ret)
             error_log = open(test_dir + "/" + i + ".err", "r")

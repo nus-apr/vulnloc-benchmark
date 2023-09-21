@@ -71,7 +71,7 @@ if __name__ == "__main__":
                 shell=True,
                 env=my_env,
             )
-            # print("timeout 10s /jasper/src/appl/imginfo -f /data/" + i + ".jp2 1>/dev/null 2>/dev/null")
+            # print("timeout 10s /jasper/src/appl/imginfo -f /experiment/" + i + ".jp2 1>/dev/null 2>/dev/null")
             # print("timeout 10s /projects/jasper/src/appl/imginfo -f /workspace/jasper/poc/" + i + ".jp2 1>/dev/null 2>/dev/null")
             # print(i, ret)
             if ret == 0 or ret == 1:

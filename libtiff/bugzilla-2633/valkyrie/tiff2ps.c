@@ -1929,7 +1929,7 @@ static int PS_Lvl2ImageDict(FILE *fd, TIFF *tif, uint32 w, uint32 h) {
     fputs("  /Decode [0 1 0 1 0 1 0 1]\n", fd);
     break;
   }
-  fputs("  /DataSource", fd);
+  fputs("  /experimentSource", fd);
   if (planarconfiguration == PLANARCONFIG_SEPARATE && samplesperpixel > 1)
     fputs(" [", fd);
   if (ascii85)

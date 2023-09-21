@@ -1,0 +1,43 @@
+{
+  "project": {
+    "name": "coreutils"
+  },
+  "name": "gnubug-25023",
+  "binary": "/experiment/vulnloc/coreutils/gnubug-25023/src/src/pr",
+  "crash": {
+    "command": "\"-S$(printf \"\t\t\t\")\" a -m $POC",
+    "input": "/setup/vulnloc/coreutils/gnubug-25023/tests/1.txt",
+    "bad_output": "SUMMARY: AddressSanitizer",
+    "extra-klee-flags": "",
+    "expected-exit-code": 1
+  },
+  "source-directory": "src",
+  "build": {
+    "directory": "src",
+    "binary": "/experiment/vulnloc/coreutils/gnubug-25023/src/src/pr",
+    "use-ghost-functions": true,
+    "sanitizerflags": "-fsanitize=address",
+    "commands": {
+      "prebuild": "exit 0",
+      "clean": "make clean",
+      "build": "make CFLAGS=\"-ggdb -fPIC -fPIE ${INJECT_CFLAGS:-}\" CXXFLAGS=\"-ggdb -fPIC -fPIE ${INJECT_CXXFLAGS:-}\" LDFLAGS=\"${INJECT_LDFLAGS:-}\" src/pr"
+    }
+  },
+   "fuzzer": {
+    "seed": 3,
+    "crash-tag": "asan;0;src/pr.c:2241",
+    "mutate-range": "default;default;default;default;default;default",
+    "timeout": {
+      "local": 300,
+      "global": 300
+    },
+    "proof-of-crash": {
+      "format": ["str", "str", "str", "str", "str", "str"],
+      "values": ["\\", "t", "\\", "t", "\\", "t"],
+      "commands": {
+        "crash": ["/experiment/vulnloc/coreutils/gnubug-25023/src/src/pr", "-S***", "tmp2", "-m", "tmp2"],
+        "trace": ["/experiment/vulnloc/coreutils/gnubug-25023/src/src/pr", "-S***", "tmp2", "-m", "tmp2"]
+      }
+    }
+  }
+}

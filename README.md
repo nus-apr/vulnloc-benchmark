@@ -4,6 +4,9 @@ Security vulnerability benchmark with instrumentation support for repair tools.
 
 ## Usage
 
+**NOTE:** Please ignore the two bugs in ffmpeg (bug id 9 and 10), since they could not be reproduced
+easily.
+
 To setup and test each of the bugs, first install the dependencies to projects in the benchmark.
 `Dockerfile` contains the list of libraries to be installed. One can also use it to build a 
 docker image, and set up bugs in its container.

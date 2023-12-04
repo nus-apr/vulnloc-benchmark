@@ -16,6 +16,15 @@
     "exploit_file_list": [
       "tests/1.bin"
     ],
+    "crash_stack_trace": [
+      ["compare_relocs", "bfd/elf64-x86-64.c", 6632],
+      ["elf_x86_64_get_synthetic_symtab", "bfd/elf64-x86-64.c", 6722],
+      ["dump_bfd", "objdump.c", 3525],
+      ["display_object_bfd", "objdump.c", 3603],
+      ["display_any_bfd", "objdump.c", 3692],
+      ["display_file", "objdump.c", 3713],
+      ["main", "objdump.c", 4015]
+    ],
     "test_timeout": 5,
     "language": "c",
     "config_script": "config.sh",
@@ -39,6 +48,16 @@
     "crash_input": "-A -a -l -S -s --special-syms --synthetic --with-symbol-versions -D $POC",
     "exploit_file_list": [
       "tests/1.bin"
+    ],
+    "crash_stack_trace": [
+      ["parse_die", "bfd/dwarf1.c", 254],
+      ["_bfd_dwarf1_find_nearest_line", "bfd/dwarf1.c", 521],
+      ["_bfd_elf_find_nearest_line", "bfd/elf.c", 8659],
+      ["print_symbol", "binutils/nm.c", 1004],
+      ["print_symbols", "binutils/nm.c", 1084],
+      ["display_rel_file", "binutils/nm.c", 1200],
+      ["display_file", "binutils/nm.c", 1318],
+      ["main", "binutils/nm.c", 1792]
     ],
     "test_timeout": 5,
     "language": "c",
@@ -64,6 +83,18 @@
     "exploit_file_list": [
       "tests/1.bin"
     ],
+    "crash_stack_trace": [
+      ["decode_line_info", "binutils/dwarf2.c", 2442],
+      ["comp_unit_maybe_decode_line_info", "binutils/dwarf2.c", 3610],
+      ["comp_unit_find_line", "binutils/dwarf2.c", 3645],
+      ["_bfd_dwarf2_find_nearest_line", "binutils/dwarf2.c", 4757],
+      ["_bfd_elf_find_line", "bfd/elf.c", 8695],
+      ["print_symbol", "binutils/nm.c", 1003],
+      ["print_symbols", "binutils/nm.c", 1084],
+      ["display_rel_file", "binutils/nm.c", 1200],
+      ["display_file", "binutils/nm.c", 1318],
+      ["main", "binutils/nm.c", 1792]
+    ],
     "test_timeout": 5,
     "language": "c",
     "config_script": "config.sh",
@@ -88,6 +119,17 @@
     "exploit_file_list": [
       "tests/1.bin"
     ],
+    "crash_stack_trace": [
+      ["byte_put_little_endian", "binutils/elfcomm.c", 75],
+      ["target_specific_reloc_handling", "binutils/readelf.c", 11640],
+      ["apply_relocations", "binutils/readelf.c", 12343],
+      ["load_specific_debug_section", "binutils/readelf.c", 12905],
+      ["display_debug_section", "binutils/readelf.c", 13009],
+      ["process_section_contents", "binutils/readelf.c", 13091],
+      ["process_object", "binutils/readelf.c", 16780],
+      ["process_file", "binutils/readelf.c", 17154],
+      ["main", "binutils/readelf.c", 17225]
+    ],
     "test_timeout": 5,
     "language": "c",
     "config_script": "config.sh",
@@ -110,6 +152,9 @@
     "binary_path": "src/make-prime-list",
     "crash_input": "5",
     "exploit_file_list": [],
+    "crash_stack_trace": [
+      ["main", "src/make-prime-list.c", 214]
+    ],
     "test_timeout": 5,
     "language": "c",
     "config_script": "config.sh",
@@ -132,6 +177,10 @@
     "binary_path": "src/split",
     "crash_input": "-n7/75 7",
     "exploit_file_list": [],
+    "crash_stack_trace": [
+      ["bytes_chunk_extract", "src/split.c", 987],
+      ["main", "src/split.c", 1625]
+    ],
     "test_timeout": 5,
     "language": "c",
     "config_script": "config.sh",
@@ -154,6 +203,13 @@
     "binary_path": "src/pr",
     "crash_input": "\"-S$(printf \"\\t\\t\\t\")\" a -m a",
     "exploit_file_list": [],
+    "crash_stack_trace": [
+      ["print_sep_string", "src/pr.c", 2241],
+      ["read_line", "src/pr.c", 2493],
+      ["print_page", "src/pr.c", 1802],
+      ["print_files", "src/pr.c", 1618],
+      ["main", "src/pr.c", 1136]
+    ],
     "test_timeout": 5,
     "language": "c",
     "config_script": "config.sh",
@@ -176,6 +232,13 @@
     "binary_path": "src/shred",
     "crash_input": "-n4 -s7 abc",
     "exploit_file_list": [],
+    "crash_stack_trace": [
+      ["fillpattern", "src/shred.c", 293],
+      ["dopass", "src/shred.c", 480],
+      ["do_wipefd", "src/shred.c", 967],
+      ["wipefile", "src/shred.c", 1191],
+      ["main", "src/shred.c", 1317]
+    ],
     "test_timeout": 5,
     "language": "c",
     "config_script": "config.sh",
@@ -200,6 +263,7 @@
     "exploit_file_list": [
       "tests/1.mpg"
     ],
+    "crash_stack_trace": [],
     "test_timeout": 5,
     "language": "c",
     "config_script": "config.sh",
@@ -224,6 +288,7 @@
     "exploit_file_list": [
       "tests/1.mpg"
     ],
+    "crash_stack_trace": [],
     "test_timeout": 5,
     "language": "c",
     "config_script": "config.sh",
@@ -247,6 +312,13 @@
     "crash_input": "-f $POC",
     "exploit_file_list": [
       "tests/1.j2k"
+    ],
+    "crash_stack_trace": [
+      ["jpc_dec_process_siz", "src/libjasper/jpc/jpc_dec.c", 1194],
+      ["jpc_dec_decode", "src/libjasper/jpc/jpc_dec.c", 390],
+      ["jpc_decode", "src/libjasper/jpc/jpc_dec.c", 254],
+      ["jas_image_decode", "src/libjasper/base/jas_image.c", 372],
+      ["main", "src/appl/imginfo.c", 179]
     ],
     "test_timeout": 5,
     "language": "c",
@@ -272,6 +344,15 @@
     "exploit_file_list": [
       "tests/1.j2k"
     ],
+    "crash_stack_trace": [
+      ["jas_image_create", "src/libjasper/base/jas_image.c", 162],
+      ["jpc_dec_process_sot", "src/libjasper/jpc/jpc_dec.c", 469],
+      ["jpc_dec_decode", "src/libjasper/jpc/jpc_dec.c", 391],
+      ["jpc_decode", "src/libjasper/jpc/jpc_dec.c", 255],
+      ["jp2_decode", "src/libjasper/jp2/jp2_dec.c", 215],
+      ["jas_image_decode", "src/libjasper/base/jas_image.c", 396],
+      ["main", "src/appl/imginfo.c", 203]
+    ],
     "test_timeout": 5,
     "language": "c",
     "config_script": "config.sh",
@@ -295,6 +376,16 @@
     "crash_input": "-tf $POC",
     "exploit_file_list": [
       "tests/1.iso"
+    ],
+    "crash_stack_trace": [
+      ["choose_volume", "libarchive/archive_read_support_format_iso9660.c", 1094],
+      ["archive_read_format_iso9660_read_header", "libarchive/archive_read_support_format_iso9660.c", 1181],
+      ["_archive_read_next_header2", "libarchive/archive_read.c", 649],
+      ["_archive_read_next_header", "libarchive/archive_read.c", 687],
+      ["archive_read_next_header", "libarchive/archive_virtual.c", 148],
+      ["read_archive", "tar/read.c", 261],
+      ["tar_mode_t", "tar/read.c", 94],
+      ["main", "tar/bsdtar.c", 803]
     ],
     "test_timeout": 5,
     "language": "c",
@@ -321,6 +412,14 @@
     "exploit_file_list": [
       "tests/1.gif"
     ],
+    "crash_stack_trace": [
+      ["get_sos", "jdmarker.c", 327],
+      ["read_markers", "jdmarker.c", 1016],
+      ["consume_markers", "jdinput.c", 386],
+      ["jpeg_consume_input", "jdapimin.c", 301],
+      ["jpeg_read_header", "jdapimin.c", 249],
+      ["main", "djpeg.c", 542]
+    ],
     "test_timeout": 5,
     "language": "c",
     "config_script": "config.sh",
@@ -344,6 +443,16 @@
     "crash_input": "-crop \"1x1+16+16\" -onepass -dither ordered -dct float -colors 8 -targa -grayscale -outfile o $POC",
     "exploit_file_list": [
       "tests/2.jpg"
+    ],
+    "crash_stack_trace": [
+      ["quantize_ord_dither", "jquant1.c", 536],
+      ["post_process_1pass", "jdpostct.c", 145],
+      ["process_data_simple_main", "jdmainct.c", 311],
+      ["jpeg_read_scanlines", "jdapistd.c", 282],
+      ["read_and_discard_scanlines", "jdapistd.c", 316],
+      ["increment_simple_rowgroup_ctr", "jdapistd.c", 342],
+      ["jpeg_skip_scanlines", "jdapistd.c", 504],
+      ["main", "djpeg.c", 729]
     ],
     "test_timeout": 5,
     "language": "c",
@@ -373,6 +482,11 @@
       "tests/4.bmp",
       "tests/5.bmp"
     ],
+    "crash_stack_trace": [
+      ["get_8bit_row", "rdbmp.c", 145],
+      ["preload_image", "rdbmp.c", 270],
+      ["main", "cjpeg.c", 616]
+    ],
     "test_timeout": 5,
     "language": "c",
     "config_script": "config.sh",
@@ -396,6 +510,10 @@
     "crash_input": "-colors 256 -bmp $POC",
     "exploit_file_list": [
       "tests/1.jpg"
+    ],
+    "crash_stack_trace": [
+      ["put_pixel_rows", "wrbmp.c", 145],
+      ["main", "djpeg.c", 762]
     ],
     "test_timeout": 5,
     "language": "c",
@@ -421,6 +539,10 @@
     "exploit_file_list": [
       "tests/1.swf"
     ],
+    "crash_stack_trace": [
+      ["printMP3Headers", "util/listmp3.c", 128],
+      ["main", "util/listmp3.c", 191]
+    ],
     "test_timeout": 5,
     "language": "c",
     "config_script": "config.sh",
@@ -444,6 +566,17 @@
     "crash_input": "$POC",
     "exploit_file_list": [
       "tests/1.swf"
+    ],
+    "crash_stack_trace": [
+      ["getString", "util/decompile.c", 349],
+      ["decompileArithmeticOp", "util/decompile.c", 1066],
+      ["decompileAction", "util/decompile.c", 3292],
+      ["decompileActions", "util/decompile.c", 3401],
+      ["decompile5Action", "util/decompile.c", 3423],
+      ["outputSWF_DOACTION", "util/outputscript.c", 1547],
+      ["outputBlock", "util/outputscript.c", 2079],
+      ["readMovie", "util/main.c", 277],
+      ["main", "util/main.c", 350]
     ],
     "test_timeout": 5,
     "language": "c",
@@ -469,6 +602,17 @@
     "exploit_file_list": [
       "tests/1.swf"
     ],
+    "crash_stack_trace": [
+      ["getName", "util/decompile.c", 398],
+      ["decompileDELETE", "util/decompile.c", 3039],
+      ["decompileAction", "util/decompile.c", 3302],
+      ["decompileActions", "util/decompile.c", 3401],
+      ["decompile5Action", "util/decompile.c", 3423],
+      ["outputSWF_DOACTION", "util/outputscript.c", 1547],
+      ["outputBlock", "util/outputscript.c", 2079],
+      ["readMovie", "util/main.c", 277],
+      ["main", "util/main.c", 350]
+    ],
     "test_timeout": 5,
     "language": "c",
     "config_script": "config.sh",
@@ -492,6 +636,13 @@
     "crash_input": "$POC foo",
     "exploit_file_list": [
       "tests/1.tif"
+    ],
+    "crash_stack_trace": [
+      ["OJPEGDecodeRaw", "libtiff/tif_ojpeg.c", 816],
+      ["OJPEGDecode", "libtiff/tif_ojpeg.c", 791],
+      ["TIFFReadScanline", "libtiff/tif_read.c", 304],
+      ["quant", "tools/tiffmedian.c", 771],
+      ["main", "tools/tiffmedian.c", 283]
     ],
     "test_timeout": 5,
     "language": "c",
@@ -518,6 +669,12 @@
     "exploit_file_list": [
       "tests/1.tif"
     ],
+    "crash_stack_trace": [
+      ["PSDataColorContig", "tools/tiff2ps.c", 2470],
+      ["PSpage", "tools/tiff2ps.c", 2347],
+      ["TIFF2PS", "tools/tiff2ps.c", 1606],
+      ["main", "tools/tiff2ps.c", 473]
+    ],
     "test_timeout": 5,
     "language": "c",
     "config_script": "config.sh",
@@ -541,6 +698,14 @@
     "crash_input": "-i $POC foo",
     "exploit_file_list": [
       "tests/1.tif"
+    ],
+    "crash_stack_trace": [
+      ["_TIFFmemcpy", "libtiff/tif_unix.c", 340],
+      ["DumpModeDecode", "libtiff/tif_dumpmode.c", 103],
+      ["TIFFReadEncodedStrip", "libtiff/tif_read.c", 380],
+      ["readContigStripsIntoBuffer", "tools/tiffcrop.c", 3689],
+      ["loadImage", "tools/tiffcrop.c", 6167],
+      ["main", "tools/tiffcrop.c", 2345]
     ],
     "test_timeout": 5,
     "language": "c",
@@ -566,6 +731,12 @@
     "exploit_file_list": [
       "tests/1.tif"
     ],
+    "crash_stack_trace": [
+      ["_TIFFmemcpy", "libtiff/tif_unix.c", 340],
+      ["t2p_readwrite_pdf_image_tile", "tools/tiff2pdf.c", 2901],
+      ["t2p_write_pdf", "tools/tiff2pdf.c", 5535],
+      ["main", "tools/tiff2pdf.c", 808]
+    ],
     "test_timeout": 5,
     "language": "c",
     "config_script": "config.sh",
@@ -589,6 +760,14 @@
     "crash_input": "-i $POC foo",
     "exploit_file_list": [
       "tests/1.tif"
+    ],
+    "crash_stack_trace": [
+      ["_TIFFmemcpy", "libtiff/tif_unix.c", 340],
+      ["DumpModeDecode", "libtiff/tif_dumpmode.c", 103],
+      ["TIFFReadEncodedStrip", "libtiff/tif_read.c", 380],
+      ["readContigStripsIntoBuffer", "tools/tiffcrop.c", 3689],
+      ["loadImage", "tools/tiffcrop.c", 6167],
+      ["main", "tools/tiffcrop.c", 2345]
     ],
     "test_timeout": 5,
     "language": "c",
@@ -614,6 +793,11 @@
     "exploit_file_list": [
       "tests/1.gif"
     ],
+    "crash_stack_trace": [
+      ["readextension", "tools/gif2tiff.c", 355],
+      ["convert", "tools/gif2tiff.c", 223],
+      ["main", "tools/gif2tiff.c", 179]
+    ],
     "test_timeout": 5,
     "language": "c",
     "config_script": "config.sh",
@@ -638,6 +822,9 @@
     "exploit_file_list": [
       "tests/1.tif"
     ],
+    "crash_stack_trace": [
+      // cannot reproduce crash in the container ??
+    ],
     "test_timeout": 5,
     "language": "c",
     "config_script": "config.sh",
@@ -661,6 +848,9 @@
     "crash_input": "$POC out.tif",
     "exploit_file_list": [
       "tests/1.tif"
+    ],
+    "crash_stack_trace": [
+
     ],
     "test_timeout": 5,
     "language": "c",

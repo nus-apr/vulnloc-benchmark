@@ -850,7 +850,9 @@
       "tests/1.tif"
     ],
     "crash_stack_trace": [
-
+      ["readSeparateTilesIntoBuffer", "tools/tiffcrop.c", 994],
+      ["loadImage", "tools/tiffcrop.c", 6079],
+      ["main", "tools/tiffcrop.c", 2278]
     ],
     "test_timeout": 5,
     "language": "c",
@@ -876,6 +878,11 @@
     "exploit_file_list": [
       "tests/1.tif"
     ],
+    "crash_stack_trace": [
+      ["cpStrips", "tools/tiffsplit.c", 246],
+      ["tiffcp", "tools/tiffsplit.c", 227],
+      ["main", "tools/tiffsplit.c", 89]
+    ],
     "test_timeout": 5,
     "language": "c",
     "config_script": "config.sh",
@@ -899,6 +906,13 @@
     "crash_input": "$POC out.tif",
     "exploit_file_list": [
       "tests/1.tif"
+    ],
+    "crash_stack_trace": [
+      ["extractContigSamples24bits", "tools/tiffcrop.c", 2978],
+      ["extractContigSamplesToBuffer", "tools/tiffcrop.c", 3539],
+      ["writeBufferToSeparateStrips", "tools/tiffcrop.c", 1184],
+      ["writeCroppedImage", "tools/tiffcrop.c", 7944],
+      ["main", "tools/tiffcrop.c", 2356]
     ],
     "test_timeout": 5,
     "language": "c",
@@ -924,6 +938,11 @@
     "exploit_file_list": [
       "tests/1.tif"
     ],
+    "crash_stack_trace": [
+      ["cpContig2SeparateByRow", "tools/tiffcp.c", 1090],
+      ["tiffcp", "tools/tiffcp.c", 814],
+      ["main", "tools/tiffcp.c", 303]
+    ],
     "test_timeout": 5,
     "language": "c",
     "config_script": "config.sh",
@@ -947,6 +966,16 @@
     "crash_input": "-i $POC out.tiff",
     "exploit_file_list": [
       "tests/1.tif"
+    ],
+    "crash_stack_trace": [
+      ["JPEGSetupEncode", "libtiff/tif_jpeg.c", 1687],
+      ["TIFFWriteEncodedTile", "libtiff/tif_write.c", 446],
+      ["TIFFWriteTile", "libtiff/tif_write.c", 364],
+      ["writeBufferToContigTiles", "tools/tiffcp.c", 1549],
+      ["cpImage", "tools/tiffcp.c", 1235],
+      ["cpContigTiles2ContigTiles", "tools/tiffcp.c", 1694],
+      ["tiffcp", "tools/tiffcp.c", 814],
+      ["main", "tools/tiffcp.c", 303]
     ],
     "test_timeout": 5,
     "language": "c",
@@ -972,6 +1001,12 @@
     "exploit_file_list": [
       "tests/1.tif"
     ],
+    "crash_stack_trace": [
+      ["TIFFWriteDirectoryTagSampleformatArray", "libtiff/tif_dirwrite.c", 980],
+      ["TIFFWriteDirectorySec", "libtiff/tif_dirwrite.c", 589],
+      ["TIFFWriteDirectory", "libtiff/tif_dirwrite.c", 183],
+      ["main", "tools/tiffcp.c", 303]
+    ],
     "test_timeout": 5,
     "language": "c",
     "config_script": "config.sh",
@@ -995,6 +1030,12 @@
     "crash_input": "-i $POC out.tiff",
     "exploit_file_list": [
       "tests/1.tif"
+    ],
+    "crash_stack_trace": [
+      ["TIFFWriteDirectoryTagSampleformatArray", "libtiff/tif_dirwrite.c", 994],
+      ["TIFFWriteDirectorySec", "libtiff/tif_dirwrite.c", 589],
+      ["TIFFWriteDirectory", "libtiff/tif_dirwrite.c", 183],
+      ["main", "tools/tiffcp.c", 303]
     ],
     "test_timeout": 5,
     "language": "c",
@@ -1020,6 +1061,13 @@
     "exploit_file_list": [
       "tests/1.tif"
     ],
+    "crash_stack_trace": [
+      ["JPEGSetupEncode", "libtiff/tif_jpeg.c", 1646],
+      ["TIFFWriteEncodedStrip", "libtiff/tif_write.c", 234],
+      ["cpDecodedStrips", "tools/tiffcp.c", 997],
+      ["tiffcp", "tools/tiffcp.c", 814],
+      ["main", "tools/tiffcp.c", 303]
+    ],
     "test_timeout": 5,
     "language": "c",
     "config_script": "config.sh",
@@ -1043,6 +1091,18 @@
     "crash_input": "$POC",
     "exploit_file_list": [
       "tests/1.xml"
+    ],
+    "crash_stack_trace": [
+      ["xmlParseAttValueComplex", "parser.c", 4079],
+      ["xmlParseAttValueInternal", "parser.c", 9009],
+      ["xmlParseAttribute2", "parser.c", 9065],
+      ["xmlParseStartTag2", "parser.c", 9223],
+      ["xmlParseElement", "parser.c", 9910],
+      ["xmlParseDocument", "parser.c", 10666],
+      ["xmlDoRead", "parser.c", 15066],
+      ["xmlReadFile", "parser.c", 15126],
+      ["parseAndPrintFile", "xmllint.c", 2381],
+      ["main", "xmllint.c", 3733]
     ],
     "test_timeout": 5,
     "language": "c",
@@ -1068,6 +1128,15 @@
     "exploit_file_list": [
       "tests/1.txt"
     ],
+    "crash_stack_trace": [
+      ["xmlParseEndTag2", "parser.c", 9837],
+      ["xmlParseElement", "parser.c", 10247],
+      ["xmlParseDocument", "parser.c", 10921],
+      ["xmlDoRead", "parser.c", 15400],
+      ["xmlReadFile", "parser.c", 15462],
+      ["parseAndPrintFile", "xmllint.c", 2408],
+      ["main", "xmllint.c", 3767]
+    ],
     "test_timeout": 5,
     "language": "c",
     "config_script": "config.sh",
@@ -1091,6 +1160,20 @@
     "crash_input": "-html $POC",
     "exploit_file_list": [
       "tests/1.txt"
+    ],
+    "crash_stack_trace": [
+      ["xmlDictAddString", "dict.c", 285],
+      ["xmlDictLookup", "dict.c", 926],
+      ["htmlParseNameComplex", "HTMLparser.c", 2517],
+      ["htmlParseName", "HTMLparser.c", 2483],
+      ["htmlParseEntityRef", "HTMLparser.c", 2682],
+      ["htmlParseReference", "HTMLparser.c", 4044],
+      ["htmlParseContentInternal", "HTMLparser.c", 4619],
+      ["htmlParseDocument", "HTMLparser.c", 4769],
+      ["htmlDoRead", "HTMLparser.c", 6741],
+      ["htmlReadFile", "HTMLparser.c", 6799],
+      ["parseAndPrintFile", "xmllint.c", 2255],
+      ["main", "xmllint.c", 3767]
     ],
     "test_timeout": 5,
     "language": "c",
@@ -1116,6 +1199,20 @@
     "exploit_file_list": [
       "tests/1.xml"
     ],
+    "crash_stack_trace": [
+      ["xmlDumpElementContent", "valid.c", 1181],
+      ["xmlDumpElementContent", "valid.c", 1177],
+      ["xmlDumpElementDecl", "valid.c", 1708],
+      ["xmlBufDumpElementDecl", "xmlsave.c", 501],
+      ["xmlNodeDumpOutputInternal", "xmlsave.c", 939],
+      ["xmlNodeListDumpOutput", "xmlsave.c", 825],
+      ["xmlDtdDumpOutput", "xmlsave.c", 749],
+      ["xmlNodeDumpOutputInternal", "xmlsave.c", 931],
+      ["xmlDocContentDumpOutput", "xmlsave.c", 1234],
+      ["xmlSaveDoc", "xmlsave.c", 1936],
+      ["parseAndPrintFile", "xmllint.c", 2712],
+      ["main", "xmllint.c", 3767]
+    ],
     "test_timeout": 5,
     "language": "c",
     "config_script": "config.sh",
@@ -1139,6 +1236,12 @@
     "crash_input": "$POC",
     "exploit_file_list": [
       "tests/test_1"
+    ],
+    "crash_stack_trace": [
+      ["bm_readbody_bmp", "src/bitmap_io.c", 615],
+      ["bm_read", "src/bitmap_io.c", 129],
+      ["process_file", "src/main.c", 1056],
+      ["main", "src/main.c", 1212]
     ],
     "test_timeout": 5,
     "language": "c",
@@ -1164,6 +1267,12 @@
     "exploit_file_list": [
       "tests/1.zip"
     ],
+    "crash_stack_trace": [
+      ["zzip_mem_entry_new", "zzip/memdisk.c", 231],
+      ["zzip_mem_disk_load", "zzip/memdisk.c", 137],
+      ["zzip_mem_disk_open", "zzip/memdisk.c", 89],
+      ["main", "bins/unzzipcat-mem.c", 82]
+    ],
     "test_timeout": 5,
     "language": "c",
     "config_script": "config.sh",
@@ -1188,6 +1297,12 @@
     "exploit_file_list": [
       "tests/1.zip"
     ],
+    "crash_stack_trace": [
+      ["zzip_mem_entry_new", "zzip/memdisk.c", 182],
+      ["zzip_mem_disk_load", "zzip/memdisk.c", 137],
+      ["zzip_mem_disk_open", "zzip/memdisk.c", 89],
+      ["main", "bins/unzzipcat-mem.c", 82]
+    ],
     "test_timeout": 5,
     "language": "c",
     "config_script": "config.sh",
@@ -1211,6 +1326,13 @@
     "crash_input": "$POC",
     "exploit_file_list": [
       "tests/1.zip"
+    ],
+    "crash_stack_trace": [
+      ["zzip_mem_entry_extra_block", "zzip/memdisk.c", 248],
+      ["zzip_mem_entry_new", "zzip/memdisk.c", 217],
+      ["zzip_mem_disk_load", "zzip/memdisk.c", 137],
+      ["zzip_mem_disk_open", "zzip/memdisk.c", 89],
+      ["main", "bins/unzzipcat-mem.c", 82]
     ],
     "test_timeout": 5,
     "language": "c",

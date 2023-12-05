@@ -1307,7 +1307,7 @@
     "config_script": "config.sh",
     "build_script": "build.sh",
     "test_script": "test.sh",
-    "bug_type": "Buffer Overflow"
+    "bug_type": "Null Pointer Dereference"
   },
   {
     "id": 43,

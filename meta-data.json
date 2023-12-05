@@ -822,9 +822,8 @@
     "exploit_file_list": [
       "tests/1.tif"
     ],
-    "crash_stack_trace": [
-      // cannot reproduce crash in the container ??
-    ],
+    "crash_stack_trace": [],
+    "temp_comment": "cannot reproduce crash in the container",
     "test_timeout": 5,
     "language": "c",
     "config_script": "config.sh",

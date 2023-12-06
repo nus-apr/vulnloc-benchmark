@@ -1,4 +1,12 @@
 #!/bin/bash
+
+if [ -z "$EXPERIMENT_DIR" ];
+then
+  echo "EXPERIMENT_DIR NOT SET, TAKING DEFAULT VALUE TO BE ~"
+fi
+EXPERIMENT_DIR=${EXPERIMENT_DIR:-"~"}
+
+
 script_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 benchmark_name=$(echo $script_dir | rev | cut -d "/" -f 3 | rev)
 project_name=$(echo $script_dir | rev | cut -d "/" -f 2 | rev)
@@ -15,9 +23,6 @@ then
 fi
 
 
-case "$TEST_ID" in
-    1)
-        POC=$script_dir/tests/1.tif
-        timeout 10 $BINARY_PATH $POC foo > $BINARY_PATH.log 2>&1
-esac
+POC=$script_dir/tests/$TEST_ID
+timeout 10 $BINARY_PATH $POC foo > $BINARY_PATH.log 2>&1
 

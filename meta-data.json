@@ -7,8 +7,8 @@
     "line_numbers": [
       6720
     ],
-    "failing_test": "1",
-    "passing_test": "",
+    "failing_test": ["1.bin"],
+    "passing_test": [],
     "count_neg": 1,
     "count_pos": 0,
     "binary_path": "binutils/objdump",
@@ -31,8 +31,8 @@
     "line_numbers": [
       236
     ],
-    "failing_test": "1",
-    "passing_test": "",
+    "failing_test": ["1.bin"],
+    "passing_test": [],
     "count_neg": 1,
     "count_pos": 0,
     "binary_path": "binutils/nm-new",
@@ -55,8 +55,8 @@
     "line_numbers": [
       2440
     ],
-    "failing_test": "1",
-    "passing_test": "",
+    "failing_test": ["1.bin"],
+    "passing_test": [],
     "count_neg": 1,
     "count_pos": 0,
     "binary_path": "binutils/nm-new",
@@ -79,8 +79,8 @@
     "line_numbers": [
       11640
     ],
-    "failing_test": "1",
-    "passing_test": "",
+    "failing_test": ["1.bin"],
+    "passing_test": [],
     "count_neg": 1,
     "count_pos": 0,
     "binary_path": "binutils/readelf",
@@ -103,13 +103,13 @@
     "line_numbers": [
       214
     ],
-    "failing_test": "1",
-    "passing_test": "",
+    "failing_test": ["exploit"],
+    "passing_test": [],
     "count_neg": 1,
     "count_pos": 0,
     "binary_path": "src/make-prime-list",
     "crash_input": "5",
-    "exploit_file_list": [],
+    "exploit_file_list": ["tests/exploit"],
     "test_timeout": 5,
     "language": "c",
     "config_script": "config.sh",
@@ -125,13 +125,13 @@
     "line_numbers": [
       985
     ],
-    "failing_test": "1",
-    "passing_test": "",
+    "failing_test": ["exploit"],
+    "passing_test": [],
     "count_neg": 1,
     "count_pos": 0,
     "binary_path": "src/split",
     "crash_input": "-n7/75 7",
-    "exploit_file_list": [],
+    "exploit_file_list": ["tests/exploit"],
     "test_timeout": 5,
     "language": "c",
     "config_script": "config.sh",
@@ -148,7 +148,7 @@
       1236
     ],
     "failing_test": "1",
-    "passing_test": "",
+    "passing_test": [],
     "count_neg": 1,
     "count_pos": 0,
     "binary_path": "src/pr",
@@ -170,7 +170,7 @@
       290
     ],
     "failing_test": "1",
-    "passing_test": "",
+    "passing_test": [],
     "count_neg": 1,
     "count_pos": 0,
     "binary_path": "src/shred",
@@ -191,8 +191,8 @@
     "line_numbers": [
       1034
     ],
-    "failing_test": "1",
-    "passing_test": "",
+    "failing_test": ["1.mpg"],
+    "passing_test": [],
     "count_neg": 1,
     "count_pos": 0,
     "binary_path": "tools/target_dec_cavs_fuzzer",
@@ -215,8 +215,8 @@
     "line_numbers": [
       178
     ],
-    "failing_test": "1",
-    "passing_test": "",
+    "failing_test": ["1.mpg"],
+    "passing_test": [],
     "count_neg": 1,
     "count_pos": 0,
     "binary_path": "tools/target_dec_cavs_fuzzer",
@@ -239,8 +239,8 @@
     "line_numbers": [
       515
     ],
-    "failing_test": "1",
-    "passing_test": "",
+    "failing_test": ["1.j2k"],
+    "passing_test": [],
     "count_neg": 1,
     "count_pos": 0,
     "binary_path": "src/appl/imginfo",
@@ -263,8 +263,8 @@
     "line_numbers": [
       180
     ],
-    "failing_test": "1",
-    "passing_test": "",
+    "failing_test": ["1.j2k"],
+    "passing_test": [],
     "count_neg": 1,
     "count_pos": 0,
     "binary_path": "src/appl/imginfo",
@@ -287,8 +287,8 @@
     "line_numbers": [
       1094
     ],
-    "failing_test": "1",
-    "passing_test": "",
+    "failing_test": ["1.iso"],
+    "passing_test": [],
     "count_neg": 1,
     "count_pos": 0,
     "binary_path": "bsdtar",
@@ -312,8 +312,8 @@
       326,
       333
     ],
-    "failing_test": "1",
-    "passing_test": "",
+    "failing_test": ["1.gif"],
+    "passing_test": [],
     "count_neg": 1,
     "count_pos": 0,
     "binary_path": "djpeg",
@@ -336,8 +336,8 @@
     "line_numbers": [
       533
     ],
-    "failing_test": "2",
-    "passing_test": "",
+    "failing_test": ["2.jpg"],
+    "passing_test": [],
     "count_neg": 1,
     "count_pos": 0,
     "binary_path": "djpeg",
@@ -360,8 +360,8 @@
     "line_numbers": [
       145
     ],
-    "failing_test": "1,2,3,4,5",
-    "passing_test": "",
+    "failing_test": ["1.bmp","2.bmp","3.bmp","4.bmp","5.bmp"],
+    "passing_test": [],
     "count_neg": 5,
     "count_pos": 0,
     "binary_path": "cjpeg",
@@ -388,8 +388,8 @@
     "line_numbers": [
       505
     ],
-    "failing_test": "1",
-    "passing_test": "",
+    "failing_test": ["1.jpg"],
+    "passing_test": [],
     "count_neg": 1,
     "count_pos": 0,
     "binary_path": "build/djpeg",
@@ -412,8 +412,8 @@
     "line_numbers": [
       107
     ],
-    "failing_test": "1",
-    "passing_test": "",
+    "failing_test": ["1.swf"],
+    "passing_test": [],
     "count_neg": 1,
     "count_pos": 0,
     "binary_path": "util/listmp3",
@@ -436,8 +436,8 @@
     "line_numbers": [
       107
     ],
-    "failing_test": "1",
-    "passing_test": "",
+    "failing_test": ["1.swf"],
+    "passing_test": [],
     "count_neg": 1,
     "count_pos": 0,
     "binary_path": "util/swftophp",
@@ -460,8 +460,8 @@
     "line_numbers": [
       107
     ],
-    "failing_test": "1",
-    "passing_test": "",
+    "failing_test": ["1.swf"],
+    "passing_test": [],
     "count_neg": 1,
     "count_pos": 0,
     "binary_path": "util/swftophp",
@@ -484,8 +484,8 @@
     "line_numbers": [
       792
     ],
-    "failing_test": "1",
-    "passing_test": "",
+    "failing_test": ["1.tif"],
+    "passing_test": [],
     "count_neg": 1,
     "count_pos": 0,
     "binary_path": "tools/tiffmedian",
@@ -509,8 +509,8 @@
       2443,
       2700
     ],
-    "failing_test": "1",
-    "passing_test": "",
+    "failing_test": ["1.tif"],
+    "passing_test": [],
     "count_neg": 1,
     "count_pos": 0,
     "binary_path": "tools/tiff2ps",
@@ -533,8 +533,8 @@
     "line_numbers": [
       3701
     ],
-    "failing_test": "1",
-    "passing_test": "",
+    "failing_test": ["1.tif"],
+    "passing_test": [],
     "count_neg": 1,
     "count_pos": 0,
     "binary_path": "tools/tiffcrop",
@@ -557,8 +557,8 @@
     "line_numbers": [
       2898
     ],
-    "failing_test": "1",
-    "passing_test": "",
+    "failing_test": ["1.tif"],
+    "passing_test": [],
     "count_neg": 1,
     "count_pos": 0,
     "binary_path": "tools/tiff2pdf",
@@ -581,8 +581,8 @@
     "line_numbers": [
       3701
     ],
-    "failing_test": "1",
-    "passing_test": "",
+    "failing_test": ["1.tif"],
+    "passing_test": [],
     "count_neg": 1,
     "count_pos": 0,
     "binary_path": "tools/tiffcrop",
@@ -605,8 +605,8 @@
     "line_numbers": [
       352
     ],
-    "failing_test": "1",
-    "passing_test": "",
+    "failing_test": ["1.gif"],
+    "passing_test": [],
     "count_neg": 1,
     "count_pos": 0,
     "binary_path": "tools/gif2tiff",
@@ -629,8 +629,8 @@
     "line_numbers": [
       785
     ],
-    "failing_test": "1",
-    "passing_test": "",
+    "failing_test": ["1.tif"],
+    "passing_test": [],
     "count_neg": 1,
     "count_pos": 0,
     "binary_path": "tools/rgb2ycbcr",
@@ -653,8 +653,8 @@
     "line_numbers": [
       3741
     ],
-    "failing_test": "1",
-    "passing_test": "",
+    "failing_test": ["1.tif"],
+    "passing_test": [],
     "count_neg": 1,
     "count_pos": 0,
     "binary_path": "tools/tiffcrop",
@@ -677,8 +677,8 @@
     "line_numbers": [
       65
     ],
-    "failing_test": "1",
-    "passing_test": "",
+    "failing_test": ["1.tif"],
+    "passing_test": [],
     "count_neg": 1,
     "count_pos": 0,
     "binary_path": "tools/tiffsplit",
@@ -701,8 +701,8 @@
     "line_numbers": [
       1167
     ],
-    "failing_test": "1",
-    "passing_test": "",
+    "failing_test": ["1.tif"],
+    "passing_test": [],
     "count_neg": 1,
     "count_pos": 0,
     "binary_path": "tools/tiffcrop",
@@ -725,8 +725,8 @@
     "line_numbers": [
       1069
     ],
-    "failing_test": "1",
-    "passing_test": "",
+    "failing_test": ["1.tif"],
+    "passing_test": [],
     "count_neg": 1,
     "count_pos": 0,
     "binary_path": "tools/tiffcp",
@@ -749,8 +749,8 @@
     "line_numbers": [
       1628
     ],
-    "failing_test": "1",
-    "passing_test": "",
+    "failing_test": ["1.tif"],
+    "passing_test": [],
     "count_neg": 1,
     "count_pos": 0,
     "binary_path": "tools/tiffcp",
@@ -773,8 +773,8 @@
     "line_numbers": [
       1634
     ],
-    "failing_test": "1",
-    "passing_test": "",
+    "failing_test": ["1.tif"],
+    "passing_test": [],
     "count_neg": 1,
     "count_pos": 0,
     "binary_path": "tools/tiffcp",
@@ -797,8 +797,8 @@
     "line_numbers": [
       1634
     ],
-    "failing_test": "1",
-    "passing_test": "",
+    "failing_test": ["1.tif"],
+    "passing_test": [],
     "count_neg": 1,
     "count_pos": 0,
     "binary_path": "tools/tiffcp",
@@ -821,8 +821,8 @@
     "line_numbers": [
       1634
     ],
-    "failing_test": "1",
-    "passing_test": "",
+    "failing_test": ["1.tif"],
+    "passing_test": [],
     "count_neg": 1,
     "count_pos": 0,
     "binary_path": "tools/tiffcp",
@@ -845,8 +845,8 @@
     "line_numbers": [
       4079
     ],
-    "failing_test": "1",
-    "passing_test": "",
+    "failing_test": ["1.xml"],
+    "passing_test": [],
     "count_neg": 1,
     "count_pos": 0,
     "binary_path": "xmllint",
@@ -869,8 +869,8 @@
     "line_numbers": [
       9837
     ],
-    "failing_test": "1",
-    "passing_test": "",
+    "failing_test": ["1.txt"],
+    "passing_test": [],
     "count_neg": 1,
     "count_pos": 0,
     "binary_path": "xmllint",
@@ -893,8 +893,8 @@
     "line_numbers": [
       2516
     ],
-    "failing_test": "1",
-    "passing_test": "",
+    "failing_test": ["1.txt"],
+    "passing_test": [],
     "count_neg": 1,
     "count_pos": 0,
     "binary_path": "xmllint",
@@ -917,8 +917,8 @@
     "line_numbers": [
       1197
     ],
-    "failing_test": "1",
-    "passing_test": "",
+    "failing_test": ["1.xml"],
+    "passing_test": [],
     "count_neg": 1,
     "count_pos": 0,
     "binary_path": "xmllint",
@@ -941,8 +941,8 @@
     "line_numbers": [
       481
     ],
-    "failing_test": "1",
-    "passing_test": "",
+    "failing_test": ["test_1"],
+    "passing_test": [],
     "count_neg": 1,
     "count_pos": 0,
     "binary_path": "src/potrace",
@@ -965,8 +965,8 @@
     "line_numbers": [
       198
     ],
-    "failing_test": "1",
-    "passing_test": "",
+    "failing_test": ["1.zip"],
+    "passing_test": [],
     "count_neg": 1,
     "count_pos": 0,
     "binary_path": "linux/bins/unzzipcat-mem",
@@ -989,8 +989,8 @@
     "line_numbers": [
       175
     ],
-    "failing_test": "1",
-    "passing_test": "",
+    "failing_test": ["1.zip"],
+    "passing_test": [],
     "count_neg": 1,
     "count_pos": 0,
     "binary_path": "linux/bins/unzzipcat-mem",
@@ -1013,8 +1013,8 @@
     "line_numbers": [
       208
     ],
-    "failing_test": "1",
-    "passing_test": "",
+    "failing_test": ["1.zip"],
+    "passing_test": [],
     "count_neg": 1,
     "count_pos": 0,
     "binary_path": "linux/bins/unzzipcat-mem",

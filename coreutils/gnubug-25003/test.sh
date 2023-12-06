@@ -20,7 +20,7 @@ then
 fi
 
 export ASAN_OPTIONS=detect_leaks=0,halt_on_error=0
-timeout 10 $BINARY_PATH $(echo $script_dir/tests/$TEST_ID)  > $BINARY_PATH.out 2>&1
+timeout 10 $BINARY_PATH $(cat $script_dir/tests/$TEST_ID)  > $BINARY_PATH.out 2>&1
 ret=$?
 if [[ ret -eq 0 ]]
 then

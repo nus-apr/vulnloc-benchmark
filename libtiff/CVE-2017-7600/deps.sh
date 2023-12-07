@@ -53,7 +53,6 @@ DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
   libsqlite-dev \
   libgdbm-dev \
   libssl-dev \
-  libreadline-gplv2-dev \
   libbz2-dev \
   psmisc \
   libsqlite3-dev \
@@ -78,6 +77,21 @@ if [ -e /etc/os-release ]; then
 
     else
       DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends libpython2-dev
+    fi
+  fi
+fi
+
+
+# libreadline-gplv2-dev is dropped after ubuntu 20
+if [ -e /etc/os-release ]; then
+  # Source the file to set environment variables
+  . /etc/os-release
+  if [ -n "$VERSION_ID" ]; then
+    if [ "$VERSION_ID" = "22.04" ]; then
+      DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends libreadline-dev
+    else
+      # for older versions, this package is still available
+      DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends libreadline-gplv2-dev
     fi
   fi
 fi

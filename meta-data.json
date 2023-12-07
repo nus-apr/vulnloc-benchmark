@@ -30,6 +30,7 @@
     "config_script": "config.sh",
     "build_script": "build.sh",
     "test_script": "test.sh",
+    "build_cmd": "make -j20 CFLAGS='-Wno-error' CXXFLAGS='-Wno-error' LDFLAGS='-ldl -lutil'",
     "bug_type": "Integer Overflow"
   },
   {
@@ -64,6 +65,7 @@
     "config_script": "config.sh",
     "build_script": "build.sh",
     "test_script": "test.sh",
+    "build_cmd": "make -j20 CFLAGS='-Wno-error' CXXFLAGS='-Wno-error' LDFLAGS='-ldl -lutil'",
     "bug_type": "Buffer Overflow"
   },
   {
@@ -100,6 +102,7 @@
     "config_script": "config.sh",
     "build_script": "build.sh",
     "test_script": "test.sh",
+    "build_cmd": "make -j20 CFLAGS='-Wno-error' CXXFLAGS='-Wno-error'",
     "bug_type": "Divide by Zero"
   },
   {
@@ -135,6 +138,7 @@
     "config_script": "config.sh",
     "build_script": "build.sh",
     "test_script": "test.sh",
+    "build_cmd": "make -j20 CFLAGS='-Wno-error' CXXFLAGS='-Wno-error' LDFLAGS='-ldl'",
     "bug_type": "Buffer Overflow"
   },
   {
@@ -160,6 +164,7 @@
     "config_script": "config.sh",
     "build_script": "build.sh",
     "test_script": "test.sh",
+    "build_cmd": "make -j20 CFLAGS='-fPIC -fPIE -Wno-error' CXXFLAGS='-fPIC -fPIE -Wno-error' LDFLAGS='-pie' src/make-prime-list",
     "bug_type": "Buffer Overflow"
   },
   {
@@ -186,6 +191,7 @@
     "config_script": "config.sh",
     "build_script": "build.sh",
     "test_script": "test.sh",
+    "build_cmd": "make -j20 CFLAGS='-Wno-error' CXXFLAGS='-Wno-error' src/split",
     "bug_type": "Integer Overflow"
   },
   {
@@ -215,6 +221,7 @@
     "config_script": "config.sh",
     "build_script": "build.sh",
     "test_script": "test.sh",
+    "build_cmd": "make -j20 CFLAGS='-Wno-error' CXXFLAGS='-Wno-error' src/pr",
     "bug_type": "Buffer Overflow"
   },
   {
@@ -244,6 +251,7 @@
     "config_script": "config.sh",
     "build_script": "build.sh",
     "test_script": "test.sh",
+    "build_cmd": "make -j20 CFLAGS='-Wno-error' CXXFLAGS='-Wno-error' src/shred",
     "bug_type": "Integer Overflow"
   },
   {
@@ -325,6 +333,7 @@
     "config_script": "config.sh",
     "build_script": "build.sh",
     "test_script": "test.sh",
+    "build_cmd": "make -j20 CFLAGS='-static' CXXFLAGS='-static' LDFLAGS='-static'",
     "bug_type": "Divide by Zero"
   },
   {
@@ -358,6 +367,7 @@
     "config_script": "config.sh",
     "build_script": "build.sh",
     "test_script": "test.sh",
+    "build_cmd": "make -j20 CFLAGS='-static' CXXFLAGS='-static' LDFLAGS='-static'",
     "bug_type": "Integer Overflow"
   },
   {
@@ -392,6 +402,7 @@
     "config_script": "config.sh",
     "build_script": "build.sh",
     "test_script": "test.sh",
+    "build_cmd": "make -j20 CFLAGS='-static' CXXFLAGS='-static' LDFLAGS='-static'",
     "bug_type": "Integer Overflow"
   },
   {
@@ -425,6 +436,7 @@
     "config_script": "config.sh",
     "build_script": "build.sh",
     "test_script": "test.sh",
+    "build_cmd": "make -j20 CFLAGS='-static' CXXFLAGS='-static' LDFLAGS='-static'",
     "bug_type": "Buffer Overflow"
   },
   {
@@ -459,6 +471,7 @@
     "config_script": "config.sh",
     "build_script": "build.sh",
     "test_script": "test.sh",
+    "build_cmd": "make -j20 CFLAGS='-static' CXXFLAGS='-static' LDFLAGS='-static'",
     "bug_type": "Null Pointer Dereference"
   },
   {
@@ -492,6 +505,7 @@
     "config_script": "config.sh",
     "build_script": "build.sh",
     "test_script": "test.sh",
+    "build_cmd": "make -j20 CFLAGS='-static' CXXFLAGS='-static' LDFLAGS='-static'",
     "bug_type": "Buffer Overflow"
   },
   {
@@ -520,6 +534,7 @@
     "config_script": "config.sh",
     "build_script": "build.sh",
     "test_script": "test.sh",
+    "build_cmd": "make -j20 CFLAGS='-static' CXXFLAGS='-static' LDFLAGS='-static'",
     "bug_type": "Buffer Overflow"
   },
   {
@@ -548,6 +563,7 @@
     "config_script": "config.sh",
     "build_script": "build.sh",
     "test_script": "test.sh",
+    "build_cmd": "make CFLAGS='-static' CXXFLAGS='-static' LDFLAGS='-static'",
     "bug_type": "Buffer Overflow"
   },
   {
@@ -583,6 +599,7 @@
     "config_script": "config.sh",
     "build_script": "build.sh",
     "test_script": "test.sh",
+    "build_cmd": "make CFLAGS='-static' CXXFLAGS='-static' LDFLAGS='-static'",
     "bug_type": "Use after Free"
   },
   {
@@ -618,6 +635,7 @@
     "config_script": "config.sh",
     "build_script": "build.sh",
     "test_script": "test.sh",
+    "build_cmd": "make CFLAGS='-static' CXXFLAGS='-static' LDFLAGS='-static'",
     "bug_type": "Use after Free"
   },
   {
@@ -649,6 +667,7 @@
     "config_script": "config.sh",
     "build_script": "build.sh",
     "test_script": "test.sh",
+    "build_cmd": "make -j20 CFLAGS='-static' CPPFLAGS='-static' LDFLAGS='-static'",
     "bug_type": "Divide by Zero"
   },
   {
@@ -680,6 +699,7 @@
     "config_script": "config.sh",
     "build_script": "build.sh",
     "test_script": "test.sh",
+    "build_cmd": "make -j20 CFLAGS='-static' CPPFLAGS='-static' LDFLAGS='-static'",
     "bug_type": "Buffer Overflow"
   },
   {
@@ -712,6 +732,7 @@
     "config_script": "config.sh",
     "build_script": "build.sh",
     "test_script": "test.sh",
+    "build_cmd": "make -j20 CFLAGS='-static' CPPFLAGS='-static' LDFLAGS='-static'",
     "bug_type": "Buffer Overflow"
   },
   {
@@ -742,6 +763,7 @@
     "config_script": "config.sh",
     "build_script": "build.sh",
     "test_script": "test.sh",
+    "build_cmd": "make -j20 CFLAGS='-static' CPPFLAGS='-static' LDFLAGS='-static'",
     "bug_type": "Buffer Overflow"
   },
   {
@@ -774,6 +796,7 @@
     "config_script": "config.sh",
     "build_script": "build.sh",
     "test_script": "test.sh",
+    "build_cmd": "make -j20 CFLAGS='-static' CPPFLAGS='-static' LDFLAGS='-static'",
     "bug_type": "Buffer Overflow"
   },
   {
@@ -803,6 +826,7 @@
     "config_script": "config.sh",
     "build_script": "build.sh",
     "test_script": "test.sh",
+    "build_cmd": "make -j20 CFLAGS='-static' CPPFLAGS='-static' LDFLAGS='-static'",
     "bug_type": "Buffer Overflow"
   },
   {
@@ -829,6 +853,7 @@
     "config_script": "config.sh",
     "build_script": "build.sh",
     "test_script": "test.sh",
+    "build_cmd": "make -j20 CFLAGS='-static' CPPFLAGS='-static' LDFLAGS='-static'",
     "bug_type": "Buffer Overflow"
   },
   {
@@ -858,6 +883,7 @@
     "config_script": "config.sh",
     "build_script": "build.sh",
     "test_script": "test.sh",
+    "build_cmd": "make -j20 CFLAGS='-static' CPPFLAGS='-static' LDFLAGS='-static'",
     "bug_type": "Buffer Overflow"
   },
   {
@@ -887,6 +913,7 @@
     "config_script": "config.sh",
     "build_script": "build.sh",
     "test_script": "test.sh",
+    "build_cmd": "make -j20 CFLAGS='-static' CPPFLAGS='-static' LDFLAGS='-static'",
     "bug_type": "Buffer Overflow"
   },
   {
@@ -918,6 +945,7 @@
     "config_script": "config.sh",
     "build_script": "build.sh",
     "test_script": "test.sh",
+    "build_cmd": "make -j20 CFLAGS='-static' CPPFLAGS='-static' LDFLAGS='-static'",
     "bug_type": "Buffer Overflow"
   },
   {
@@ -947,6 +975,7 @@
     "config_script": "config.sh",
     "build_script": "build.sh",
     "test_script": "test.sh",
+    "build_cmd": "make -j20 CFLAGS='-static' CPPFLAGS='-static' LDFLAGS='-static'",
     "bug_type": "Buffer Overflow"
   },
   {
@@ -981,6 +1010,7 @@
     "config_script": "config.sh",
     "build_script": "build.sh",
     "test_script": "test.sh",
+    "build_cmd": "make -j20 CFLAGS='-static' CPPFLAGS='-static' LDFLAGS='-static'",
     "bug_type": "Divide by Zero"
   },
   {
@@ -1011,6 +1041,7 @@
     "config_script": "config.sh",
     "build_script": "build.sh",
     "test_script": "test.sh",
+    "build_cmd": "make -j20 CFLAGS='-static' CPPFLAGS='-static' LDFLAGS='-static'",
     "bug_type": "Data Type Overflow"
   },
   {
@@ -1041,6 +1072,7 @@
     "config_script": "config.sh",
     "build_script": "build.sh",
     "test_script": "test.sh",
+    "build_cmd": "make -j20 CFLAGS='-static' CPPFLAGS='-static' LDFLAGS='-static'",
     "bug_type": "Data Type Overflow"
   },
   {
@@ -1072,6 +1104,7 @@
     "config_script": "config.sh",
     "build_script": "build.sh",
     "test_script": "test.sh",
+    "build_cmd": "make -j20 CFLAGS='-static' CPPFLAGS='-static' LDFLAGS='-static'",
     "bug_type": "Integer Overflow"
   },
   {
@@ -1108,6 +1141,7 @@
     "config_script": "config.sh",
     "build_script": "build.sh",
     "test_script": "test.sh",
+    "build_cmd": "make -j20 CFLAGS='-static' CXXFLAGS='-static' LDFLAGS='-static'",
     "bug_type": "Buffer Overflow"
   },
   {
@@ -1141,6 +1175,7 @@
     "config_script": "config.sh",
     "build_script": "build.sh",
     "test_script": "test.sh",
+    "build_cmd": "make -j20 CFLAGS='-static' CXXFLAGS='-static' LDFLAGS='-static'",
     "bug_type": "Buffer Overflow"
   },
   {
@@ -1179,6 +1214,7 @@
     "config_script": "config.sh",
     "build_script": "build.sh",
     "test_script": "test.sh",
+    "build_cmd": "make -j20 CFLAGS='-static' CXXFLAGS='-static' LDFLAGS='-static'",
     "bug_type": "Buffer Overflow"
   },
   {
@@ -1217,6 +1253,7 @@
     "config_script": "config.sh",
     "build_script": "build.sh",
     "test_script": "test.sh",
+    "build_cmd": "make -j20 CFLAGS='-static' CXXFLAGS='-static' LDFLAGS='-static'",
     "bug_type": "Null Pointer Dereference"
   },
   {
@@ -1247,6 +1284,7 @@
     "config_script": "config.sh",
     "build_script": "build.sh",
     "test_script": "test.sh",
+    "build_cmd": "make -j20 CFLAGS='-static' LDFLAGS='-static'",
     "bug_type": "Buffer Overflow"
   },
   {
@@ -1277,6 +1315,7 @@
     "config_script": "config.sh",
     "build_script": "build.sh",
     "test_script": "test.sh",
+    "build_cmd": "make -j20 CFLAGS='-static' CPPFLAGS='-static' LDFLAGS='-static'",
     "bug_type": "Buffer Overflow"
   },
   {
@@ -1307,6 +1346,7 @@
     "config_script": "config.sh",
     "build_script": "build.sh",
     "test_script": "test.sh",
+    "build_cmd": "make -j20 CFLAGS='-static' CPPFLAGS='-static' LDFLAGS='-static'",
     "bug_type": "Null Pointer Dereference"
   },
   {
@@ -1338,6 +1378,7 @@
     "config_script": "config.sh",
     "build_script": "build.sh",
     "test_script": "test.sh",
+    "build_cmd": "make -j20 CFLAGS='-static' CPPFLAGS='-static' LDFLAGS='-static'",
     "bug_type": "Buffer Overflow"
   }
 ]

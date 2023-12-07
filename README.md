@@ -31,7 +31,7 @@ For exploit input file, use any of the ones in `exploit_file_list`.
 
 ## Note
 
-1. In `meta-data.json` file, the `build_cmd` entry is not intended to be used for reproducing the bug in a dynamic analysis setting.
+1. In `meta-data.json` file, the `build_command` entry is not intended to be used for reproducing the bug in a dynamic analysis setting.
 Instead, `build_script` entry is for reproducing bugs with exploit input.
-The `build_cmd` entry is just provided as a command to build the project, which is more commonly
+The `build_command` entry is just provided as a command to build the project, which is more commonly
 used by static analysis tools.

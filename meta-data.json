@@ -147,13 +147,13 @@
     "line_numbers": [
       1236
     ],
-    "failing_test": "1",
+    "failing_test": ["1.txt"],
     "passing_test": [],
     "count_neg": 1,
     "count_pos": 0,
     "binary_path": "src/pr",
     "crash_input": "\"-S$(printf \"\\t\\t\\t\")\" a -m a",
-    "exploit_file_list": [],
+    "exploit_file_list": ["tests/1.txt"],
     "test_timeout": 5,
     "language": "c",
     "config_script": "config.sh",

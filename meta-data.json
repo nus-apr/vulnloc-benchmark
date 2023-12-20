@@ -39,7 +39,7 @@
     "bug_id": "CVE-2017-15020",
     "source_file": "bfd/dwarf1.c",
     "line_numbers": [
-      236
+      254
     ],
     "failing_test": ["1.bin"],
     "passing_test": [],
@@ -343,7 +343,7 @@
     "bug_id": "CVE-2016-9557",
     "source_file": "src/libjasper/base/jas_image.c",
     "line_numbers": [
-      180
+      162
     ],
     "failing_test": ["1.j2k"],
     "passing_test": [],
@@ -573,7 +573,7 @@
     "bug_id": "CVE-2018-8806",
     "source_file": "util/decompile.c",
     "line_numbers": [
-      107
+      49, 349, 731, 3414
     ],
     "failing_test": ["1.swf"],
     "passing_test": [],
@@ -609,7 +609,7 @@
     "bug_id": "CVE-2018-8964",
     "source_file": "util/decompile.c",
     "line_numbers": [
-      107
+      49, 398, 731, 3414
     ],
     "failing_test": ["1.swf"],
     "passing_test": [],
@@ -645,7 +645,7 @@
     "bug_id": "bugzilla-2611",
     "source_file": "libtiff/tif_ojpeg.c",
     "line_numbers": [
-      792
+      789
     ],
     "failing_test": ["1.tif"],
     "passing_test": [],
@@ -806,7 +806,7 @@
     "bug_id": "CVE-2016-3186",
     "source_file": "tools/gif2tiff.c",
     "line_numbers": [
-      352
+      353
     ],
     "failing_test": ["1.gif"],
     "passing_test": [],
@@ -1294,7 +1294,7 @@
     "bug_id": "CVE-2017-5974",
     "source_file": "zzip/memdisk.c",
     "line_numbers": [
-      198
+      264
     ],
     "failing_test": ["1.zip"],
     "passing_test": [],

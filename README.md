@@ -25,8 +25,8 @@ their directory structure.
 After building the binary, to reproduce each bug, run the binary against the provided exploit input.
 Inputs can be found in `tests/` directory under each bug directory.
 The exact command and exploit input to be used for each bug can be found in `meta-data.json` file.
-In this file, for each bug, the command for bug reproduction is a combination of the `binary_path`, `crash_input`, and `exploit_file_list`.
-`crash_input` specifies the command line argument to be suppied after the binary path, in which the special `$POC` string is to be replaced with path to the actual exploit input file.
+In this file, for each bug, the command for bug reproduction is a combination of the `binary_path`, `binary_args`, and `exploit_file_list`.
+`binary_args` specifies the command line argument to be suppied after the binary path, in which the special `$POC` string is to be replaced with path to the actual exploit input file.
 For exploit input file, use any of the ones in `exploit_file_list`.
 
 ## Note

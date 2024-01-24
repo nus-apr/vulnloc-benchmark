@@ -1,1557 +1,4353 @@
 [
-  {
-    "id": 1,
-    "subject": "binutils",
-    "bug_id": "CVE-2017-14745",
-    "localization": [
-      {
-        "source_file": "bfd/elf64-x86-64.c",
-        "line_numbers": [
-          6720
+    {
+        "id": 1,
+        "subject": "binutils",
+        "bug_id": "CVE-2017-14745",
+        "localization": [
+            {
+                "source_file": "bfd/elf64-x86-64.c",
+                "line_numbers": [
+                    6720
+                ]
+            }
+        ],
+        "failing_test_identifiers": [
+            "1.bin"
+        ],
+        "passing_test_identifiers": [],
+        "count_neg": 1,
+        "count_pos": 0,
+        "binary_path": "binutils/objdump",
+        "binary_args": "-D $POC",
+        "exploit_file_list": [
+            "tests/1.bin"
+        ],
+        "crash_stack_trace": [
+            [
+                "compare_relocs",
+                "bfd/elf64-x86-64.c",
+                6632
+            ],
+            [
+                "elf_x86_64_get_synthetic_symtab",
+                "bfd/elf64-x86-64.c",
+                6722
+            ],
+            [
+                "dump_bfd",
+                "objdump.c",
+                3525
+            ],
+            [
+                "display_object_bfd",
+                "objdump.c",
+                3603
+            ],
+            [
+                "display_any_bfd",
+                "objdump.c",
+                3692
+            ],
+            [
+                "display_file",
+                "objdump.c",
+                3713
+            ],
+            [
+                "main",
+                "objdump.c",
+                4015
+            ]
+        ],
+        "test_timeout": 5,
+        "language": "c",
+        "config_script": "config.sh",
+        "build_script": "build.sh",
+        "test_script": "test.sh",
+        "build_command": "make -j20 CFLAGS='-Wno-error' CXXFLAGS='-Wno-error' LDFLAGS='-ldl -lutil'",
+        "bug_type": "Integer Overflow",
+        "src": {
+            "root_abspath": "/experiment/binutils/CVE-2017-14745/src",
+            "entrypoint": {
+                "file": "binutils/objdump.c",
+                "function": "main"
+            }
+        },
+        "output_dir_abspath": "/output",
+        "stack_trace": [
+            {
+                "depth": 0,
+                "function": "compare_relocs",
+                "source_file": "bfd/elf64-x86-64.c",
+                "line": 6632
+            },
+            {
+                "depth": 1,
+                "function": "elf_x86_64_get_synthetic_symtab",
+                "source_file": "bfd/elf64-x86-64.c",
+                "line": 6722
+            },
+            {
+                "depth": 2,
+                "function": "dump_bfd",
+                "source_file": "objdump.c",
+                "line": 3525
+            },
+            {
+                "depth": 3,
+                "function": "display_object_bfd",
+                "source_file": "objdump.c",
+                "line": 3603
+            },
+            {
+                "depth": 4,
+                "function": "display_any_bfd",
+                "source_file": "objdump.c",
+                "line": 3692
+            },
+            {
+                "depth": 5,
+                "function": "display_file",
+                "source_file": "objdump.c",
+                "line": 3713
+            },
+            {
+                "depth": 6,
+                "function": "main",
+                "source_file": "objdump.c",
+                "line": 4015
+            }
         ]
-      }
-    ],
-    "failing_test": ["1.bin"],
-    "passing_test": [],
-    "count_neg": 1,
-    "count_pos": 0,
-    "binary_path": "binutils/objdump",
-    "crash_input": "-D $POC",
-    "exploit_file_list": [
-      "tests/1.bin"
-    ],
-    "crash_stack_trace": [
-      ["compare_relocs", "bfd/elf64-x86-64.c", 6632],
-      ["elf_x86_64_get_synthetic_symtab", "bfd/elf64-x86-64.c", 6722],
-      ["dump_bfd", "objdump.c", 3525],
-      ["display_object_bfd", "objdump.c", 3603],
-      ["display_any_bfd", "objdump.c", 3692],
-      ["display_file", "objdump.c", 3713],
-      ["main", "objdump.c", 4015]
-    ],
-    "test_timeout": 5,
-    "language": "c",
-    "config_script": "config.sh",
-    "build_script": "build.sh",
-    "test_script": "test.sh",
-    "build_command": "make -j20 CFLAGS='-Wno-error' CXXFLAGS='-Wno-error' LDFLAGS='-ldl -lutil'",
-    "bug_type": "Integer Overflow"
-  },
-  {
-    "id": 2,
-    "subject": "binutils",
-    "bug_id": "CVE-2017-15020",
-    "localization":[
-      {
-        "source_file": "bfd/dwarf1.c",
-        "line_numbers": [
-          254
+    },
+    {
+        "id": 2,
+        "subject": "binutils",
+        "bug_id": "CVE-2017-15020",
+        "localization": [
+            {
+                "source_file": "bfd/dwarf1.c",
+                "line_numbers": [
+                    254
+                ]
+            }
+        ],
+        "failing_test_identifiers": [
+            "1.bin"
+        ],
+        "passing_test_identifiers": [],
+        "count_neg": 1,
+        "count_pos": 0,
+        "binary_path": "binutils/nm-new",
+        "binary_args": "-A -a -l -S -s --special-syms --synthetic --with-symbol-versions -D $POC",
+        "exploit_file_list": [
+            "tests/1.bin"
+        ],
+        "crash_stack_trace": [
+            [
+                "parse_die",
+                "bfd/dwarf1.c",
+                254
+            ],
+            [
+                "_bfd_dwarf1_find_nearest_line",
+                "bfd/dwarf1.c",
+                521
+            ],
+            [
+                "_bfd_elf_find_nearest_line",
+                "bfd/elf.c",
+                8659
+            ],
+            [
+                "print_symbol",
+                "binutils/nm.c",
+                1004
+            ],
+            [
+                "print_symbols",
+                "binutils/nm.c",
+                1084
+            ],
+            [
+                "display_rel_file",
+                "binutils/nm.c",
+                1200
+            ],
+            [
+                "display_file",
+                "binutils/nm.c",
+                1318
+            ],
+            [
+                "main",
+                "binutils/nm.c",
+                1792
+            ]
+        ],
+        "test_timeout": 5,
+        "language": "c",
+        "config_script": "config.sh",
+        "build_script": "build.sh",
+        "test_script": "test.sh",
+        "build_command": "make -j20 CFLAGS='-Wno-error' CXXFLAGS='-Wno-error' LDFLAGS='-ldl -lutil'",
+        "bug_type": "Buffer Overflow",
+        "src": {
+            "root_abspath": "/experiment/binutils/CVE-2017-15020/src",
+            "entrypoint": {
+                "file": "binutils/nm-new.c",
+                "function": "main"
+            }
+        },
+        "output_dir_abspath": "/output",
+        "stack_trace": [
+            {
+                "depth": 0,
+                "function": "parse_die",
+                "source_file": "bfd/dwarf1.c",
+                "line": 254
+            },
+            {
+                "depth": 1,
+                "function": "_bfd_dwarf1_find_nearest_line",
+                "source_file": "bfd/dwarf1.c",
+                "line": 521
+            },
+            {
+                "depth": 2,
+                "function": "_bfd_elf_find_nearest_line",
+                "source_file": "bfd/elf.c",
+                "line": 8659
+            },
+            {
+                "depth": 3,
+                "function": "print_symbol",
+                "source_file": "binutils/nm.c",
+                "line": 1004
+            },
+            {
+                "depth": 4,
+                "function": "print_symbols",
+                "source_file": "binutils/nm.c",
+                "line": 1084
+            },
+            {
+                "depth": 5,
+                "function": "display_rel_file",
+                "source_file": "binutils/nm.c",
+                "line": 1200
+            },
+            {
+                "depth": 6,
+                "function": "display_file",
+                "source_file": "binutils/nm.c",
+                "line": 1318
+            },
+            {
+                "depth": 7,
+                "function": "main",
+                "source_file": "binutils/nm.c",
+                "line": 1792
+            }
         ]
-      }
-    ],
-    "failing_test": ["1.bin"],
-    "passing_test": [],
-    "count_neg": 1,
-    "count_pos": 0,
-    "binary_path": "binutils/nm-new",
-    "crash_input": "-A -a -l -S -s --special-syms --synthetic --with-symbol-versions -D $POC",
-    "exploit_file_list": [
-      "tests/1.bin"
-    ],
-    "crash_stack_trace": [
-      ["parse_die", "bfd/dwarf1.c", 254],
-      ["_bfd_dwarf1_find_nearest_line", "bfd/dwarf1.c", 521],
-      ["_bfd_elf_find_nearest_line", "bfd/elf.c", 8659],
-      ["print_symbol", "binutils/nm.c", 1004],
-      ["print_symbols", "binutils/nm.c", 1084],
-      ["display_rel_file", "binutils/nm.c", 1200],
-      ["display_file", "binutils/nm.c", 1318],
-      ["main", "binutils/nm.c", 1792]
-    ],
-    "test_timeout": 5,
-    "language": "c",
-    "config_script": "config.sh",
-    "build_script": "build.sh",
-    "test_script": "test.sh",
-    "build_command": "make -j20 CFLAGS='-Wno-error' CXXFLAGS='-Wno-error' LDFLAGS='-ldl -lutil'",
-    "bug_type": "Buffer Overflow"
-  },
-  {
-    "id": 3,
-    "subject": "binutils",
-    "bug_id": "CVE-2017-15025",
-    "localization":[
-      {
-        "source_file": "bfd/dwarf2.c",
-        "line_numbers": [
-          2440
+    },
+    {
+        "id": 3,
+        "subject": "binutils",
+        "bug_id": "CVE-2017-15025",
+        "localization": [
+            {
+                "source_file": "bfd/dwarf2.c",
+                "line_numbers": [
+                    2440
+                ]
+            }
+        ],
+        "failing_test_identifiers": [
+            "1.bin"
+        ],
+        "passing_test_identifiers": [],
+        "count_neg": 1,
+        "count_pos": 0,
+        "binary_path": "binutils/nm-new",
+        "binary_args": "-A -a -l -S -s --special-syms --synthetic --with-symbol-versions $POC",
+        "exploit_file_list": [
+            "tests/1.bin"
+        ],
+        "crash_stack_trace": [
+            [
+                "decode_line_info",
+                "binutils/dwarf2.c",
+                2442
+            ],
+            [
+                "comp_unit_maybe_decode_line_info",
+                "binutils/dwarf2.c",
+                3610
+            ],
+            [
+                "comp_unit_find_line",
+                "binutils/dwarf2.c",
+                3645
+            ],
+            [
+                "_bfd_dwarf2_find_nearest_line",
+                "binutils/dwarf2.c",
+                4757
+            ],
+            [
+                "_bfd_elf_find_line",
+                "bfd/elf.c",
+                8695
+            ],
+            [
+                "print_symbol",
+                "binutils/nm.c",
+                1003
+            ],
+            [
+                "print_symbols",
+                "binutils/nm.c",
+                1084
+            ],
+            [
+                "display_rel_file",
+                "binutils/nm.c",
+                1200
+            ],
+            [
+                "display_file",
+                "binutils/nm.c",
+                1318
+            ],
+            [
+                "main",
+                "binutils/nm.c",
+                1792
+            ]
+        ],
+        "test_timeout": 5,
+        "language": "c",
+        "config_script": "config.sh",
+        "build_script": "build.sh",
+        "test_script": "test.sh",
+        "build_command": "make -j20 CFLAGS='-Wno-error' CXXFLAGS='-Wno-error'",
+        "bug_type": "Divide by Zero",
+        "src": {
+            "root_abspath": "/experiment/binutils/CVE-2017-15025/src",
+            "entrypoint": {
+                "file": "binutils/nm-new.c",
+                "function": "main"
+            }
+        },
+        "output_dir_abspath": "/output",
+        "stack_trace": [
+            {
+                "depth": 0,
+                "function": "decode_line_info",
+                "source_file": "binutils/dwarf2.c",
+                "line": 2442
+            },
+            {
+                "depth": 1,
+                "function": "comp_unit_maybe_decode_line_info",
+                "source_file": "binutils/dwarf2.c",
+                "line": 3610
+            },
+            {
+                "depth": 2,
+                "function": "comp_unit_find_line",
+                "source_file": "binutils/dwarf2.c",
+                "line": 3645
+            },
+            {
+                "depth": 3,
+                "function": "_bfd_dwarf2_find_nearest_line",
+                "source_file": "binutils/dwarf2.c",
+                "line": 4757
+            },
+            {
+                "depth": 4,
+                "function": "_bfd_elf_find_line",
+                "source_file": "bfd/elf.c",
+                "line": 8695
+            },
+            {
+                "depth": 5,
+                "function": "print_symbol",
+                "source_file": "binutils/nm.c",
+                "line": 1003
+            },
+            {
+                "depth": 6,
+                "function": "print_symbols",
+                "source_file": "binutils/nm.c",
+                "line": 1084
+            },
+            {
+                "depth": 7,
+                "function": "display_rel_file",
+                "source_file": "binutils/nm.c",
+                "line": 1200
+            },
+            {
+                "depth": 8,
+                "function": "display_file",
+                "source_file": "binutils/nm.c",
+                "line": 1318
+            },
+            {
+                "depth": 9,
+                "function": "main",
+                "source_file": "binutils/nm.c",
+                "line": 1792
+            }
         ]
-      }
-    ],
-    "failing_test": ["1.bin"],
-    "passing_test": [],
-    "count_neg": 1,
-    "count_pos": 0,
-    "binary_path": "binutils/nm-new",
-    "crash_input": "-A -a -l -S -s --special-syms --synthetic --with-symbol-versions $POC",
-    "exploit_file_list": [
-      "tests/1.bin"
-    ],
-    "crash_stack_trace": [
-      ["decode_line_info", "binutils/dwarf2.c", 2442],
-      ["comp_unit_maybe_decode_line_info", "binutils/dwarf2.c", 3610],
-      ["comp_unit_find_line", "binutils/dwarf2.c", 3645],
-      ["_bfd_dwarf2_find_nearest_line", "binutils/dwarf2.c", 4757],
-      ["_bfd_elf_find_line", "bfd/elf.c", 8695],
-      ["print_symbol", "binutils/nm.c", 1003],
-      ["print_symbols", "binutils/nm.c", 1084],
-      ["display_rel_file", "binutils/nm.c", 1200],
-      ["display_file", "binutils/nm.c", 1318],
-      ["main", "binutils/nm.c", 1792]
-    ],
-    "test_timeout": 5,
-    "language": "c",
-    "config_script": "config.sh",
-    "build_script": "build.sh",
-    "test_script": "test.sh",
-    "build_command": "make -j20 CFLAGS='-Wno-error' CXXFLAGS='-Wno-error'",
-    "bug_type": "Divide by Zero"
-  },
-  {
-    "id": 4,
-    "subject": "binutils",
-    "bug_id": "CVE-2017-6965",
-    "localization":[
-      {
-        "source_file": "binutils/readelf.c",
-        "line_numbers": [
-          11640
+    },
+    {
+        "id": 4,
+        "subject": "binutils",
+        "bug_id": "CVE-2017-6965",
+        "localization": [
+            {
+                "source_file": "binutils/readelf.c",
+                "line_numbers": [
+                    11640
+                ]
+            }
+        ],
+        "failing_test_identifiers": [
+            "1.bin"
+        ],
+        "passing_test_identifiers": [],
+        "count_neg": 1,
+        "count_pos": 0,
+        "binary_path": "binutils/readelf",
+        "binary_args": "-w $POC",
+        "exploit_file_list": [
+            "tests/1.bin"
+        ],
+        "crash_stack_trace": [
+            [
+                "byte_put_little_endian",
+                "binutils/elfcomm.c",
+                75
+            ],
+            [
+                "target_specific_reloc_handling",
+                "binutils/readelf.c",
+                11640
+            ],
+            [
+                "apply_relocations",
+                "binutils/readelf.c",
+                12343
+            ],
+            [
+                "load_specific_debug_section",
+                "binutils/readelf.c",
+                12905
+            ],
+            [
+                "display_debug_section",
+                "binutils/readelf.c",
+                13009
+            ],
+            [
+                "process_section_contents",
+                "binutils/readelf.c",
+                13091
+            ],
+            [
+                "process_object",
+                "binutils/readelf.c",
+                16780
+            ],
+            [
+                "process_file",
+                "binutils/readelf.c",
+                17154
+            ],
+            [
+                "main",
+                "binutils/readelf.c",
+                17225
+            ]
+        ],
+        "test_timeout": 5,
+        "language": "c",
+        "config_script": "config.sh",
+        "build_script": "build.sh",
+        "test_script": "test.sh",
+        "build_command": "make -j20 CFLAGS='-Wno-error' CXXFLAGS='-Wno-error' LDFLAGS='-ldl'",
+        "bug_type": "Buffer Overflow",
+        "src": {
+            "root_abspath": "/experiment/binutils/CVE-2017-6965/src",
+            "entrypoint": {
+                "file": "binutils/readelf.c",
+                "function": "main"
+            }
+        },
+        "output_dir_abspath": "/output",
+        "stack_trace": [
+            {
+                "depth": 0,
+                "function": "byte_put_little_endian",
+                "source_file": "binutils/elfcomm.c",
+                "line": 75
+            },
+            {
+                "depth": 1,
+                "function": "target_specific_reloc_handling",
+                "source_file": "binutils/readelf.c",
+                "line": 11640
+            },
+            {
+                "depth": 2,
+                "function": "apply_relocations",
+                "source_file": "binutils/readelf.c",
+                "line": 12343
+            },
+            {
+                "depth": 3,
+                "function": "load_specific_debug_section",
+                "source_file": "binutils/readelf.c",
+                "line": 12905
+            },
+            {
+                "depth": 4,
+                "function": "display_debug_section",
+                "source_file": "binutils/readelf.c",
+                "line": 13009
+            },
+            {
+                "depth": 5,
+                "function": "process_section_contents",
+                "source_file": "binutils/readelf.c",
+                "line": 13091
+            },
+            {
+                "depth": 6,
+                "function": "process_object",
+                "source_file": "binutils/readelf.c",
+                "line": 16780
+            },
+            {
+                "depth": 7,
+                "function": "process_file",
+                "source_file": "binutils/readelf.c",
+                "line": 17154
+            },
+            {
+                "depth": 8,
+                "function": "main",
+                "source_file": "binutils/readelf.c",
+                "line": 17225
+            }
         ]
-      }
-    ],
-    "failing_test": ["1.bin"],
-    "passing_test": [],
-    "count_neg": 1,
-    "count_pos": 0,
-    "binary_path": "binutils/readelf",
-    "crash_input": "-w $POC",
-    "exploit_file_list": [
-      "tests/1.bin"
-    ],
-    "crash_stack_trace": [
-      ["byte_put_little_endian", "binutils/elfcomm.c", 75],
-      ["target_specific_reloc_handling", "binutils/readelf.c", 11640],
-      ["apply_relocations", "binutils/readelf.c", 12343],
-      ["load_specific_debug_section", "binutils/readelf.c", 12905],
-      ["display_debug_section", "binutils/readelf.c", 13009],
-      ["process_section_contents", "binutils/readelf.c", 13091],
-      ["process_object", "binutils/readelf.c", 16780],
-      ["process_file", "binutils/readelf.c", 17154],
-      ["main", "binutils/readelf.c", 17225]
-    ],
-    "test_timeout": 5,
-    "language": "c",
-    "config_script": "config.sh",
-    "build_script": "build.sh",
-    "test_script": "test.sh",
-    "build_command": "make -j20 CFLAGS='-Wno-error' CXXFLAGS='-Wno-error' LDFLAGS='-ldl'",
-    "bug_type": "Buffer Overflow"
-  },
-  {
-    "id": 5,
-    "subject": "coreutils",
-    "bug_id": "gnubug-19784",
-    "localization":[
-      {
-        "source_file": "src/make-prime-list.c",
-        "line_numbers": [
-          214
+    },
+    {
+        "id": 5,
+        "subject": "coreutils",
+        "bug_id": "gnubug-19784",
+        "localization": [
+            {
+                "source_file": "src/make-prime-list.c",
+                "line_numbers": [
+                    214
+                ]
+            }
+        ],
+        "failing_test_identifiers": [
+            "exploit"
+        ],
+        "passing_test_identifiers": [],
+        "count_neg": 1,
+        "count_pos": 0,
+        "binary_path": "src/make-prime-list",
+        "binary_args": "5",
+        "exploit_file_list": [
+            "tests/exploit"
+        ],
+        "crash_stack_trace": [
+            [
+                "main",
+                "src/make-prime-list.c",
+                214
+            ]
+        ],
+        "test_timeout": 5,
+        "language": "c",
+        "config_script": "config.sh",
+        "build_script": "build.sh",
+        "test_script": "test.sh",
+        "build_command": "make -j20 CFLAGS='-fPIC -fPIE -Wno-error' CXXFLAGS='-fPIC -fPIE -Wno-error' LDFLAGS='-pie' src/make-prime-list",
+        "bug_type": "Buffer Overflow",
+        "src": {
+            "root_abspath": "/experiment/coreutils/gnubug-19784/src",
+            "entrypoint": {
+                "file": "src/make-prime-list.c",
+                "function": "main"
+            }
+        },
+        "output_dir_abspath": "/output",
+        "stack_trace": [
+            {
+                "depth": 0,
+                "function": "main",
+                "source_file": "src/make-prime-list.c",
+                "line": 214
+            }
         ]
-      }
-    ],
-    "failing_test": ["exploit"],
-    "passing_test": [],
-    "count_neg": 1,
-    "count_pos": 0,
-    "binary_path": "src/make-prime-list",
-    "crash_input": "5",
-    "exploit_file_list": ["tests/exploit"],
-    "crash_stack_trace": [
-      ["main", "src/make-prime-list.c", 214]
-    ],
-
-    "test_timeout": 5,
-    "language": "c",
-    "config_script": "config.sh",
-    "build_script": "build.sh",
-    "test_script": "test.sh",
-    "build_command": "make -j20 CFLAGS='-fPIC -fPIE -Wno-error' CXXFLAGS='-fPIC -fPIE -Wno-error' LDFLAGS='-pie' src/make-prime-list",
-    "bug_type": "Buffer Overflow"
-  },
-  {
-    "id": 6,
-    "subject": "coreutils",
-    "bug_id": "gnubug-25003",
-    "localization":[
-      {
-        "source_file": "src/split.c",
-        "line_numbers": [
-          985
+    },
+    {
+        "id": 6,
+        "subject": "coreutils",
+        "bug_id": "gnubug-25003",
+        "localization": [
+            {
+                "source_file": "src/split.c",
+                "line_numbers": [
+                    985
+                ]
+            }
+        ],
+        "failing_test_identifiers": [
+            "exploit"
+        ],
+        "passing_test_identifiers": [],
+        "count_neg": 1,
+        "count_pos": 0,
+        "binary_path": "src/split",
+        "binary_args": "-n7/75 7",
+        "exploit_file_list": [
+            "tests/exploit"
+        ],
+        "crash_stack_trace": [
+            [
+                "bytes_chunk_extract",
+                "src/split.c",
+                987
+            ],
+            [
+                "main",
+                "src/split.c",
+                1625
+            ]
+        ],
+        "test_timeout": 5,
+        "language": "c",
+        "config_script": "config.sh",
+        "build_script": "build.sh",
+        "test_script": "test.sh",
+        "build_command": "make -j20 CFLAGS='-Wno-error' CXXFLAGS='-Wno-error' src/split",
+        "bug_type": "Integer Overflow",
+        "src": {
+            "root_abspath": "/experiment/coreutils/gnubug-25003/src",
+            "entrypoint": {
+                "file": "src/split.c",
+                "function": "main"
+            }
+        },
+        "output_dir_abspath": "/output",
+        "stack_trace": [
+            {
+                "depth": 0,
+                "function": "bytes_chunk_extract",
+                "source_file": "src/split.c",
+                "line": 987
+            },
+            {
+                "depth": 1,
+                "function": "main",
+                "source_file": "src/split.c",
+                "line": 1625
+            }
         ]
-      }
-    ],
-    "failing_test": ["exploit"],
-    "passing_test": [],
-    "count_neg": 1,
-    "count_pos": 0,
-    "binary_path": "src/split",
-    "crash_input": "-n7/75 7",
-    "exploit_file_list": ["tests/exploit"],
-    "crash_stack_trace": [
-      ["bytes_chunk_extract", "src/split.c", 987],
-      ["main", "src/split.c", 1625]
-    ],
-    "test_timeout": 5,
-    "language": "c",
-    "config_script": "config.sh",
-    "build_script": "build.sh",
-    "test_script": "test.sh",
-    "build_command": "make -j20 CFLAGS='-Wno-error' CXXFLAGS='-Wno-error' src/split",
-    "bug_type": "Integer Overflow"
-  },
-  {
-    "id": 7,
-    "subject": "coreutils",
-    "bug_id": "gnubug-25023",
-    "localization":[
-      {
-        "source_file": "src/pr.c",
-        "line_numbers": [
-          1236
+    },
+    {
+        "id": 7,
+        "subject": "coreutils",
+        "bug_id": "gnubug-25023",
+        "localization": [
+            {
+                "source_file": "src/pr.c",
+                "line_numbers": [
+                    1236
+                ]
+            }
+        ],
+        "failing_test_identifiers": [
+            "1.txt"
+        ],
+        "passing_test_identifiers": [],
+        "count_neg": 1,
+        "count_pos": 0,
+        "binary_path": "src/pr",
+        "binary_args": "\"-S$(printf \"\\t\\t\\t\")\" a -m a",
+        "exploit_file_list": [
+            "tests/1.txt"
+        ],
+        "crash_stack_trace": [
+            [
+                "print_sep_string",
+                "src/pr.c",
+                2241
+            ],
+            [
+                "read_line",
+                "src/pr.c",
+                2493
+            ],
+            [
+                "print_page",
+                "src/pr.c",
+                1802
+            ],
+            [
+                "print_files",
+                "src/pr.c",
+                1618
+            ],
+            [
+                "main",
+                "src/pr.c",
+                1136
+            ]
+        ],
+        "test_timeout": 5,
+        "language": "c",
+        "config_script": "config.sh",
+        "build_script": "build.sh",
+        "test_script": "test.sh",
+        "build_command": "make -j20 CFLAGS='-Wno-error' CXXFLAGS='-Wno-error' src/pr",
+        "bug_type": "Buffer Overflow",
+        "src": {
+            "root_abspath": "/experiment/coreutils/gnubug-25023/src",
+            "entrypoint": {
+                "file": "src/pr.c",
+                "function": "main"
+            }
+        },
+        "output_dir_abspath": "/output",
+        "stack_trace": [
+            {
+                "depth": 0,
+                "function": "print_sep_string",
+                "source_file": "src/pr.c",
+                "line": 2241
+            },
+            {
+                "depth": 1,
+                "function": "read_line",
+                "source_file": "src/pr.c",
+                "line": 2493
+            },
+            {
+                "depth": 2,
+                "function": "print_page",
+                "source_file": "src/pr.c",
+                "line": 1802
+            },
+            {
+                "depth": 3,
+                "function": "print_files",
+                "source_file": "src/pr.c",
+                "line": 1618
+            },
+            {
+                "depth": 4,
+                "function": "main",
+                "source_file": "src/pr.c",
+                "line": 1136
+            }
         ]
-      }
-    ],
-    "failing_test": ["1.txt"],
-    "passing_test": [],
-    "count_neg": 1,
-    "count_pos": 0,
-    "binary_path": "src/pr",
-    "crash_input": "\"-S$(printf \"\\t\\t\\t\")\" a -m a",
-    "exploit_file_list": ["tests/1.txt"],
-    "crash_stack_trace": [
-      ["print_sep_string", "src/pr.c", 2241],
-      ["read_line", "src/pr.c", 2493],
-      ["print_page", "src/pr.c", 1802],
-      ["print_files", "src/pr.c", 1618],
-      ["main", "src/pr.c", 1136]
-    ],
-    "test_timeout": 5,
-    "language": "c",
-    "config_script": "config.sh",
-    "build_script": "build.sh",
-    "test_script": "test.sh",
-    "build_command": "make -j20 CFLAGS='-Wno-error' CXXFLAGS='-Wno-error' src/pr",
-    "bug_type": "Buffer Overflow"
-  },
-  {
-    "id": 8,
-    "subject": "coreutils",
-    "bug_id": "gnubug-26545",
-    "localization":[
-      {
-        "source_file": "src/shred.c",
-        "line_numbers": [
-          290
+    },
+    {
+        "id": 8,
+        "subject": "coreutils",
+        "bug_id": "gnubug-26545",
+        "localization": [
+            {
+                "source_file": "src/shred.c",
+                "line_numbers": [
+                    290
+                ]
+            }
+        ],
+        "failing_test_identifiers": "1",
+        "passing_test_identifiers": [],
+        "count_neg": 1,
+        "count_pos": 0,
+        "binary_path": "src/shred",
+        "binary_args": "-n4 -s7 abc",
+        "exploit_file_list": [],
+        "crash_stack_trace": [
+            [
+                "fillpattern",
+                "src/shred.c",
+                293
+            ],
+            [
+                "dopass",
+                "src/shred.c",
+                480
+            ],
+            [
+                "do_wipefd",
+                "src/shred.c",
+                967
+            ],
+            [
+                "wipefile",
+                "src/shred.c",
+                1191
+            ],
+            [
+                "main",
+                "src/shred.c",
+                1317
+            ]
+        ],
+        "test_timeout": 5,
+        "language": "c",
+        "config_script": "config.sh",
+        "build_script": "build.sh",
+        "test_script": "test.sh",
+        "build_command": "make -j20 CFLAGS='-Wno-error' CXXFLAGS='-Wno-error' src/shred",
+        "bug_type": "Integer Overflow",
+        "src": {
+            "root_abspath": "/experiment/coreutils/gnubug-26545/src",
+            "entrypoint": {
+                "file": "src/shred.c",
+                "function": "main"
+            }
+        },
+        "output_dir_abspath": "/output",
+        "stack_trace": [
+            {
+                "depth": 0,
+                "function": "fillpattern",
+                "source_file": "src/shred.c",
+                "line": 293
+            },
+            {
+                "depth": 1,
+                "function": "dopass",
+                "source_file": "src/shred.c",
+                "line": 480
+            },
+            {
+                "depth": 2,
+                "function": "do_wipefd",
+                "source_file": "src/shred.c",
+                "line": 967
+            },
+            {
+                "depth": 3,
+                "function": "wipefile",
+                "source_file": "src/shred.c",
+                "line": 1191
+            },
+            {
+                "depth": 4,
+                "function": "main",
+                "source_file": "src/shred.c",
+                "line": 1317
+            }
         ]
-      }
-    ],
-    "failing_test": "1",
-    "passing_test": [],
-    "count_neg": 1,
-    "count_pos": 0,
-    "binary_path": "src/shred",
-    "crash_input": "-n4 -s7 abc",
-    "exploit_file_list": [],
-    "crash_stack_trace": [
-      ["fillpattern", "src/shred.c", 293],
-      ["dopass", "src/shred.c", 480],
-      ["do_wipefd", "src/shred.c", 967],
-      ["wipefile", "src/shred.c", 1191],
-      ["main", "src/shred.c", 1317]
-    ],
-    "test_timeout": 5,
-    "language": "c",
-    "config_script": "config.sh",
-    "build_script": "build.sh",
-    "test_script": "test.sh",
-    "build_command": "make -j20 CFLAGS='-Wno-error' CXXFLAGS='-Wno-error' src/shred",
-    "bug_type": "Integer Overflow"
-  },
-  {
-    "id": 9,
-    "subject": "ffmpeg",
-    "bug_id": "bugchrom-1404",
-    "localization":[
-      {
-        "source_file": "libavcodec/cavsdec.c",
-        "line_numbers": [
-          1034
+    },
+    {
+        "id": 9,
+        "subject": "ffmpeg",
+        "bug_id": "bugchrom-1404",
+        "localization": [
+            {
+                "source_file": "libavcodec/cavsdec.c",
+                "line_numbers": [
+                    1034
+                ]
+            }
+        ],
+        "failing_test_identifiers": [
+            "1.mpg"
+        ],
+        "passing_test_identifiers": [],
+        "count_neg": 1,
+        "count_pos": 0,
+        "binary_path": "tools/target_dec_cavs_fuzzer",
+        "binary_args": "$POC",
+        "exploit_file_list": [
+            "tests/1.mpg"
+        ],
+        "crash_stack_trace": [],
+        "test_timeout": 5,
+        "language": "c",
+        "config_script": "config.sh",
+        "build_script": "build.sh",
+        "test_script": "test.sh",
+        "bug_type": "Integer Overflow",
+        "src": {
+            "root_abspath": "/experiment/ffmpeg/bugchrom-1404/src",
+            "entrypoint": {
+                "file": "tools/target_dec_cavs_fuzzer.c",
+                "function": "main"
+            }
+        },
+        "output_dir_abspath": "/output",
+        "stack_trace": []
+    },
+    {
+        "id": 10,
+        "subject": "ffmpeg",
+        "bug_id": "CVE-2017-9992",
+        "localization": [
+            {
+                "source_file": "libavcodec/dfa.c",
+                "line_numbers": [
+                    178
+                ]
+            }
+        ],
+        "failing_test_identifiers": [
+            "1.mpg"
+        ],
+        "passing_test_identifiers": [],
+        "count_neg": 1,
+        "count_pos": 0,
+        "binary_path": "tools/target_dec_cavs_fuzzer",
+        "binary_args": "$POC",
+        "exploit_file_list": [
+            "tests/1.mpg"
+        ],
+        "crash_stack_trace": [],
+        "test_timeout": 5,
+        "language": "c",
+        "config_script": "config.sh",
+        "build_script": "build.sh",
+        "test_script": "test.sh",
+        "bug_type": "Buffer Overflow",
+        "src": {
+            "root_abspath": "/experiment/ffmpeg/CVE-2017-9992/src",
+            "entrypoint": {
+                "file": "tools/target_dec_cavs_fuzzer.c",
+                "function": "main"
+            }
+        },
+        "output_dir_abspath": "/output",
+        "stack_trace": []
+    },
+    {
+        "id": 11,
+        "subject": "jasper",
+        "bug_id": "CVE-2016-8691",
+        "localization": [
+            {
+                "source_file": "src/libjasper/jpc/jpc_cs.c",
+                "line_numbers": [
+                    515
+                ]
+            }
+        ],
+        "failing_test_identifiers": [
+            "1.j2k"
+        ],
+        "passing_test_identifiers": [],
+        "count_neg": 1,
+        "count_pos": 0,
+        "binary_path": "src/appl/imginfo",
+        "binary_args": "-f $POC",
+        "exploit_file_list": [
+            "tests/1.j2k"
+        ],
+        "crash_stack_trace": [
+            [
+                "jpc_dec_process_siz",
+                "src/libjasper/jpc/jpc_dec.c",
+                1194
+            ],
+            [
+                "jpc_dec_decode",
+                "src/libjasper/jpc/jpc_dec.c",
+                390
+            ],
+            [
+                "jpc_decode",
+                "src/libjasper/jpc/jpc_dec.c",
+                254
+            ],
+            [
+                "jas_image_decode",
+                "src/libjasper/base/jas_image.c",
+                372
+            ],
+            [
+                "main",
+                "src/appl/imginfo.c",
+                179
+            ]
+        ],
+        "test_timeout": 5,
+        "language": "c",
+        "config_script": "config.sh",
+        "build_script": "build.sh",
+        "test_script": "test.sh",
+        "build_command": "make -j20 CFLAGS='-static' CXXFLAGS='-static' LDFLAGS='-static'",
+        "bug_type": "Divide by Zero",
+        "src": {
+            "root_abspath": "/experiment/jasper/CVE-2016-8691/src",
+            "entrypoint": {
+                "file": "src/appl/imginfo.c",
+                "function": "main"
+            }
+        },
+        "output_dir_abspath": "/output",
+        "stack_trace": [
+            {
+                "depth": 0,
+                "function": "jpc_dec_process_siz",
+                "source_file": "src/libjasper/jpc/jpc_dec.c",
+                "line": 1194
+            },
+            {
+                "depth": 1,
+                "function": "jpc_dec_decode",
+                "source_file": "src/libjasper/jpc/jpc_dec.c",
+                "line": 390
+            },
+            {
+                "depth": 2,
+                "function": "jpc_decode",
+                "source_file": "src/libjasper/jpc/jpc_dec.c",
+                "line": 254
+            },
+            {
+                "depth": 3,
+                "function": "jas_image_decode",
+                "source_file": "src/libjasper/base/jas_image.c",
+                "line": 372
+            },
+            {
+                "depth": 4,
+                "function": "main",
+                "source_file": "src/appl/imginfo.c",
+                "line": 179
+            }
         ]
-      }
-    ],
-    "failing_test": ["1.mpg"],
-    "passing_test": [],
-    "count_neg": 1,
-    "count_pos": 0,
-    "binary_path": "tools/target_dec_cavs_fuzzer",
-    "crash_input": "$POC",
-    "exploit_file_list": [
-      "tests/1.mpg"
-    ],
-    "crash_stack_trace": [],
-    "test_timeout": 5,
-    "language": "c",
-    "config_script": "config.sh",
-    "build_script": "build.sh",
-    "test_script": "test.sh",
-    "bug_type": "Integer Overflow"
-  },
-  {
-    "id": 10,
-    "subject": "ffmpeg",
-    "bug_id": "CVE-2017-9992",
-    "localization":[
-      {
-        "source_file": "libavcodec/dfa.c",
-        "line_numbers": [
-          178
+    },
+    {
+        "id": 12,
+        "subject": "jasper",
+        "bug_id": "CVE-2016-9557",
+        "localization": [
+            {
+                "source_file": "src/libjasper/base/jas_image.c",
+                "line_numbers": [
+                    162
+                ]
+            }
+        ],
+        "failing_test_identifiers": [
+            "1.j2k"
+        ],
+        "passing_test_identifiers": [],
+        "count_neg": 1,
+        "count_pos": 0,
+        "binary_path": "src/appl/imginfo",
+        "binary_args": "-f $POC",
+        "exploit_file_list": [
+            "tests/1.j2k"
+        ],
+        "crash_stack_trace": [
+            [
+                "jas_image_create",
+                "src/libjasper/base/jas_image.c",
+                162
+            ],
+            [
+                "jpc_dec_process_sot",
+                "src/libjasper/jpc/jpc_dec.c",
+                469
+            ],
+            [
+                "jpc_dec_decode",
+                "src/libjasper/jpc/jpc_dec.c",
+                391
+            ],
+            [
+                "jpc_decode",
+                "src/libjasper/jpc/jpc_dec.c",
+                255
+            ],
+            [
+                "jp2_decode",
+                "src/libjasper/jp2/jp2_dec.c",
+                215
+            ],
+            [
+                "jas_image_decode",
+                "src/libjasper/base/jas_image.c",
+                396
+            ],
+            [
+                "main",
+                "src/appl/imginfo.c",
+                203
+            ]
+        ],
+        "test_timeout": 5,
+        "language": "c",
+        "config_script": "config.sh",
+        "build_script": "build.sh",
+        "test_script": "test.sh",
+        "build_command": "make -j20 CFLAGS='-static' CXXFLAGS='-static' LDFLAGS='-static'",
+        "bug_type": "Integer Overflow",
+        "src": {
+            "root_abspath": "/experiment/jasper/CVE-2016-9557/src",
+            "entrypoint": {
+                "file": "src/appl/imginfo.c",
+                "function": "main"
+            }
+        },
+        "output_dir_abspath": "/output",
+        "stack_trace": [
+            {
+                "depth": 0,
+                "function": "jas_image_create",
+                "source_file": "src/libjasper/base/jas_image.c",
+                "line": 162
+            },
+            {
+                "depth": 1,
+                "function": "jpc_dec_process_sot",
+                "source_file": "src/libjasper/jpc/jpc_dec.c",
+                "line": 469
+            },
+            {
+                "depth": 2,
+                "function": "jpc_dec_decode",
+                "source_file": "src/libjasper/jpc/jpc_dec.c",
+                "line": 391
+            },
+            {
+                "depth": 3,
+                "function": "jpc_decode",
+                "source_file": "src/libjasper/jpc/jpc_dec.c",
+                "line": 255
+            },
+            {
+                "depth": 4,
+                "function": "jp2_decode",
+                "source_file": "src/libjasper/jp2/jp2_dec.c",
+                "line": 215
+            },
+            {
+                "depth": 5,
+                "function": "jas_image_decode",
+                "source_file": "src/libjasper/base/jas_image.c",
+                "line": 396
+            },
+            {
+                "depth": 6,
+                "function": "main",
+                "source_file": "src/appl/imginfo.c",
+                "line": 203
+            }
         ]
-      }
-    ],
-    "failing_test": ["1.mpg"],
-    "passing_test": [],
-    "count_neg": 1,
-    "count_pos": 0,
-    "binary_path": "tools/target_dec_cavs_fuzzer",
-    "crash_input": "$POC",
-    "exploit_file_list": [
-      "tests/1.mpg"
-    ],
-    "crash_stack_trace": [],
-    "test_timeout": 5,
-    "language": "c",
-    "config_script": "config.sh",
-    "build_script": "build.sh",
-    "test_script": "test.sh",
-    "bug_type": "Buffer Overflow"
-  },
-  {
-    "id": 11,
-    "subject": "jasper",
-    "bug_id": "CVE-2016-8691",
-    "localization":[
-      {
-        "source_file": "src/libjasper/jpc/jpc_cs.c",
-        "line_numbers": [
-          515
+    },
+    {
+        "id": 13,
+        "subject": "libarchive",
+        "bug_id": "CVE-2016-5844",
+        "localization": [
+            {
+                "source_file": "libarchive/archive_read_support_format_iso9660.c",
+                "line_numbers": [
+                    1094
+                ]
+            }
+        ],
+        "failing_test_identifiers": [
+            "1.iso"
+        ],
+        "passing_test_identifiers": [],
+        "count_neg": 1,
+        "count_pos": 0,
+        "binary_path": "bsdtar",
+        "binary_args": "-tf $POC",
+        "exploit_file_list": [
+            "tests/1.iso"
+        ],
+        "crash_stack_trace": [
+            [
+                "choose_volume",
+                "libarchive/archive_read_support_format_iso9660.c",
+                1094
+            ],
+            [
+                "archive_read_format_iso9660_read_header",
+                "libarchive/archive_read_support_format_iso9660.c",
+                1181
+            ],
+            [
+                "_archive_read_next_header2",
+                "libarchive/archive_read.c",
+                649
+            ],
+            [
+                "_archive_read_next_header",
+                "libarchive/archive_read.c",
+                687
+            ],
+            [
+                "archive_read_next_header",
+                "libarchive/archive_virtual.c",
+                148
+            ],
+            [
+                "read_archive",
+                "tar/read.c",
+                261
+            ],
+            [
+                "tar_mode_t",
+                "tar/read.c",
+                94
+            ],
+            [
+                "main",
+                "tar/bsdtar.c",
+                803
+            ]
+        ],
+        "test_timeout": 5,
+        "language": "c",
+        "config_script": "config.sh",
+        "build_script": "build.sh",
+        "test_script": "test.sh",
+        "build_command": "make -j20 CFLAGS='-static' CXXFLAGS='-static' LDFLAGS='-static'",
+        "bug_type": "Integer Overflow",
+        "src": {
+            "root_abspath": "/experiment/libarchive/CVE-2016-5844/src",
+            "entrypoint": {
+                "file": "bsdtar.c",
+                "function": "main"
+            }
+        },
+        "output_dir_abspath": "/output",
+        "stack_trace": [
+            {
+                "depth": 0,
+                "function": "choose_volume",
+                "source_file": "libarchive/archive_read_support_format_iso9660.c",
+                "line": 1094
+            },
+            {
+                "depth": 1,
+                "function": "archive_read_format_iso9660_read_header",
+                "source_file": "libarchive/archive_read_support_format_iso9660.c",
+                "line": 1181
+            },
+            {
+                "depth": 2,
+                "function": "_archive_read_next_header2",
+                "source_file": "libarchive/archive_read.c",
+                "line": 649
+            },
+            {
+                "depth": 3,
+                "function": "_archive_read_next_header",
+                "source_file": "libarchive/archive_read.c",
+                "line": 687
+            },
+            {
+                "depth": 4,
+                "function": "archive_read_next_header",
+                "source_file": "libarchive/archive_virtual.c",
+                "line": 148
+            },
+            {
+                "depth": 5,
+                "function": "read_archive",
+                "source_file": "tar/read.c",
+                "line": 261
+            },
+            {
+                "depth": 6,
+                "function": "tar_mode_t",
+                "source_file": "tar/read.c",
+                "line": 94
+            },
+            {
+                "depth": 7,
+                "function": "main",
+                "source_file": "tar/bsdtar.c",
+                "line": 803
+            }
         ]
-      }
-    ],
-    "failing_test": ["1.j2k"],
-    "passing_test": [],
-    "count_neg": 1,
-    "count_pos": 0,
-    "binary_path": "src/appl/imginfo",
-    "crash_input": "-f $POC",
-    "exploit_file_list": [
-      "tests/1.j2k"
-    ],
-    "crash_stack_trace": [
-      ["jpc_dec_process_siz", "src/libjasper/jpc/jpc_dec.c", 1194],
-      ["jpc_dec_decode", "src/libjasper/jpc/jpc_dec.c", 390],
-      ["jpc_decode", "src/libjasper/jpc/jpc_dec.c", 254],
-      ["jas_image_decode", "src/libjasper/base/jas_image.c", 372],
-      ["main", "src/appl/imginfo.c", 179]
-    ],
-    "test_timeout": 5,
-    "language": "c",
-    "config_script": "config.sh",
-    "build_script": "build.sh",
-    "test_script": "test.sh",
-    "build_command": "make -j20 CFLAGS='-static' CXXFLAGS='-static' LDFLAGS='-static'",
-    "bug_type": "Divide by Zero"
-  },
-  {
-    "id": 12,
-    "subject": "jasper",
-    "bug_id": "CVE-2016-9557",
-    "localization":[
-      {
-        "source_file": "src/libjasper/base/jas_image.c",
-        "line_numbers": [
-          162
+    },
+    {
+        "id": 14,
+        "subject": "libjpeg",
+        "bug_id": "CVE-2012-2806",
+        "localization": [
+            {
+                "source_file": "jdmarker.c",
+                "line_numbers": [
+                    326,
+                    333
+                ]
+            }
+        ],
+        "failing_test_identifiers": [
+            "1.gif"
+        ],
+        "passing_test_identifiers": [],
+        "count_neg": 1,
+        "count_pos": 0,
+        "binary_path": "djpeg",
+        "binary_args": "$POC",
+        "exploit_file_list": [
+            "tests/1.gif"
+        ],
+        "crash_stack_trace": [
+            [
+                "get_sos",
+                "jdmarker.c",
+                327
+            ],
+            [
+                "read_markers",
+                "jdmarker.c",
+                1016
+            ],
+            [
+                "consume_markers",
+                "jdinput.c",
+                386
+            ],
+            [
+                "jpeg_consume_input",
+                "jdapimin.c",
+                301
+            ],
+            [
+                "jpeg_read_header",
+                "jdapimin.c",
+                249
+            ],
+            [
+                "main",
+                "djpeg.c",
+                542
+            ]
+        ],
+        "test_timeout": 5,
+        "language": "c",
+        "config_script": "config.sh",
+        "build_script": "build.sh",
+        "test_script": "test.sh",
+        "build_command": "make -j20 CFLAGS='-static' CXXFLAGS='-static' LDFLAGS='-static'",
+        "bug_type": "Buffer Overflow",
+        "src": {
+            "root_abspath": "/experiment/libjpeg/CVE-2012-2806/src",
+            "entrypoint": {
+                "file": "djpeg.c",
+                "function": "main"
+            }
+        },
+        "output_dir_abspath": "/output",
+        "stack_trace": [
+            {
+                "depth": 0,
+                "function": "get_sos",
+                "source_file": "jdmarker.c",
+                "line": 327
+            },
+            {
+                "depth": 1,
+                "function": "read_markers",
+                "source_file": "jdmarker.c",
+                "line": 1016
+            },
+            {
+                "depth": 2,
+                "function": "consume_markers",
+                "source_file": "jdinput.c",
+                "line": 386
+            },
+            {
+                "depth": 3,
+                "function": "jpeg_consume_input",
+                "source_file": "jdapimin.c",
+                "line": 301
+            },
+            {
+                "depth": 4,
+                "function": "jpeg_read_header",
+                "source_file": "jdapimin.c",
+                "line": 249
+            },
+            {
+                "depth": 5,
+                "function": "main",
+                "source_file": "djpeg.c",
+                "line": 542
+            }
         ]
-      }
-    ],
-    "failing_test": ["1.j2k"],
-    "passing_test": [],
-    "count_neg": 1,
-    "count_pos": 0,
-    "binary_path": "src/appl/imginfo",
-    "crash_input": "-f $POC",
-    "exploit_file_list": [
-      "tests/1.j2k"
-    ],
-    "crash_stack_trace": [
-      ["jas_image_create", "src/libjasper/base/jas_image.c", 162],
-      ["jpc_dec_process_sot", "src/libjasper/jpc/jpc_dec.c", 469],
-      ["jpc_dec_decode", "src/libjasper/jpc/jpc_dec.c", 391],
-      ["jpc_decode", "src/libjasper/jpc/jpc_dec.c", 255],
-      ["jp2_decode", "src/libjasper/jp2/jp2_dec.c", 215],
-      ["jas_image_decode", "src/libjasper/base/jas_image.c", 396],
-      ["main", "src/appl/imginfo.c", 203]
-    ],
-    "test_timeout": 5,
-    "language": "c",
-    "config_script": "config.sh",
-    "build_script": "build.sh",
-    "test_script": "test.sh",
-    "build_command": "make -j20 CFLAGS='-static' CXXFLAGS='-static' LDFLAGS='-static'",
-    "bug_type": "Integer Overflow"
-  },
-  {
-    "id": 13,
-    "subject": "libarchive",
-    "bug_id": "CVE-2016-5844",
-    "localization":[
-      {
-        "source_file": "libarchive/archive_read_support_format_iso9660.c",
-        "line_numbers": [
-          1094
+    },
+    {
+        "id": 15,
+        "subject": "libjpeg",
+        "bug_id": "CVE-2017-15232",
+        "localization": [
+            {
+                "source_file": "jquant1.c",
+                "line_numbers": [
+                    533
+                ]
+            }
+        ],
+        "failing_test_identifiers": [
+            "2.jpg"
+        ],
+        "passing_test_identifiers": [],
+        "count_neg": 1,
+        "count_pos": 0,
+        "binary_path": "djpeg",
+        "binary_args": "-crop \"1x1+16+16\" -onepass -dither ordered -dct float -colors 8 -targa -grayscale -outfile o $POC",
+        "exploit_file_list": [
+            "tests/2.jpg"
+        ],
+        "crash_stack_trace": [
+            [
+                "quantize_ord_dither",
+                "jquant1.c",
+                536
+            ],
+            [
+                "post_process_1pass",
+                "jdpostct.c",
+                145
+            ],
+            [
+                "process_data_simple_main",
+                "jdmainct.c",
+                311
+            ],
+            [
+                "jpeg_read_scanlines",
+                "jdapistd.c",
+                282
+            ],
+            [
+                "read_and_discard_scanlines",
+                "jdapistd.c",
+                316
+            ],
+            [
+                "increment_simple_rowgroup_ctr",
+                "jdapistd.c",
+                342
+            ],
+            [
+                "jpeg_skip_scanlines",
+                "jdapistd.c",
+                504
+            ],
+            [
+                "main",
+                "djpeg.c",
+                729
+            ]
+        ],
+        "test_timeout": 5,
+        "language": "c",
+        "config_script": "config.sh",
+        "build_script": "build.sh",
+        "test_script": "test.sh",
+        "build_command": "make -j20 CFLAGS='-static' CXXFLAGS='-static' LDFLAGS='-static'",
+        "bug_type": "Null Pointer Dereference",
+        "src": {
+            "root_abspath": "/experiment/libjpeg/CVE-2017-15232/src",
+            "entrypoint": {
+                "file": "djpeg.c",
+                "function": "main"
+            }
+        },
+        "output_dir_abspath": "/output",
+        "stack_trace": [
+            {
+                "depth": 0,
+                "function": "quantize_ord_dither",
+                "source_file": "jquant1.c",
+                "line": 536
+            },
+            {
+                "depth": 1,
+                "function": "post_process_1pass",
+                "source_file": "jdpostct.c",
+                "line": 145
+            },
+            {
+                "depth": 2,
+                "function": "process_data_simple_main",
+                "source_file": "jdmainct.c",
+                "line": 311
+            },
+            {
+                "depth": 3,
+                "function": "jpeg_read_scanlines",
+                "source_file": "jdapistd.c",
+                "line": 282
+            },
+            {
+                "depth": 4,
+                "function": "read_and_discard_scanlines",
+                "source_file": "jdapistd.c",
+                "line": 316
+            },
+            {
+                "depth": 5,
+                "function": "increment_simple_rowgroup_ctr",
+                "source_file": "jdapistd.c",
+                "line": 342
+            },
+            {
+                "depth": 6,
+                "function": "jpeg_skip_scanlines",
+                "source_file": "jdapistd.c",
+                "line": 504
+            },
+            {
+                "depth": 7,
+                "function": "main",
+                "source_file": "djpeg.c",
+                "line": 729
+            }
         ]
-      }
-    ],
-    "failing_test": ["1.iso"],
-    "passing_test": [],
-    "count_neg": 1,
-    "count_pos": 0,
-    "binary_path": "bsdtar",
-    "crash_input": "-tf $POC",
-    "exploit_file_list": [
-      "tests/1.iso"
-    ],
-    "crash_stack_trace": [
-      ["choose_volume", "libarchive/archive_read_support_format_iso9660.c", 1094],
-      ["archive_read_format_iso9660_read_header", "libarchive/archive_read_support_format_iso9660.c", 1181],
-      ["_archive_read_next_header2", "libarchive/archive_read.c", 649],
-      ["_archive_read_next_header", "libarchive/archive_read.c", 687],
-      ["archive_read_next_header", "libarchive/archive_virtual.c", 148],
-      ["read_archive", "tar/read.c", 261],
-      ["tar_mode_t", "tar/read.c", 94],
-      ["main", "tar/bsdtar.c", 803]
-    ],
-    "test_timeout": 5,
-    "language": "c",
-    "config_script": "config.sh",
-    "build_script": "build.sh",
-    "test_script": "test.sh",
-    "build_command": "make -j20 CFLAGS='-static' CXXFLAGS='-static' LDFLAGS='-static'",
-    "bug_type": "Integer Overflow"
-  },
-  {
-    "id": 14,
-    "subject": "libjpeg",
-    "bug_id": "CVE-2012-2806",
-    "localization":[
-      {
-        "source_file": "jdmarker.c",
-        "line_numbers": [
-          326,
-          333
+    },
+    {
+        "id": 16,
+        "subject": "libjpeg",
+        "bug_id": "CVE-2018-14498",
+        "localization": [
+            {
+                "source_file": "rdbmp.c",
+                "line_numbers": [
+                    145
+                ]
+            }
+        ],
+        "failing_test_identifiers": [
+            "1.bmp",
+            "2.bmp",
+            "3.bmp",
+            "4.bmp",
+            "5.bmp"
+        ],
+        "passing_test_identifiers": [],
+        "count_neg": 5,
+        "count_pos": 0,
+        "binary_path": "cjpeg",
+        "binary_args": "-outfile out $POC",
+        "exploit_file_list": [
+            "tests/1.bmp",
+            "tests/2.bmp",
+            "tests/3.bmp",
+            "tests/4.bmp",
+            "tests/5.bmp"
+        ],
+        "crash_stack_trace": [
+            [
+                "get_8bit_row",
+                "rdbmp.c",
+                145
+            ],
+            [
+                "preload_image",
+                "rdbmp.c",
+                270
+            ],
+            [
+                "main",
+                "cjpeg.c",
+                616
+            ]
+        ],
+        "test_timeout": 5,
+        "language": "c",
+        "config_script": "config.sh",
+        "build_script": "build.sh",
+        "test_script": "test.sh",
+        "build_command": "make -j20 CFLAGS='-static' CXXFLAGS='-static' LDFLAGS='-static'",
+        "bug_type": "Buffer Overflow",
+        "src": {
+            "root_abspath": "/experiment/libjpeg/CVE-2018-14498/src",
+            "entrypoint": {
+                "file": "cjpeg.c",
+                "function": "main"
+            }
+        },
+        "output_dir_abspath": "/output",
+        "stack_trace": [
+            {
+                "depth": 0,
+                "function": "get_8bit_row",
+                "source_file": "rdbmp.c",
+                "line": 145
+            },
+            {
+                "depth": 1,
+                "function": "preload_image",
+                "source_file": "rdbmp.c",
+                "line": 270
+            },
+            {
+                "depth": 2,
+                "function": "main",
+                "source_file": "cjpeg.c",
+                "line": 616
+            }
         ]
-      }
-    ],
-    "failing_test": ["1.gif"],
-    "passing_test": [],
-    "count_neg": 1,
-    "count_pos": 0,
-    "binary_path": "djpeg",
-    "crash_input": "$POC",
-    "exploit_file_list": [
-      "tests/1.gif"
-    ],
-    "crash_stack_trace": [
-      ["get_sos", "jdmarker.c", 327],
-      ["read_markers", "jdmarker.c", 1016],
-      ["consume_markers", "jdinput.c", 386],
-      ["jpeg_consume_input", "jdapimin.c", 301],
-      ["jpeg_read_header", "jdapimin.c", 249],
-      ["main", "djpeg.c", 542]
-    ],
-    "test_timeout": 5,
-    "language": "c",
-    "config_script": "config.sh",
-    "build_script": "build.sh",
-    "test_script": "test.sh",
-    "build_command": "make -j20 CFLAGS='-static' CXXFLAGS='-static' LDFLAGS='-static'",
-    "bug_type": "Buffer Overflow"
-  },
-  {
-    "id": 15,
-    "subject": "libjpeg",
-    "bug_id": "CVE-2017-15232",
-    "localization":[
-      {
-        "source_file": "jquant1.c",
-        "line_numbers": [
-          533
+    },
+    {
+        "id": 17,
+        "subject": "libjpeg",
+        "bug_id": "CVE-2018-19664",
+        "localization": [
+            {
+                "source_file": "wrbmp.c",
+                "line_numbers": [
+                    505
+                ]
+            }
+        ],
+        "failing_test_identifiers": [
+            "1.jpg"
+        ],
+        "passing_test_identifiers": [],
+        "count_neg": 1,
+        "count_pos": 0,
+        "binary_path": "build/djpeg",
+        "binary_args": "-colors 256 -bmp $POC",
+        "exploit_file_list": [
+            "tests/1.jpg"
+        ],
+        "crash_stack_trace": [
+            [
+                "put_pixel_rows",
+                "wrbmp.c",
+                145
+            ],
+            [
+                "main",
+                "djpeg.c",
+                762
+            ]
+        ],
+        "test_timeout": 5,
+        "language": "c",
+        "config_script": "config.sh",
+        "build_script": "build.sh",
+        "test_script": "test.sh",
+        "build_command": "make -j20 CFLAGS='-static' CXXFLAGS='-static' LDFLAGS='-static'",
+        "bug_type": "Buffer Overflow",
+        "src": {
+            "root_abspath": "/experiment/libjpeg/CVE-2018-19664/src",
+            "entrypoint": {
+                "file": "build/djpeg.c",
+                "function": "main"
+            }
+        },
+        "output_dir_abspath": "/output",
+        "stack_trace": [
+            {
+                "depth": 0,
+                "function": "put_pixel_rows",
+                "source_file": "wrbmp.c",
+                "line": 145
+            },
+            {
+                "depth": 1,
+                "function": "main",
+                "source_file": "djpeg.c",
+                "line": 762
+            }
         ]
-      }
-    ],
-    "failing_test": ["2.jpg"],
-    "passing_test": [],
-    "count_neg": 1,
-    "count_pos": 0,
-    "binary_path": "djpeg",
-    "crash_input": "-crop \"1x1+16+16\" -onepass -dither ordered -dct float -colors 8 -targa -grayscale -outfile o $POC",
-    "exploit_file_list": [
-      "tests/2.jpg"
-    ],
-    "crash_stack_trace": [
-      ["quantize_ord_dither", "jquant1.c", 536],
-      ["post_process_1pass", "jdpostct.c", 145],
-      ["process_data_simple_main", "jdmainct.c", 311],
-      ["jpeg_read_scanlines", "jdapistd.c", 282],
-      ["read_and_discard_scanlines", "jdapistd.c", 316],
-      ["increment_simple_rowgroup_ctr", "jdapistd.c", 342],
-      ["jpeg_skip_scanlines", "jdapistd.c", 504],
-      ["main", "djpeg.c", 729]
-    ],
-    "test_timeout": 5,
-    "language": "c",
-    "config_script": "config.sh",
-    "build_script": "build.sh",
-    "test_script": "test.sh",
-    "build_command": "make -j20 CFLAGS='-static' CXXFLAGS='-static' LDFLAGS='-static'",
-    "bug_type": "Null Pointer Dereference"
-  },
-  {
-    "id": 16,
-    "subject": "libjpeg",
-    "bug_id": "CVE-2018-14498",
-    "localization":[
-      {
-        "source_file": "rdbmp.c",
-        "line_numbers": [
-          145
+    },
+    {
+        "id": 18,
+        "subject": "libming",
+        "bug_id": "CVE-2016-9264",
+        "localization": [
+            {
+                "source_file": "util/listmp3.c",
+                "line_numbers": [
+                    107
+                ]
+            }
+        ],
+        "failing_test_identifiers": [
+            "1.swf"
+        ],
+        "passing_test_identifiers": [],
+        "count_neg": 1,
+        "count_pos": 0,
+        "binary_path": "util/listmp3",
+        "binary_args": "$POC",
+        "exploit_file_list": [
+            "tests/1.swf"
+        ],
+        "crash_stack_trace": [
+            [
+                "printMP3Headers",
+                "util/listmp3.c",
+                128
+            ],
+            [
+                "main",
+                "util/listmp3.c",
+                191
+            ]
+        ],
+        "test_timeout": 5,
+        "language": "c",
+        "config_script": "config.sh",
+        "build_script": "build.sh",
+        "test_script": "test.sh",
+        "build_command": "make CFLAGS='-static' CXXFLAGS='-static' LDFLAGS='-static'",
+        "bug_type": "Buffer Overflow",
+        "src": {
+            "root_abspath": "/experiment/libming/CVE-2016-9264/src",
+            "entrypoint": {
+                "file": "util/listmp3.c",
+                "function": "main"
+            }
+        },
+        "output_dir_abspath": "/output",
+        "stack_trace": [
+            {
+                "depth": 0,
+                "function": "printMP3Headers",
+                "source_file": "util/listmp3.c",
+                "line": 128
+            },
+            {
+                "depth": 1,
+                "function": "main",
+                "source_file": "util/listmp3.c",
+                "line": 191
+            }
         ]
-      }
-    ],
-    "failing_test": ["1.bmp","2.bmp","3.bmp","4.bmp","5.bmp"],
-    "passing_test": [],
-    "count_neg": 5,
-    "count_pos": 0,
-    "binary_path": "cjpeg",
-    "crash_input": "-outfile out $POC",
-    "exploit_file_list": [
-      "tests/1.bmp",
-      "tests/2.bmp",
-      "tests/3.bmp",
-      "tests/4.bmp",
-      "tests/5.bmp"
-    ],
-    "crash_stack_trace": [
-      ["get_8bit_row", "rdbmp.c", 145],
-      ["preload_image", "rdbmp.c", 270],
-      ["main", "cjpeg.c", 616]
-    ],
-    "test_timeout": 5,
-    "language": "c",
-    "config_script": "config.sh",
-    "build_script": "build.sh",
-    "test_script": "test.sh",
-    "build_command": "make -j20 CFLAGS='-static' CXXFLAGS='-static' LDFLAGS='-static'",
-    "bug_type": "Buffer Overflow"
-  },
-  {
-    "id": 17,
-    "subject": "libjpeg",
-    "bug_id": "CVE-2018-19664",
-    "localization":[
-      {
-        "source_file": "wrbmp.c",
-        "line_numbers": [
-          505
+    },
+    {
+        "id": 19,
+        "subject": "libming",
+        "bug_id": "CVE-2018-8806",
+        "localization": [
+            {
+                "source_file": "util/decompile.c",
+                "line_numbers": [
+                    49,
+                    349,
+                    731,
+                    3414
+                ]
+            }
+        ],
+        "failing_test_identifiers": [
+            "1.swf"
+        ],
+        "passing_test_identifiers": [],
+        "count_neg": 1,
+        "count_pos": 0,
+        "binary_path": "util/swftophp",
+        "binary_args": "$POC",
+        "exploit_file_list": [
+            "tests/1.swf"
+        ],
+        "crash_stack_trace": [
+            [
+                "getString",
+                "util/decompile.c",
+                349
+            ],
+            [
+                "decompileArithmeticOp",
+                "util/decompile.c",
+                1066
+            ],
+            [
+                "decompileAction",
+                "util/decompile.c",
+                3292
+            ],
+            [
+                "decompileActions",
+                "util/decompile.c",
+                3401
+            ],
+            [
+                "decompile5Action",
+                "util/decompile.c",
+                3423
+            ],
+            [
+                "outputSWF_DOACTION",
+                "util/outputscript.c",
+                1547
+            ],
+            [
+                "outputBlock",
+                "util/outputscript.c",
+                2079
+            ],
+            [
+                "readMovie",
+                "util/main.c",
+                277
+            ],
+            [
+                "main",
+                "util/main.c",
+                350
+            ]
+        ],
+        "test_timeout": 5,
+        "language": "c",
+        "config_script": "config.sh",
+        "build_script": "build.sh",
+        "test_script": "test.sh",
+        "build_command": "make CFLAGS='-static' CXXFLAGS='-static' LDFLAGS='-static'",
+        "bug_type": "Use after Free",
+        "src": {
+            "root_abspath": "/experiment/libming/CVE-2018-8806/src",
+            "entrypoint": {
+                "file": "util/swftophp.c",
+                "function": "main"
+            }
+        },
+        "output_dir_abspath": "/output",
+        "stack_trace": [
+            {
+                "depth": 0,
+                "function": "getString",
+                "source_file": "util/decompile.c",
+                "line": 349
+            },
+            {
+                "depth": 1,
+                "function": "decompileArithmeticOp",
+                "source_file": "util/decompile.c",
+                "line": 1066
+            },
+            {
+                "depth": 2,
+                "function": "decompileAction",
+                "source_file": "util/decompile.c",
+                "line": 3292
+            },
+            {
+                "depth": 3,
+                "function": "decompileActions",
+                "source_file": "util/decompile.c",
+                "line": 3401
+            },
+            {
+                "depth": 4,
+                "function": "decompile5Action",
+                "source_file": "util/decompile.c",
+                "line": 3423
+            },
+            {
+                "depth": 5,
+                "function": "outputSWF_DOACTION",
+                "source_file": "util/outputscript.c",
+                "line": 1547
+            },
+            {
+                "depth": 6,
+                "function": "outputBlock",
+                "source_file": "util/outputscript.c",
+                "line": 2079
+            },
+            {
+                "depth": 7,
+                "function": "readMovie",
+                "source_file": "util/main.c",
+                "line": 277
+            },
+            {
+                "depth": 8,
+                "function": "main",
+                "source_file": "util/main.c",
+                "line": 350
+            }
         ]
-      }
-    ],
-    "failing_test": ["1.jpg"],
-    "passing_test": [],
-    "count_neg": 1,
-    "count_pos": 0,
-    "binary_path": "build/djpeg",
-    "crash_input": "-colors 256 -bmp $POC",
-    "exploit_file_list": [
-      "tests/1.jpg"
-    ],
-    "crash_stack_trace": [
-      ["put_pixel_rows", "wrbmp.c", 145],
-      ["main", "djpeg.c", 762]
-    ],
-    "test_timeout": 5,
-    "language": "c",
-    "config_script": "config.sh",
-    "build_script": "build.sh",
-    "test_script": "test.sh",
-    "build_command": "make -j20 CFLAGS='-static' CXXFLAGS='-static' LDFLAGS='-static'",
-    "bug_type": "Buffer Overflow"
-  },
-  {
-    "id": 18,
-    "subject": "libming",
-    "bug_id": "CVE-2016-9264",
-    "localization":[
-      {
-        "source_file": "util/listmp3.c",
-        "line_numbers": [
-          107
+    },
+    {
+        "id": 20,
+        "subject": "libming",
+        "bug_id": "CVE-2018-8964",
+        "localization": [
+            {
+                "source_file": "util/decompile.c",
+                "line_numbers": [
+                    49,
+                    398,
+                    731,
+                    3414
+                ]
+            }
+        ],
+        "failing_test_identifiers": [
+            "1.swf"
+        ],
+        "passing_test_identifiers": [],
+        "count_neg": 1,
+        "count_pos": 0,
+        "binary_path": "util/swftophp",
+        "binary_args": "$POC",
+        "exploit_file_list": [
+            "tests/1.swf"
+        ],
+        "crash_stack_trace": [
+            [
+                "getName",
+                "util/decompile.c",
+                398
+            ],
+            [
+                "decompileDELETE",
+                "util/decompile.c",
+                3039
+            ],
+            [
+                "decompileAction",
+                "util/decompile.c",
+                3302
+            ],
+            [
+                "decompileActions",
+                "util/decompile.c",
+                3401
+            ],
+            [
+                "decompile5Action",
+                "util/decompile.c",
+                3423
+            ],
+            [
+                "outputSWF_DOACTION",
+                "util/outputscript.c",
+                1547
+            ],
+            [
+                "outputBlock",
+                "util/outputscript.c",
+                2079
+            ],
+            [
+                "readMovie",
+                "util/main.c",
+                277
+            ],
+            [
+                "main",
+                "util/main.c",
+                350
+            ]
+        ],
+        "test_timeout": 5,
+        "language": "c",
+        "config_script": "config.sh",
+        "build_script": "build.sh",
+        "test_script": "test.sh",
+        "build_command": "make CFLAGS='-static' CXXFLAGS='-static' LDFLAGS='-static'",
+        "bug_type": "Use after Free",
+        "src": {
+            "root_abspath": "/experiment/libming/CVE-2018-8964/src",
+            "entrypoint": {
+                "file": "util/swftophp.c",
+                "function": "main"
+            }
+        },
+        "output_dir_abspath": "/output",
+        "stack_trace": [
+            {
+                "depth": 0,
+                "function": "getName",
+                "source_file": "util/decompile.c",
+                "line": 398
+            },
+            {
+                "depth": 1,
+                "function": "decompileDELETE",
+                "source_file": "util/decompile.c",
+                "line": 3039
+            },
+            {
+                "depth": 2,
+                "function": "decompileAction",
+                "source_file": "util/decompile.c",
+                "line": 3302
+            },
+            {
+                "depth": 3,
+                "function": "decompileActions",
+                "source_file": "util/decompile.c",
+                "line": 3401
+            },
+            {
+                "depth": 4,
+                "function": "decompile5Action",
+                "source_file": "util/decompile.c",
+                "line": 3423
+            },
+            {
+                "depth": 5,
+                "function": "outputSWF_DOACTION",
+                "source_file": "util/outputscript.c",
+                "line": 1547
+            },
+            {
+                "depth": 6,
+                "function": "outputBlock",
+                "source_file": "util/outputscript.c",
+                "line": 2079
+            },
+            {
+                "depth": 7,
+                "function": "readMovie",
+                "source_file": "util/main.c",
+                "line": 277
+            },
+            {
+                "depth": 8,
+                "function": "main",
+                "source_file": "util/main.c",
+                "line": 350
+            }
         ]
-      }
-    ],
-    "failing_test": ["1.swf"],
-    "passing_test": [],
-    "count_neg": 1,
-    "count_pos": 0,
-    "binary_path": "util/listmp3",
-    "crash_input": "$POC",
-    "exploit_file_list": [
-      "tests/1.swf"
-    ],
-    "crash_stack_trace": [
-      ["printMP3Headers", "util/listmp3.c", 128],
-      ["main", "util/listmp3.c", 191]
-    ],
-    "test_timeout": 5,
-    "language": "c",
-    "config_script": "config.sh",
-    "build_script": "build.sh",
-    "test_script": "test.sh",
-    "build_command": "make CFLAGS='-static' CXXFLAGS='-static' LDFLAGS='-static'",
-    "bug_type": "Buffer Overflow"
-  },
-  {
-    "id": 19,
-    "subject": "libming",
-    "bug_id": "CVE-2018-8806",
-    "localization":[
-      {
-        "source_file": "util/decompile.c",
-        "line_numbers": [
-          49, 349, 731, 3414
+    },
+    {
+        "id": 21,
+        "subject": "libtiff",
+        "bug_id": "bugzilla-2611",
+        "localization": [
+            {
+                "source_file": "libtiff/tif_ojpeg.c",
+                "line_numbers": [
+                    789
+                ]
+            }
+        ],
+        "failing_test_identifiers": [
+            "1.tif"
+        ],
+        "passing_test_identifiers": [],
+        "count_neg": 1,
+        "count_pos": 0,
+        "binary_path": "tools/tiffmedian",
+        "binary_args": "$POC foo",
+        "exploit_file_list": [
+            "tests/1.tif"
+        ],
+        "crash_stack_trace": [
+            [
+                "OJPEGDecodeRaw",
+                "libtiff/tif_ojpeg.c",
+                816
+            ],
+            [
+                "OJPEGDecode",
+                "libtiff/tif_ojpeg.c",
+                791
+            ],
+            [
+                "TIFFReadScanline",
+                "libtiff/tif_read.c",
+                304
+            ],
+            [
+                "quant",
+                "tools/tiffmedian.c",
+                771
+            ],
+            [
+                "main",
+                "tools/tiffmedian.c",
+                283
+            ]
+        ],
+        "test_timeout": 5,
+        "language": "c",
+        "config_script": "config.sh",
+        "build_script": "build.sh",
+        "test_script": "test.sh",
+        "build_command": "make -j20 CFLAGS='-static' CPPFLAGS='-static' LDFLAGS='-static'",
+        "bug_type": "Divide by Zero",
+        "src": {
+            "root_abspath": "/experiment/libtiff/bugzilla-2611/src",
+            "entrypoint": {
+                "file": "tools/tiffmedian.c",
+                "function": "main"
+            }
+        },
+        "output_dir_abspath": "/output",
+        "stack_trace": [
+            {
+                "depth": 0,
+                "function": "OJPEGDecodeRaw",
+                "source_file": "libtiff/tif_ojpeg.c",
+                "line": 816
+            },
+            {
+                "depth": 1,
+                "function": "OJPEGDecode",
+                "source_file": "libtiff/tif_ojpeg.c",
+                "line": 791
+            },
+            {
+                "depth": 2,
+                "function": "TIFFReadScanline",
+                "source_file": "libtiff/tif_read.c",
+                "line": 304
+            },
+            {
+                "depth": 3,
+                "function": "quant",
+                "source_file": "tools/tiffmedian.c",
+                "line": 771
+            },
+            {
+                "depth": 4,
+                "function": "main",
+                "source_file": "tools/tiffmedian.c",
+                "line": 283
+            }
         ]
-      }
-    ],
-    "failing_test": ["1.swf"],
-    "passing_test": [],
-    "count_neg": 1,
-    "count_pos": 0,
-    "binary_path": "util/swftophp",
-    "crash_input": "$POC",
-    "exploit_file_list": [
-      "tests/1.swf"
-    ],
-    "crash_stack_trace": [
-      ["getString", "util/decompile.c", 349],
-      ["decompileArithmeticOp", "util/decompile.c", 1066],
-      ["decompileAction", "util/decompile.c", 3292],
-      ["decompileActions", "util/decompile.c", 3401],
-      ["decompile5Action", "util/decompile.c", 3423],
-      ["outputSWF_DOACTION", "util/outputscript.c", 1547],
-      ["outputBlock", "util/outputscript.c", 2079],
-      ["readMovie", "util/main.c", 277],
-      ["main", "util/main.c", 350]
-    ],
-    "test_timeout": 5,
-    "language": "c",
-    "config_script": "config.sh",
-    "build_script": "build.sh",
-    "test_script": "test.sh",
-    "build_command": "make CFLAGS='-static' CXXFLAGS='-static' LDFLAGS='-static'",
-    "bug_type": "Use after Free"
-  },
-  {
-    "id": 20,
-    "subject": "libming",
-    "bug_id": "CVE-2018-8964",
-    "localization":[
-      {
-        "source_file": "util/decompile.c",
-        "line_numbers": [
-          49, 398, 731, 3414
+    },
+    {
+        "id": 22,
+        "subject": "libtiff",
+        "bug_id": "bugzilla-2633",
+        "localization": [
+            {
+                "source_file": "tools/tiff2ps.c",
+                "line_numbers": [
+                    2443,
+                    2700
+                ]
+            }
+        ],
+        "failing_test_identifiers": [
+            "1.tif"
+        ],
+        "passing_test_identifiers": [],
+        "count_neg": 1,
+        "count_pos": 0,
+        "binary_path": "tools/tiff2ps",
+        "binary_args": "$POC",
+        "exploit_file_list": [
+            "tests/1.tif"
+        ],
+        "crash_stack_trace": [
+            [
+                "PSDataColorContig",
+                "tools/tiff2ps.c",
+                2470
+            ],
+            [
+                "PSpage",
+                "tools/tiff2ps.c",
+                2347
+            ],
+            [
+                "TIFF2PS",
+                "tools/tiff2ps.c",
+                1606
+            ],
+            [
+                "main",
+                "tools/tiff2ps.c",
+                473
+            ]
+        ],
+        "test_timeout": 5,
+        "language": "c",
+        "config_script": "config.sh",
+        "build_script": "build.sh",
+        "test_script": "test.sh",
+        "build_command": "make -j20 CFLAGS='-static' CPPFLAGS='-static' LDFLAGS='-static'",
+        "bug_type": "Buffer Overflow",
+        "src": {
+            "root_abspath": "/experiment/libtiff/bugzilla-2633/src",
+            "entrypoint": {
+                "file": "tools/tiff2ps.c",
+                "function": "main"
+            }
+        },
+        "output_dir_abspath": "/output",
+        "stack_trace": [
+            {
+                "depth": 0,
+                "function": "PSDataColorContig",
+                "source_file": "tools/tiff2ps.c",
+                "line": 2470
+            },
+            {
+                "depth": 1,
+                "function": "PSpage",
+                "source_file": "tools/tiff2ps.c",
+                "line": 2347
+            },
+            {
+                "depth": 2,
+                "function": "TIFF2PS",
+                "source_file": "tools/tiff2ps.c",
+                "line": 1606
+            },
+            {
+                "depth": 3,
+                "function": "main",
+                "source_file": "tools/tiff2ps.c",
+                "line": 473
+            }
         ]
-      }
-    ],
-    "failing_test": ["1.swf"],
-    "passing_test": [],
-    "count_neg": 1,
-    "count_pos": 0,
-    "binary_path": "util/swftophp",
-    "crash_input": "$POC",
-    "exploit_file_list": [
-      "tests/1.swf"
-    ],
-    "crash_stack_trace": [
-      ["getName", "util/decompile.c", 398],
-      ["decompileDELETE", "util/decompile.c", 3039],
-      ["decompileAction", "util/decompile.c", 3302],
-      ["decompileActions", "util/decompile.c", 3401],
-      ["decompile5Action", "util/decompile.c", 3423],
-      ["outputSWF_DOACTION", "util/outputscript.c", 1547],
-      ["outputBlock", "util/outputscript.c", 2079],
-      ["readMovie", "util/main.c", 277],
-      ["main", "util/main.c", 350]
-    ],
-    "test_timeout": 5,
-    "language": "c",
-    "config_script": "config.sh",
-    "build_script": "build.sh",
-    "test_script": "test.sh",
-    "build_command": "make CFLAGS='-static' CXXFLAGS='-static' LDFLAGS='-static'",
-    "bug_type": "Use after Free"
-  },
-  {
-    "id": 21,
-    "subject": "libtiff",
-    "bug_id": "bugzilla-2611",
-    "localization":[
-      {
-        "source_file": "libtiff/tif_ojpeg.c",
-        "line_numbers": [
-          789
+    },
+    {
+        "id": 23,
+        "subject": "libtiff",
+        "bug_id": "CVE-2016-10092",
+        "localization": [
+            {
+                "source_file": "tools/tiffcrop.c",
+                "line_numbers": [
+                    3701
+                ]
+            }
+        ],
+        "failing_test_identifiers": [
+            "1.tif"
+        ],
+        "passing_test_identifiers": [],
+        "count_neg": 1,
+        "count_pos": 0,
+        "binary_path": "tools/tiffcrop",
+        "binary_args": "-i $POC foo",
+        "exploit_file_list": [
+            "tests/1.tif"
+        ],
+        "crash_stack_trace": [
+            [
+                "_TIFFmemcpy",
+                "libtiff/tif_unix.c",
+                340
+            ],
+            [
+                "DumpModeDecode",
+                "libtiff/tif_dumpmode.c",
+                103
+            ],
+            [
+                "TIFFReadEncodedStrip",
+                "libtiff/tif_read.c",
+                380
+            ],
+            [
+                "readContigStripsIntoBuffer",
+                "tools/tiffcrop.c",
+                3689
+            ],
+            [
+                "loadImage",
+                "tools/tiffcrop.c",
+                6167
+            ],
+            [
+                "main",
+                "tools/tiffcrop.c",
+                2345
+            ]
+        ],
+        "test_timeout": 5,
+        "language": "c",
+        "config_script": "config.sh",
+        "build_script": "build.sh",
+        "test_script": "test.sh",
+        "build_command": "make -j20 CFLAGS='-static' CPPFLAGS='-static' LDFLAGS='-static'",
+        "bug_type": "Buffer Overflow",
+        "src": {
+            "root_abspath": "/experiment/libtiff/CVE-2016-10092/src",
+            "entrypoint": {
+                "file": "tools/tiffcrop.c",
+                "function": "main"
+            }
+        },
+        "output_dir_abspath": "/output",
+        "stack_trace": [
+            {
+                "depth": 0,
+                "function": "_TIFFmemcpy",
+                "source_file": "libtiff/tif_unix.c",
+                "line": 340
+            },
+            {
+                "depth": 1,
+                "function": "DumpModeDecode",
+                "source_file": "libtiff/tif_dumpmode.c",
+                "line": 103
+            },
+            {
+                "depth": 2,
+                "function": "TIFFReadEncodedStrip",
+                "source_file": "libtiff/tif_read.c",
+                "line": 380
+            },
+            {
+                "depth": 3,
+                "function": "readContigStripsIntoBuffer",
+                "source_file": "tools/tiffcrop.c",
+                "line": 3689
+            },
+            {
+                "depth": 4,
+                "function": "loadImage",
+                "source_file": "tools/tiffcrop.c",
+                "line": 6167
+            },
+            {
+                "depth": 5,
+                "function": "main",
+                "source_file": "tools/tiffcrop.c",
+                "line": 2345
+            }
         ]
-      }
-    ],
-    "failing_test": ["1.tif"],
-    "passing_test": [],
-    "count_neg": 1,
-    "count_pos": 0,
-    "binary_path": "tools/tiffmedian",
-    "crash_input": "$POC foo",
-    "exploit_file_list": [
-      "tests/1.tif"
-    ],
-    "crash_stack_trace": [
-      ["OJPEGDecodeRaw", "libtiff/tif_ojpeg.c", 816],
-      ["OJPEGDecode", "libtiff/tif_ojpeg.c", 791],
-      ["TIFFReadScanline", "libtiff/tif_read.c", 304],
-      ["quant", "tools/tiffmedian.c", 771],
-      ["main", "tools/tiffmedian.c", 283]
-    ],
-    "test_timeout": 5,
-    "language": "c",
-    "config_script": "config.sh",
-    "build_script": "build.sh",
-    "test_script": "test.sh",
-    "build_command": "make -j20 CFLAGS='-static' CPPFLAGS='-static' LDFLAGS='-static'",
-    "bug_type": "Divide by Zero"
-  },
-  {
-    "id": 22,
-    "subject": "libtiff",
-    "bug_id": "bugzilla-2633",
-    "localization":[
-      {
-        "source_file": "tools/tiff2ps.c",
-        "line_numbers": [
-          2443,
-          2700
+    },
+    {
+        "id": 24,
+        "subject": "libtiff",
+        "bug_id": "CVE-2016-10094",
+        "localization": [
+            {
+                "source_file": "tools/tiff2pdf.c",
+                "line_numbers": [
+                    2898
+                ]
+            }
+        ],
+        "failing_test_identifiers": [
+            "1.tif"
+        ],
+        "passing_test_identifiers": [],
+        "count_neg": 1,
+        "count_pos": 0,
+        "binary_path": "tools/tiff2pdf",
+        "binary_args": "$POC -o foo",
+        "exploit_file_list": [
+            "tests/1.tif"
+        ],
+        "crash_stack_trace": [
+            [
+                "_TIFFmemcpy",
+                "libtiff/tif_unix.c",
+                340
+            ],
+            [
+                "t2p_readwrite_pdf_image_tile",
+                "tools/tiff2pdf.c",
+                2901
+            ],
+            [
+                "t2p_write_pdf",
+                "tools/tiff2pdf.c",
+                5535
+            ],
+            [
+                "main",
+                "tools/tiff2pdf.c",
+                808
+            ]
+        ],
+        "test_timeout": 5,
+        "language": "c",
+        "config_script": "config.sh",
+        "build_script": "build.sh",
+        "test_script": "test.sh",
+        "build_command": "make -j20 CFLAGS='-static' CPPFLAGS='-static' LDFLAGS='-static'",
+        "bug_type": "Buffer Overflow",
+        "src": {
+            "root_abspath": "/experiment/libtiff/CVE-2016-10094/src",
+            "entrypoint": {
+                "file": "tools/tiff2pdf.c",
+                "function": "main"
+            }
+        },
+        "output_dir_abspath": "/output",
+        "stack_trace": [
+            {
+                "depth": 0,
+                "function": "_TIFFmemcpy",
+                "source_file": "libtiff/tif_unix.c",
+                "line": 340
+            },
+            {
+                "depth": 1,
+                "function": "t2p_readwrite_pdf_image_tile",
+                "source_file": "tools/tiff2pdf.c",
+                "line": 2901
+            },
+            {
+                "depth": 2,
+                "function": "t2p_write_pdf",
+                "source_file": "tools/tiff2pdf.c",
+                "line": 5535
+            },
+            {
+                "depth": 3,
+                "function": "main",
+                "source_file": "tools/tiff2pdf.c",
+                "line": 808
+            }
         ]
-      }
-    ],
-    "failing_test": ["1.tif"],
-    "passing_test": [],
-    "count_neg": 1,
-    "count_pos": 0,
-    "binary_path": "tools/tiff2ps",
-    "crash_input": "$POC",
-    "exploit_file_list": [
-      "tests/1.tif"
-    ],
-    "crash_stack_trace": [
-      ["PSDataColorContig", "tools/tiff2ps.c", 2470],
-      ["PSpage", "tools/tiff2ps.c", 2347],
-      ["TIFF2PS", "tools/tiff2ps.c", 1606],
-      ["main", "tools/tiff2ps.c", 473]
-    ],
-    "test_timeout": 5,
-    "language": "c",
-    "config_script": "config.sh",
-    "build_script": "build.sh",
-    "test_script": "test.sh",
-    "build_command": "make -j20 CFLAGS='-static' CPPFLAGS='-static' LDFLAGS='-static'",
-    "bug_type": "Buffer Overflow"
-  },
-  {
-    "id": 23,
-    "subject": "libtiff",
-    "bug_id": "CVE-2016-10092",
-    "localization":[
-      {
-        "source_file": "tools/tiffcrop.c",
-        "line_numbers": [
-          3701
+    },
+    {
+        "id": 25,
+        "subject": "libtiff",
+        "bug_id": "CVE-2016-10272",
+        "localization": [
+            {
+                "source_file": "tools/tiffcrop.c",
+                "line_numbers": [
+                    3701
+                ]
+            }
+        ],
+        "failing_test_identifiers": [
+            "1.tif"
+        ],
+        "passing_test_identifiers": [],
+        "count_neg": 1,
+        "count_pos": 0,
+        "binary_path": "tools/tiffcrop",
+        "binary_args": "-i $POC foo",
+        "exploit_file_list": [
+            "tests/1.tif"
+        ],
+        "crash_stack_trace": [
+            [
+                "_TIFFmemcpy",
+                "libtiff/tif_unix.c",
+                340
+            ],
+            [
+                "DumpModeDecode",
+                "libtiff/tif_dumpmode.c",
+                103
+            ],
+            [
+                "TIFFReadEncodedStrip",
+                "libtiff/tif_read.c",
+                380
+            ],
+            [
+                "readContigStripsIntoBuffer",
+                "tools/tiffcrop.c",
+                3689
+            ],
+            [
+                "loadImage",
+                "tools/tiffcrop.c",
+                6167
+            ],
+            [
+                "main",
+                "tools/tiffcrop.c",
+                2345
+            ]
+        ],
+        "test_timeout": 5,
+        "language": "c",
+        "config_script": "config.sh",
+        "build_script": "build.sh",
+        "test_script": "test.sh",
+        "build_command": "make -j20 CFLAGS='-static' CPPFLAGS='-static' LDFLAGS='-static'",
+        "bug_type": "Buffer Overflow",
+        "src": {
+            "root_abspath": "/experiment/libtiff/CVE-2016-10272/src",
+            "entrypoint": {
+                "file": "tools/tiffcrop.c",
+                "function": "main"
+            }
+        },
+        "output_dir_abspath": "/output",
+        "stack_trace": [
+            {
+                "depth": 0,
+                "function": "_TIFFmemcpy",
+                "source_file": "libtiff/tif_unix.c",
+                "line": 340
+            },
+            {
+                "depth": 1,
+                "function": "DumpModeDecode",
+                "source_file": "libtiff/tif_dumpmode.c",
+                "line": 103
+            },
+            {
+                "depth": 2,
+                "function": "TIFFReadEncodedStrip",
+                "source_file": "libtiff/tif_read.c",
+                "line": 380
+            },
+            {
+                "depth": 3,
+                "function": "readContigStripsIntoBuffer",
+                "source_file": "tools/tiffcrop.c",
+                "line": 3689
+            },
+            {
+                "depth": 4,
+                "function": "loadImage",
+                "source_file": "tools/tiffcrop.c",
+                "line": 6167
+            },
+            {
+                "depth": 5,
+                "function": "main",
+                "source_file": "tools/tiffcrop.c",
+                "line": 2345
+            }
         ]
-      }
-    ],
-    "failing_test": ["1.tif"],
-    "passing_test": [],
-    "count_neg": 1,
-    "count_pos": 0,
-    "binary_path": "tools/tiffcrop",
-    "crash_input": "-i $POC foo",
-    "exploit_file_list": [
-      "tests/1.tif"
-    ],
-    "crash_stack_trace": [
-      ["_TIFFmemcpy", "libtiff/tif_unix.c", 340],
-      ["DumpModeDecode", "libtiff/tif_dumpmode.c", 103],
-      ["TIFFReadEncodedStrip", "libtiff/tif_read.c", 380],
-      ["readContigStripsIntoBuffer", "tools/tiffcrop.c", 3689],
-      ["loadImage", "tools/tiffcrop.c", 6167],
-      ["main", "tools/tiffcrop.c", 2345]
-    ],
-    "test_timeout": 5,
-    "language": "c",
-    "config_script": "config.sh",
-    "build_script": "build.sh",
-    "test_script": "test.sh",
-    "build_command": "make -j20 CFLAGS='-static' CPPFLAGS='-static' LDFLAGS='-static'",
-    "bug_type": "Buffer Overflow"
-  },
-  {
-    "id": 24,
-    "subject": "libtiff",
-    "bug_id": "CVE-2016-10094",
-    "localization":[
-      {
-        "source_file": "tools/tiff2pdf.c",
-        "line_numbers": [
-          2898
+    },
+    {
+        "id": 26,
+        "subject": "libtiff",
+        "bug_id": "CVE-2016-3186",
+        "localization": [
+            {
+                "source_file": "tools/gif2tiff.c",
+                "line_numbers": [
+                    353
+                ]
+            }
+        ],
+        "failing_test_identifiers": [
+            "1.gif"
+        ],
+        "passing_test_identifiers": [],
+        "count_neg": 1,
+        "count_pos": 0,
+        "binary_path": "tools/gif2tiff",
+        "binary_args": "$POC foo.tif",
+        "exploit_file_list": [
+            "tests/1.gif"
+        ],
+        "crash_stack_trace": [
+            [
+                "readextension",
+                "tools/gif2tiff.c",
+                355
+            ],
+            [
+                "convert",
+                "tools/gif2tiff.c",
+                223
+            ],
+            [
+                "main",
+                "tools/gif2tiff.c",
+                179
+            ]
+        ],
+        "test_timeout": 5,
+        "language": "c",
+        "config_script": "config.sh",
+        "build_script": "build.sh",
+        "test_script": "test.sh",
+        "build_command": "make -j20 CFLAGS='-static' CPPFLAGS='-static' LDFLAGS='-static'",
+        "bug_type": "Buffer Overflow",
+        "src": {
+            "root_abspath": "/experiment/libtiff/CVE-2016-3186/src",
+            "entrypoint": {
+                "file": "tools/gif2tiff.c",
+                "function": "main"
+            }
+        },
+        "output_dir_abspath": "/output",
+        "stack_trace": [
+            {
+                "depth": 0,
+                "function": "readextension",
+                "source_file": "tools/gif2tiff.c",
+                "line": 355
+            },
+            {
+                "depth": 1,
+                "function": "convert",
+                "source_file": "tools/gif2tiff.c",
+                "line": 223
+            },
+            {
+                "depth": 2,
+                "function": "main",
+                "source_file": "tools/gif2tiff.c",
+                "line": 179
+            }
         ]
-      }
-    ],
-    "failing_test": ["1.tif"],
-    "passing_test": [],
-    "count_neg": 1,
-    "count_pos": 0,
-    "binary_path": "tools/tiff2pdf",
-    "crash_input": "$POC -o foo",
-    "exploit_file_list": [
-      "tests/1.tif"
-    ],
-    "crash_stack_trace": [
-      ["_TIFFmemcpy", "libtiff/tif_unix.c", 340],
-      ["t2p_readwrite_pdf_image_tile", "tools/tiff2pdf.c", 2901],
-      ["t2p_write_pdf", "tools/tiff2pdf.c", 5535],
-      ["main", "tools/tiff2pdf.c", 808]
-    ],
-    "test_timeout": 5,
-    "language": "c",
-    "config_script": "config.sh",
-    "build_script": "build.sh",
-    "test_script": "test.sh",
-    "build_command": "make -j20 CFLAGS='-static' CPPFLAGS='-static' LDFLAGS='-static'",
-    "bug_type": "Buffer Overflow"
-  },
-  {
-    "id": 25,
-    "subject": "libtiff",
-    "bug_id": "CVE-2016-10272",
-    "localization":[
-      {
-        "source_file": "tools/tiffcrop.c",
-        "line_numbers": [
-          3701
+    },
+    {
+        "id": 27,
+        "subject": "libtiff",
+        "bug_id": "CVE-2016-5314",
+        "localization": [
+            {
+                "source_file": "libtiff/tif_pixarlog.c",
+                "line_numbers": [
+                    785
+                ]
+            }
+        ],
+        "failing_test_identifiers": [
+            "1.tif"
+        ],
+        "passing_test_identifiers": [],
+        "count_neg": 1,
+        "count_pos": 0,
+        "binary_path": "tools/rgb2ycbcr",
+        "binary_args": "$POC out.tif",
+        "exploit_file_list": [
+            "tests/1.tif"
+        ],
+        "crash_stack_trace": [],
+        "temp_comment": "cannot reproduce crash in the container",
+        "test_timeout": 5,
+        "language": "c",
+        "config_script": "config.sh",
+        "build_script": "build.sh",
+        "test_script": "test.sh",
+        "build_command": "make -j20 CFLAGS='-static' CPPFLAGS='-static' LDFLAGS='-static'",
+        "bug_type": "Buffer Overflow",
+        "src": {
+            "root_abspath": "/experiment/libtiff/CVE-2016-5314/src",
+            "entrypoint": {
+                "file": "tools/rgb2ycbcr.c",
+                "function": "main"
+            }
+        },
+        "output_dir_abspath": "/output",
+        "stack_trace": []
+    },
+    {
+        "id": 28,
+        "subject": "libtiff",
+        "src": {
+            "root_abspath": "/experiment/libtiff/CVE-2016-5321/src",
+            "entrypoint": {
+                "file": "tools/tiffcrop.c",
+                "function": "main"
+            }
+        },
+        "bug_id": "CVE-2016-5321",
+        "localization": [
+            {
+                "source_file": "tools/tiffcrop.c",
+                "line_numbers": [
+                    3741
+                ]
+            }
+        ],
+        "failing_test_identifiers": [
+            "1.tif"
+        ],
+        "passing_test_identifiers": [],
+        "count_neg": 1,
+        "count_pos": 0,
+        "binary_path": "tools/tiffcrop",
+        "binary_args": "$POC out.tif",
+        "exploit_file_list": [
+            "tests/1.tif"
+        ],
+        "crash_stack_trace": [
+            [
+                "readSeparateTilesIntoBuffer",
+                "tools/tiffcrop.c",
+                994
+            ],
+            [
+                "loadImage",
+                "tools/tiffcrop.c",
+                6079
+            ],
+            [
+                "main",
+                "tools/tiffcrop.c",
+                2278
+            ]
+        ],
+        "test_timeout": 5,
+        "language": "c",
+        "config_script": "config.sh",
+        "build_script": "build.sh",
+        "test_script": "test.sh",
+        "build_command": "make -j20 CFLAGS='-static' CPPFLAGS='-static' LDFLAGS='-static'",
+        "bug_type": "Buffer Overflow",
+        "output_dir_abspath": "/output",
+        "stack_trace": [
+            {
+                "depth": 0,
+                "function": "readSeparateTilesIntoBuffer",
+                "source_file": "tools/tiffcrop.c",
+                "line": 994
+            },
+            {
+                "depth": 1,
+                "function": "loadImage",
+                "source_file": "tools/tiffcrop.c",
+                "line": 6079
+            },
+            {
+                "depth": 2,
+                "function": "main",
+                "source_file": "tools/tiffcrop.c",
+                "line": 2278
+            }
         ]
-      }
-    ],
-    "failing_test": ["1.tif"],
-    "passing_test": [],
-    "count_neg": 1,
-    "count_pos": 0,
-    "binary_path": "tools/tiffcrop",
-    "crash_input": "-i $POC foo",
-    "exploit_file_list": [
-      "tests/1.tif"
-    ],
-    "crash_stack_trace": [
-      ["_TIFFmemcpy", "libtiff/tif_unix.c", 340],
-      ["DumpModeDecode", "libtiff/tif_dumpmode.c", 103],
-      ["TIFFReadEncodedStrip", "libtiff/tif_read.c", 380],
-      ["readContigStripsIntoBuffer", "tools/tiffcrop.c", 3689],
-      ["loadImage", "tools/tiffcrop.c", 6167],
-      ["main", "tools/tiffcrop.c", 2345]
-    ],
-    "test_timeout": 5,
-    "language": "c",
-    "config_script": "config.sh",
-    "build_script": "build.sh",
-    "test_script": "test.sh",
-    "build_command": "make -j20 CFLAGS='-static' CPPFLAGS='-static' LDFLAGS='-static'",
-    "bug_type": "Buffer Overflow"
-  },
-  {
-    "id": 26,
-    "subject": "libtiff",
-    "bug_id": "CVE-2016-3186",
-    "localization":[
-      {
-        "source_file": "tools/gif2tiff.c",
-        "line_numbers": [
-          353
+    },
+    {
+        "id": 29,
+        "subject": "libtiff",
+        "bug_id": "CVE-2016-9273",
+        "localization": [
+            {
+                "source_file": "libtiff/tif_strip.c",
+                "line_numbers": [
+                    65
+                ]
+            }
+        ],
+        "failing_test_identifiers": [
+            "1.tif"
+        ],
+        "passing_test_identifiers": [],
+        "count_neg": 1,
+        "count_pos": 0,
+        "binary_path": "tools/tiffsplit",
+        "binary_args": "$POC",
+        "exploit_file_list": [
+            "tests/1.tif"
+        ],
+        "crash_stack_trace": [
+            [
+                "cpStrips",
+                "tools/tiffsplit.c",
+                246
+            ],
+            [
+                "tiffcp",
+                "tools/tiffsplit.c",
+                227
+            ],
+            [
+                "main",
+                "tools/tiffsplit.c",
+                89
+            ]
+        ],
+        "test_timeout": 5,
+        "language": "c",
+        "config_script": "config.sh",
+        "build_script": "build.sh",
+        "test_script": "test.sh",
+        "build_command": "make -j20 CFLAGS='-static' CPPFLAGS='-static' LDFLAGS='-static'",
+        "bug_type": "Buffer Overflow",
+        "src": {
+            "root_abspath": "/experiment/libtiff/CVE-2016-9273/src",
+            "entrypoint": {
+                "file": "tools/tiffsplit.c",
+                "function": "main"
+            }
+        },
+        "output_dir_abspath": "/output",
+        "stack_trace": [
+            {
+                "depth": 0,
+                "function": "cpStrips",
+                "source_file": "tools/tiffsplit.c",
+                "line": 246
+            },
+            {
+                "depth": 1,
+                "function": "tiffcp",
+                "source_file": "tools/tiffsplit.c",
+                "line": 227
+            },
+            {
+                "depth": 2,
+                "function": "main",
+                "source_file": "tools/tiffsplit.c",
+                "line": 89
+            }
         ]
-      }
-    ],
-    "failing_test": ["1.gif"],
-    "passing_test": [],
-    "count_neg": 1,
-    "count_pos": 0,
-    "binary_path": "tools/gif2tiff",
-    "crash_input": "$POC foo.tif",
-    "exploit_file_list": [
-      "tests/1.gif"
-    ],
-    "crash_stack_trace": [
-      ["readextension", "tools/gif2tiff.c", 355],
-      ["convert", "tools/gif2tiff.c", 223],
-      ["main", "tools/gif2tiff.c", 179]
-    ],
-    "test_timeout": 5,
-    "language": "c",
-    "config_script": "config.sh",
-    "build_script": "build.sh",
-    "test_script": "test.sh",
-    "build_command": "make -j20 CFLAGS='-static' CPPFLAGS='-static' LDFLAGS='-static'",
-    "bug_type": "Buffer Overflow"
-  },
-  {
-    "id": 27,
-    "subject": "libtiff",
-    "bug_id": "CVE-2016-5314",
-    "localization":[
-      {
-        "source_file": "libtiff/tif_pixarlog.c",
-        "line_numbers": [
-          785
+    },
+    {
+        "id": 30,
+        "subject": "libtiff",
+        "bug_id": "CVE-2016-9532",
+        "localization": [
+            {
+                "source_file": "tools/tiffcrop.c",
+                "line_numbers": [
+                    1167
+                ]
+            }
+        ],
+        "failing_test_identifiers": [
+            "1.tif"
+        ],
+        "passing_test_identifiers": [],
+        "count_neg": 1,
+        "count_pos": 0,
+        "binary_path": "tools/tiffcrop",
+        "binary_args": "$POC out.tif",
+        "exploit_file_list": [
+            "tests/1.tif"
+        ],
+        "crash_stack_trace": [
+            [
+                "extractContigSamples24bits",
+                "tools/tiffcrop.c",
+                2978
+            ],
+            [
+                "extractContigSamplesToBuffer",
+                "tools/tiffcrop.c",
+                3539
+            ],
+            [
+                "writeBufferToSeparateStrips",
+                "tools/tiffcrop.c",
+                1184
+            ],
+            [
+                "writeCroppedImage",
+                "tools/tiffcrop.c",
+                7944
+            ],
+            [
+                "main",
+                "tools/tiffcrop.c",
+                2356
+            ]
+        ],
+        "test_timeout": 5,
+        "language": "c",
+        "config_script": "config.sh",
+        "build_script": "build.sh",
+        "test_script": "test.sh",
+        "build_command": "make -j20 CFLAGS='-static' CPPFLAGS='-static' LDFLAGS='-static'",
+        "bug_type": "Buffer Overflow",
+        "src": {
+            "root_abspath": "/experiment/libtiff/CVE-2016-9532/src",
+            "entrypoint": {
+                "file": "tools/tiffcrop.c",
+                "function": "main"
+            }
+        },
+        "output_dir_abspath": "/output",
+        "stack_trace": [
+            {
+                "depth": 0,
+                "function": "extractContigSamples24bits",
+                "source_file": "tools/tiffcrop.c",
+                "line": 2978
+            },
+            {
+                "depth": 1,
+                "function": "extractContigSamplesToBuffer",
+                "source_file": "tools/tiffcrop.c",
+                "line": 3539
+            },
+            {
+                "depth": 2,
+                "function": "writeBufferToSeparateStrips",
+                "source_file": "tools/tiffcrop.c",
+                "line": 1184
+            },
+            {
+                "depth": 3,
+                "function": "writeCroppedImage",
+                "source_file": "tools/tiffcrop.c",
+                "line": 7944
+            },
+            {
+                "depth": 4,
+                "function": "main",
+                "source_file": "tools/tiffcrop.c",
+                "line": 2356
+            }
         ]
-      }
-    ],
-    "failing_test": ["1.tif"],
-    "passing_test": [],
-    "count_neg": 1,
-    "count_pos": 0,
-    "binary_path": "tools/rgb2ycbcr",
-    "crash_input": "$POC out.tif",
-    "exploit_file_list": [
-      "tests/1.tif"
-    ],
-    "crash_stack_trace": [],
-    "temp_comment": "cannot reproduce crash in the container",
-    "test_timeout": 5,
-    "language": "c",
-    "config_script": "config.sh",
-    "build_script": "build.sh",
-    "test_script": "test.sh",
-    "build_command": "make -j20 CFLAGS='-static' CPPFLAGS='-static' LDFLAGS='-static'",
-    "bug_type": "Buffer Overflow"
-  },
-  {
-    "id": 28,
-    "subject": "libtiff",
-    "bug_id": "CVE-2016-5321",
-    "localization":[
-      {
-        "source_file": "tools/tiffcrop.c",
-        "line_numbers": [
-          3741
+    },
+    {
+        "id": 31,
+        "subject": "libtiff",
+        "bug_id": "CVE-2017-5225",
+        "localization": [
+            {
+                "source_file": "tools/tiffcp.c",
+                "line_numbers": [
+                    1069
+                ]
+            }
+        ],
+        "failing_test_identifiers": [
+            "1.tif"
+        ],
+        "passing_test_identifiers": [],
+        "count_neg": 1,
+        "count_pos": 0,
+        "binary_path": "tools/tiffcp",
+        "binary_args": "-p separate $POC out.tiff",
+        "exploit_file_list": [
+            "tests/1.tif"
+        ],
+        "crash_stack_trace": [
+            [
+                "cpContig2SeparateByRow",
+                "tools/tiffcp.c",
+                1090
+            ],
+            [
+                "tiffcp",
+                "tools/tiffcp.c",
+                814
+            ],
+            [
+                "main",
+                "tools/tiffcp.c",
+                303
+            ]
+        ],
+        "test_timeout": 5,
+        "language": "c",
+        "config_script": "config.sh",
+        "build_script": "build.sh",
+        "test_script": "test.sh",
+        "build_command": "make -j20 CFLAGS='-static' CPPFLAGS='-static' LDFLAGS='-static'",
+        "bug_type": "Buffer Overflow",
+        "src": {
+            "root_abspath": "/experiment/libtiff/CVE-2017-5225/src",
+            "entrypoint": {
+                "file": "tools/tiffcp.c",
+                "function": "main"
+            }
+        },
+        "output_dir_abspath": "/output",
+        "stack_trace": [
+            {
+                "depth": 0,
+                "function": "cpContig2SeparateByRow",
+                "source_file": "tools/tiffcp.c",
+                "line": 1090
+            },
+            {
+                "depth": 1,
+                "function": "tiffcp",
+                "source_file": "tools/tiffcp.c",
+                "line": 814
+            },
+            {
+                "depth": 2,
+                "function": "main",
+                "source_file": "tools/tiffcp.c",
+                "line": 303
+            }
         ]
-      }
-    ],
-    "failing_test": ["1.tif"],
-    "passing_test": [],
-    "count_neg": 1,
-    "count_pos": 0,
-    "binary_path": "tools/tiffcrop",
-    "crash_input": "$POC out.tif",
-    "exploit_file_list": [
-      "tests/1.tif"
-    ],
-    "crash_stack_trace": [
-      ["readSeparateTilesIntoBuffer", "tools/tiffcrop.c", 994],
-      ["loadImage", "tools/tiffcrop.c", 6079],
-      ["main", "tools/tiffcrop.c", 2278]
-    ],
-    "test_timeout": 5,
-    "language": "c",
-    "config_script": "config.sh",
-    "build_script": "build.sh",
-    "test_script": "test.sh",
-    "build_command": "make -j20 CFLAGS='-static' CPPFLAGS='-static' LDFLAGS='-static'",
-    "bug_type": "Buffer Overflow"
-  },
-  {
-    "id": 29,
-    "subject": "libtiff",
-    "bug_id": "CVE-2016-9273",
-    "localization":[
-      {
-        "source_file": "libtiff/tif_strip.c",
-        "line_numbers": [
-          65
+    },
+    {
+        "id": 32,
+        "subject": "libtiff",
+        "bug_id": "CVE-2017-7595",
+        "localization": [
+            {
+                "source_file": "libtiff/tif_jpeg.c",
+                "line_numbers": [
+                    1628
+                ]
+            }
+        ],
+        "failing_test_identifiers": [
+            "1.tif"
+        ],
+        "passing_test_identifiers": [],
+        "count_neg": 1,
+        "count_pos": 0,
+        "binary_path": "tools/tiffcp",
+        "binary_args": "-i $POC out.tiff",
+        "exploit_file_list": [
+            "tests/1.tif"
+        ],
+        "crash_stack_trace": [
+            [
+                "JPEGSetupEncode",
+                "libtiff/tif_jpeg.c",
+                1687
+            ],
+            [
+                "TIFFWriteEncodedTile",
+                "libtiff/tif_write.c",
+                446
+            ],
+            [
+                "TIFFWriteTile",
+                "libtiff/tif_write.c",
+                364
+            ],
+            [
+                "writeBufferToContigTiles",
+                "tools/tiffcp.c",
+                1549
+            ],
+            [
+                "cpImage",
+                "tools/tiffcp.c",
+                1235
+            ],
+            [
+                "cpContigTiles2ContigTiles",
+                "tools/tiffcp.c",
+                1694
+            ],
+            [
+                "tiffcp",
+                "tools/tiffcp.c",
+                814
+            ],
+            [
+                "main",
+                "tools/tiffcp.c",
+                303
+            ]
+        ],
+        "test_timeout": 5,
+        "language": "c",
+        "config_script": "config.sh",
+        "build_script": "build.sh",
+        "test_script": "test.sh",
+        "build_command": "make -j20 CFLAGS='-static' CPPFLAGS='-static' LDFLAGS='-static'",
+        "bug_type": "Divide by Zero",
+        "src": {
+            "root_abspath": "/experiment/libtiff/CVE-2017-7595/src",
+            "entrypoint": {
+                "file": "tools/tiffcp.c",
+                "function": "main"
+            }
+        },
+        "output_dir_abspath": "/output",
+        "stack_trace": [
+            {
+                "depth": 0,
+                "function": "JPEGSetupEncode",
+                "source_file": "libtiff/tif_jpeg.c",
+                "line": 1687
+            },
+            {
+                "depth": 1,
+                "function": "TIFFWriteEncodedTile",
+                "source_file": "libtiff/tif_write.c",
+                "line": 446
+            },
+            {
+                "depth": 2,
+                "function": "TIFFWriteTile",
+                "source_file": "libtiff/tif_write.c",
+                "line": 364
+            },
+            {
+                "depth": 3,
+                "function": "writeBufferToContigTiles",
+                "source_file": "tools/tiffcp.c",
+                "line": 1549
+            },
+            {
+                "depth": 4,
+                "function": "cpImage",
+                "source_file": "tools/tiffcp.c",
+                "line": 1235
+            },
+            {
+                "depth": 5,
+                "function": "cpContigTiles2ContigTiles",
+                "source_file": "tools/tiffcp.c",
+                "line": 1694
+            },
+            {
+                "depth": 6,
+                "function": "tiffcp",
+                "source_file": "tools/tiffcp.c",
+                "line": 814
+            },
+            {
+                "depth": 7,
+                "function": "main",
+                "source_file": "tools/tiffcp.c",
+                "line": 303
+            }
         ]
-      }
-    ],
-    "failing_test": ["1.tif"],
-    "passing_test": [],
-    "count_neg": 1,
-    "count_pos": 0,
-    "binary_path": "tools/tiffsplit",
-    "crash_input": "$POC",
-    "exploit_file_list": [
-      "tests/1.tif"
-    ],
-    "crash_stack_trace": [
-      ["cpStrips", "tools/tiffsplit.c", 246],
-      ["tiffcp", "tools/tiffsplit.c", 227],
-      ["main", "tools/tiffsplit.c", 89]
-    ],
-    "test_timeout": 5,
-    "language": "c",
-    "config_script": "config.sh",
-    "build_script": "build.sh",
-    "test_script": "test.sh",
-    "build_command": "make -j20 CFLAGS='-static' CPPFLAGS='-static' LDFLAGS='-static'",
-    "bug_type": "Buffer Overflow"
-  },
-  {
-    "id": 30,
-    "subject": "libtiff",
-    "bug_id": "CVE-2016-9532",
-    "localization":[
-      {
-        "source_file": "tools/tiffcrop.c",
-        "line_numbers": [
-          1167
+    },
+    {
+        "id": 33,
+        "subject": "libtiff",
+        "bug_id": "CVE-2017-7599",
+        "localization": [
+            {
+                "source_file": "libtiff/tif_dirwrite.c",
+                "line_numbers": [
+                    1634
+                ]
+            }
+        ],
+        "failing_test_identifiers": [
+            "1.tif"
+        ],
+        "passing_test_identifiers": [],
+        "count_neg": 1,
+        "count_pos": 0,
+        "binary_path": "tools/tiffcp",
+        "binary_args": "-i $POC out.tiff",
+        "exploit_file_list": [
+            "tests/1.tif"
+        ],
+        "crash_stack_trace": [
+            [
+                "TIFFWriteDirectoryTagSampleformatArray",
+                "libtiff/tif_dirwrite.c",
+                980
+            ],
+            [
+                "TIFFWriteDirectorySec",
+                "libtiff/tif_dirwrite.c",
+                589
+            ],
+            [
+                "TIFFWriteDirectory",
+                "libtiff/tif_dirwrite.c",
+                183
+            ],
+            [
+                "main",
+                "tools/tiffcp.c",
+                303
+            ]
+        ],
+        "test_timeout": 5,
+        "language": "c",
+        "config_script": "config.sh",
+        "build_script": "build.sh",
+        "test_script": "test.sh",
+        "build_command": "make -j20 CFLAGS='-static' CPPFLAGS='-static' LDFLAGS='-static'",
+        "bug_type": "Data Type Overflow",
+        "src": {
+            "root_abspath": "/experiment/libtiff/CVE-2017-7599/src",
+            "entrypoint": {
+                "file": "tools/tiffcp.c",
+                "function": "main"
+            }
+        },
+        "output_dir_abspath": "/output",
+        "stack_trace": [
+            {
+                "depth": 0,
+                "function": "TIFFWriteDirectoryTagSampleformatArray",
+                "source_file": "libtiff/tif_dirwrite.c",
+                "line": 980
+            },
+            {
+                "depth": 1,
+                "function": "TIFFWriteDirectorySec",
+                "source_file": "libtiff/tif_dirwrite.c",
+                "line": 589
+            },
+            {
+                "depth": 2,
+                "function": "TIFFWriteDirectory",
+                "source_file": "libtiff/tif_dirwrite.c",
+                "line": 183
+            },
+            {
+                "depth": 3,
+                "function": "main",
+                "source_file": "tools/tiffcp.c",
+                "line": 303
+            }
         ]
-      }
-    ],
-    "failing_test": ["1.tif"],
-    "passing_test": [],
-    "count_neg": 1,
-    "count_pos": 0,
-    "binary_path": "tools/tiffcrop",
-    "crash_input": "$POC out.tif",
-    "exploit_file_list": [
-      "tests/1.tif"
-    ],
-    "crash_stack_trace": [
-      ["extractContigSamples24bits", "tools/tiffcrop.c", 2978],
-      ["extractContigSamplesToBuffer", "tools/tiffcrop.c", 3539],
-      ["writeBufferToSeparateStrips", "tools/tiffcrop.c", 1184],
-      ["writeCroppedImage", "tools/tiffcrop.c", 7944],
-      ["main", "tools/tiffcrop.c", 2356]
-    ],
-    "test_timeout": 5,
-    "language": "c",
-    "config_script": "config.sh",
-    "build_script": "build.sh",
-    "test_script": "test.sh",
-    "build_command": "make -j20 CFLAGS='-static' CPPFLAGS='-static' LDFLAGS='-static'",
-    "bug_type": "Buffer Overflow"
-  },
-  {
-    "id": 31,
-    "subject": "libtiff",
-    "bug_id": "CVE-2017-5225",
-    "localization":[
-      {
-        "source_file": "tools/tiffcp.c",
-        "line_numbers": [
-          1069
+    },
+    {
+        "id": 34,
+        "subject": "libtiff",
+        "bug_id": "CVE-2017-7600",
+        "localization": [
+            {
+                "source_file": "libtiff/tif_dirwrite.c",
+                "line_numbers": [
+                    1634
+                ]
+            }
+        ],
+        "failing_test_identifiers": [
+            "1.tif"
+        ],
+        "passing_test_identifiers": [],
+        "count_neg": 1,
+        "count_pos": 0,
+        "binary_path": "tools/tiffcp",
+        "binary_args": "-i $POC out.tiff",
+        "exploit_file_list": [
+            "tests/1.tif"
+        ],
+        "crash_stack_trace": [
+            [
+                "TIFFWriteDirectoryTagSampleformatArray",
+                "libtiff/tif_dirwrite.c",
+                994
+            ],
+            [
+                "TIFFWriteDirectorySec",
+                "libtiff/tif_dirwrite.c",
+                589
+            ],
+            [
+                "TIFFWriteDirectory",
+                "libtiff/tif_dirwrite.c",
+                183
+            ],
+            [
+                "main",
+                "tools/tiffcp.c",
+                303
+            ]
+        ],
+        "test_timeout": 5,
+        "language": "c",
+        "config_script": "config.sh",
+        "build_script": "build.sh",
+        "test_script": "test.sh",
+        "build_command": "make -j20 CFLAGS='-static' CPPFLAGS='-static' LDFLAGS='-static'",
+        "bug_type": "Data Type Overflow",
+        "src": {
+            "root_abspath": "/experiment/libtiff/CVE-2017-7600/src",
+            "entrypoint": {
+                "file": "tools/tiffcp.c",
+                "function": "main"
+            }
+        },
+        "output_dir_abspath": "/output",
+        "stack_trace": [
+            {
+                "depth": 0,
+                "function": "TIFFWriteDirectoryTagSampleformatArray",
+                "source_file": "libtiff/tif_dirwrite.c",
+                "line": 994
+            },
+            {
+                "depth": 1,
+                "function": "TIFFWriteDirectorySec",
+                "source_file": "libtiff/tif_dirwrite.c",
+                "line": 589
+            },
+            {
+                "depth": 2,
+                "function": "TIFFWriteDirectory",
+                "source_file": "libtiff/tif_dirwrite.c",
+                "line": 183
+            },
+            {
+                "depth": 3,
+                "function": "main",
+                "source_file": "tools/tiffcp.c",
+                "line": 303
+            }
         ]
-      }
-    ],
-    "failing_test": ["1.tif"],
-    "passing_test": [],
-    "count_neg": 1,
-    "count_pos": 0,
-    "binary_path": "tools/tiffcp",
-    "crash_input": "-p separate $POC out.tiff",
-    "exploit_file_list": [
-      "tests/1.tif"
-    ],
-    "crash_stack_trace": [
-      ["cpContig2SeparateByRow", "tools/tiffcp.c", 1090],
-      ["tiffcp", "tools/tiffcp.c", 814],
-      ["main", "tools/tiffcp.c", 303]
-    ],
-    "test_timeout": 5,
-    "language": "c",
-    "config_script": "config.sh",
-    "build_script": "build.sh",
-    "test_script": "test.sh",
-    "build_command": "make -j20 CFLAGS='-static' CPPFLAGS='-static' LDFLAGS='-static'",
-    "bug_type": "Buffer Overflow"
-  },
-  {
-    "id": 32,
-    "subject": "libtiff",
-    "bug_id": "CVE-2017-7595",
-    "localization":[
-      {
-        "source_file": "libtiff/tif_jpeg.c",
-        "line_numbers": [
-          1628
+    },
+    {
+        "id": 35,
+        "subject": "libtiff",
+        "bug_id": "CVE-2017-7601",
+        "localization": [
+            {
+                "source_file": "libtiff/tif_jpeg.c",
+                "line_numbers": [
+                    1634
+                ]
+            }
+        ],
+        "failing_test_identifiers": [
+            "1.tif"
+        ],
+        "passing_test_identifiers": [],
+        "count_neg": 1,
+        "count_pos": 0,
+        "binary_path": "tools/tiffcp",
+        "binary_args": "-i $POC out.tiff",
+        "exploit_file_list": [
+            "tests/1.tif"
+        ],
+        "crash_stack_trace": [
+            [
+                "JPEGSetupEncode",
+                "libtiff/tif_jpeg.c",
+                1646
+            ],
+            [
+                "TIFFWriteEncodedStrip",
+                "libtiff/tif_write.c",
+                234
+            ],
+            [
+                "cpDecodedStrips",
+                "tools/tiffcp.c",
+                997
+            ],
+            [
+                "tiffcp",
+                "tools/tiffcp.c",
+                814
+            ],
+            [
+                "main",
+                "tools/tiffcp.c",
+                303
+            ]
+        ],
+        "test_timeout": 5,
+        "language": "c",
+        "config_script": "config.sh",
+        "build_script": "build.sh",
+        "test_script": "test.sh",
+        "build_command": "make -j20 CFLAGS='-static' CPPFLAGS='-static' LDFLAGS='-static'",
+        "bug_type": "Integer Overflow",
+        "src": {
+            "root_abspath": "/experiment/libtiff/CVE-2017-7601/src",
+            "entrypoint": {
+                "file": "tools/tiffcp.c",
+                "function": "main"
+            }
+        },
+        "output_dir_abspath": "/output",
+        "stack_trace": [
+            {
+                "depth": 0,
+                "function": "JPEGSetupEncode",
+                "source_file": "libtiff/tif_jpeg.c",
+                "line": 1646
+            },
+            {
+                "depth": 1,
+                "function": "TIFFWriteEncodedStrip",
+                "source_file": "libtiff/tif_write.c",
+                "line": 234
+            },
+            {
+                "depth": 2,
+                "function": "cpDecodedStrips",
+                "source_file": "tools/tiffcp.c",
+                "line": 997
+            },
+            {
+                "depth": 3,
+                "function": "tiffcp",
+                "source_file": "tools/tiffcp.c",
+                "line": 814
+            },
+            {
+                "depth": 4,
+                "function": "main",
+                "source_file": "tools/tiffcp.c",
+                "line": 303
+            }
         ]
-      }
-    ],
-    "failing_test": ["1.tif"],
-    "passing_test": [],
-    "count_neg": 1,
-    "count_pos": 0,
-    "binary_path": "tools/tiffcp",
-    "crash_input": "-i $POC out.tiff",
-    "exploit_file_list": [
-      "tests/1.tif"
-    ],
-    "crash_stack_trace": [
-      ["JPEGSetupEncode", "libtiff/tif_jpeg.c", 1687],
-      ["TIFFWriteEncodedTile", "libtiff/tif_write.c", 446],
-      ["TIFFWriteTile", "libtiff/tif_write.c", 364],
-      ["writeBufferToContigTiles", "tools/tiffcp.c", 1549],
-      ["cpImage", "tools/tiffcp.c", 1235],
-      ["cpContigTiles2ContigTiles", "tools/tiffcp.c", 1694],
-      ["tiffcp", "tools/tiffcp.c", 814],
-      ["main", "tools/tiffcp.c", 303]
-    ],
-    "test_timeout": 5,
-    "language": "c",
-    "config_script": "config.sh",
-    "build_script": "build.sh",
-    "test_script": "test.sh",
-    "build_command": "make -j20 CFLAGS='-static' CPPFLAGS='-static' LDFLAGS='-static'",
-    "bug_type": "Divide by Zero"
-  },
-  {
-    "id": 33,
-    "subject": "libtiff",
-    "bug_id": "CVE-2017-7599",
-    "localization":[
-      {
-        "source_file": "libtiff/tif_dirwrite.c",
-        "line_numbers": [
-          1634
+    },
+    {
+        "id": 36,
+        "subject": "libxml2",
+        "bug_id": "CVE-2012-5134",
+        "localization": [
+            {
+                "source_file": "parser.c",
+                "line_numbers": [
+                    4079
+                ]
+            }
+        ],
+        "failing_test_identifiers": [
+            "1.xml"
+        ],
+        "passing_test_identifiers": [],
+        "count_neg": 1,
+        "count_pos": 0,
+        "binary_path": "xmllint",
+        "binary_args": "$POC",
+        "exploit_file_list": [
+            "tests/1.xml"
+        ],
+        "crash_stack_trace": [
+            [
+                "xmlParseAttValueComplex",
+                "parser.c",
+                4079
+            ],
+            [
+                "xmlParseAttValueInternal",
+                "parser.c",
+                9009
+            ],
+            [
+                "xmlParseAttribute2",
+                "parser.c",
+                9065
+            ],
+            [
+                "xmlParseStartTag2",
+                "parser.c",
+                9223
+            ],
+            [
+                "xmlParseElement",
+                "parser.c",
+                9910
+            ],
+            [
+                "xmlParseDocument",
+                "parser.c",
+                10666
+            ],
+            [
+                "xmlDoRead",
+                "parser.c",
+                15066
+            ],
+            [
+                "xmlReadFile",
+                "parser.c",
+                15126
+            ],
+            [
+                "parseAndPrintFile",
+                "xmllint.c",
+                2381
+            ],
+            [
+                "main",
+                "xmllint.c",
+                3733
+            ]
+        ],
+        "test_timeout": 5,
+        "language": "c",
+        "config_script": "config.sh",
+        "build_script": "build.sh",
+        "test_script": "test.sh",
+        "build_command": "make -j20 CFLAGS='-static' CXXFLAGS='-static' LDFLAGS='-static'",
+        "bug_type": "Buffer Overflow",
+        "src": {
+            "root_abspath": "/experiment/libxml2/CVE-2012-5134/src",
+            "entrypoint": {
+                "file": "xmllint.c",
+                "function": "main"
+            }
+        },
+        "output_dir_abspath": "/output",
+        "stack_trace": [
+            {
+                "depth": 0,
+                "function": "xmlParseAttValueComplex",
+                "source_file": "parser.c",
+                "line": 4079
+            },
+            {
+                "depth": 1,
+                "function": "xmlParseAttValueInternal",
+                "source_file": "parser.c",
+                "line": 9009
+            },
+            {
+                "depth": 2,
+                "function": "xmlParseAttribute2",
+                "source_file": "parser.c",
+                "line": 9065
+            },
+            {
+                "depth": 3,
+                "function": "xmlParseStartTag2",
+                "source_file": "parser.c",
+                "line": 9223
+            },
+            {
+                "depth": 4,
+                "function": "xmlParseElement",
+                "source_file": "parser.c",
+                "line": 9910
+            },
+            {
+                "depth": 5,
+                "function": "xmlParseDocument",
+                "source_file": "parser.c",
+                "line": 10666
+            },
+            {
+                "depth": 6,
+                "function": "xmlDoRead",
+                "source_file": "parser.c",
+                "line": 15066
+            },
+            {
+                "depth": 7,
+                "function": "xmlReadFile",
+                "source_file": "parser.c",
+                "line": 15126
+            },
+            {
+                "depth": 8,
+                "function": "parseAndPrintFile",
+                "source_file": "xmllint.c",
+                "line": 2381
+            },
+            {
+                "depth": 9,
+                "function": "main",
+                "source_file": "xmllint.c",
+                "line": 3733
+            }
         ]
-      }
-    ],
-    "failing_test": ["1.tif"],
-    "passing_test": [],
-    "count_neg": 1,
-    "count_pos": 0,
-    "binary_path": "tools/tiffcp",
-    "crash_input": "-i $POC out.tiff",
-    "exploit_file_list": [
-      "tests/1.tif"
-    ],
-    "crash_stack_trace": [
-      ["TIFFWriteDirectoryTagSampleformatArray", "libtiff/tif_dirwrite.c", 980],
-      ["TIFFWriteDirectorySec", "libtiff/tif_dirwrite.c", 589],
-      ["TIFFWriteDirectory", "libtiff/tif_dirwrite.c", 183],
-      ["main", "tools/tiffcp.c", 303]
-    ],
-    "test_timeout": 5,
-    "language": "c",
-    "config_script": "config.sh",
-    "build_script": "build.sh",
-    "test_script": "test.sh",
-    "build_command": "make -j20 CFLAGS='-static' CPPFLAGS='-static' LDFLAGS='-static'",
-    "bug_type": "Data Type Overflow"
-  },
-  {
-    "id": 34,
-    "subject": "libtiff",
-    "bug_id": "CVE-2017-7600",
-    "localization":[
-      {
-        "source_file": "libtiff/tif_dirwrite.c",
-        "line_numbers": [
-          1634
+    },
+    {
+        "id": 37,
+        "subject": "libxml2",
+        "bug_id": "CVE-2016-1838",
+        "localization": [
+            {
+                "source_file": "parser.c",
+                "line_numbers": [
+                    9837
+                ]
+            }
+        ],
+        "failing_test_identifiers": [
+            "1.txt"
+        ],
+        "passing_test_identifiers": [],
+        "count_neg": 1,
+        "count_pos": 0,
+        "binary_path": "xmllint",
+        "binary_args": "$POC",
+        "exploit_file_list": [
+            "tests/1.txt"
+        ],
+        "crash_stack_trace": [
+            [
+                "xmlParseEndTag2",
+                "parser.c",
+                9837
+            ],
+            [
+                "xmlParseElement",
+                "parser.c",
+                10247
+            ],
+            [
+                "xmlParseDocument",
+                "parser.c",
+                10921
+            ],
+            [
+                "xmlDoRead",
+                "parser.c",
+                15400
+            ],
+            [
+                "xmlReadFile",
+                "parser.c",
+                15462
+            ],
+            [
+                "parseAndPrintFile",
+                "xmllint.c",
+                2408
+            ],
+            [
+                "main",
+                "xmllint.c",
+                3767
+            ]
+        ],
+        "test_timeout": 5,
+        "language": "c",
+        "config_script": "config.sh",
+        "build_script": "build.sh",
+        "test_script": "test.sh",
+        "build_command": "make -j20 CFLAGS='-static' CXXFLAGS='-static' LDFLAGS='-static'",
+        "bug_type": "Buffer Overflow",
+        "src": {
+            "root_abspath": "/experiment/libxml2/CVE-2016-1838/src",
+            "entrypoint": {
+                "file": "xmllint.c",
+                "function": "main"
+            }
+        },
+        "output_dir_abspath": "/output",
+        "stack_trace": [
+            {
+                "depth": 0,
+                "function": "xmlParseEndTag2",
+                "source_file": "parser.c",
+                "line": 9837
+            },
+            {
+                "depth": 1,
+                "function": "xmlParseElement",
+                "source_file": "parser.c",
+                "line": 10247
+            },
+            {
+                "depth": 2,
+                "function": "xmlParseDocument",
+                "source_file": "parser.c",
+                "line": 10921
+            },
+            {
+                "depth": 3,
+                "function": "xmlDoRead",
+                "source_file": "parser.c",
+                "line": 15400
+            },
+            {
+                "depth": 4,
+                "function": "xmlReadFile",
+                "source_file": "parser.c",
+                "line": 15462
+            },
+            {
+                "depth": 5,
+                "function": "parseAndPrintFile",
+                "source_file": "xmllint.c",
+                "line": 2408
+            },
+            {
+                "depth": 6,
+                "function": "main",
+                "source_file": "xmllint.c",
+                "line": 3767
+            }
         ]
-      }
-    ],
-    "failing_test": ["1.tif"],
-    "passing_test": [],
-    "count_neg": 1,
-    "count_pos": 0,
-    "binary_path": "tools/tiffcp",
-    "crash_input": "-i $POC out.tiff",
-    "exploit_file_list": [
-      "tests/1.tif"
-    ],
-    "crash_stack_trace": [
-      ["TIFFWriteDirectoryTagSampleformatArray", "libtiff/tif_dirwrite.c", 994],
-      ["TIFFWriteDirectorySec", "libtiff/tif_dirwrite.c", 589],
-      ["TIFFWriteDirectory", "libtiff/tif_dirwrite.c", 183],
-      ["main", "tools/tiffcp.c", 303]
-    ],
-    "test_timeout": 5,
-    "language": "c",
-    "config_script": "config.sh",
-    "build_script": "build.sh",
-    "test_script": "test.sh",
-    "build_command": "make -j20 CFLAGS='-static' CPPFLAGS='-static' LDFLAGS='-static'",
-    "bug_type": "Data Type Overflow"
-  },
-  {
-    "id": 35,
-    "subject": "libtiff",
-    "bug_id": "CVE-2017-7601",
-    "localization":[
-      {
-        "source_file": "libtiff/tif_jpeg.c",
-        "line_numbers": [
-          1634
+    },
+    {
+        "id": 38,
+        "subject": "libxml2",
+        "bug_id": "CVE-2016-1839",
+        "localization": [
+            {
+                "source_file": "HTMLparser.c",
+                "line_numbers": [
+                    2516
+                ]
+            }
+        ],
+        "failing_test_identifiers": [
+            "1.txt"
+        ],
+        "passing_test_identifiers": [],
+        "count_neg": 1,
+        "count_pos": 0,
+        "binary_path": "xmllint",
+        "binary_args": "-html $POC",
+        "exploit_file_list": [
+            "tests/1.txt"
+        ],
+        "crash_stack_trace": [
+            [
+                "xmlDictAddString",
+                "dict.c",
+                285
+            ],
+            [
+                "xmlDictLookup",
+                "dict.c",
+                926
+            ],
+            [
+                "htmlParseNameComplex",
+                "HTMLparser.c",
+                2517
+            ],
+            [
+                "htmlParseName",
+                "HTMLparser.c",
+                2483
+            ],
+            [
+                "htmlParseEntityRef",
+                "HTMLparser.c",
+                2682
+            ],
+            [
+                "htmlParseReference",
+                "HTMLparser.c",
+                4044
+            ],
+            [
+                "htmlParseContentInternal",
+                "HTMLparser.c",
+                4619
+            ],
+            [
+                "htmlParseDocument",
+                "HTMLparser.c",
+                4769
+            ],
+            [
+                "htmlDoRead",
+                "HTMLparser.c",
+                6741
+            ],
+            [
+                "htmlReadFile",
+                "HTMLparser.c",
+                6799
+            ],
+            [
+                "parseAndPrintFile",
+                "xmllint.c",
+                2255
+            ],
+            [
+                "main",
+                "xmllint.c",
+                3767
+            ]
+        ],
+        "test_timeout": 5,
+        "language": "c",
+        "config_script": "config.sh",
+        "build_script": "build.sh",
+        "test_script": "test.sh",
+        "build_command": "make -j20 CFLAGS='-static' CXXFLAGS='-static' LDFLAGS='-static'",
+        "bug_type": "Buffer Overflow",
+        "src": {
+            "root_abspath": "/experiment/libxml2/CVE-2016-1839/src",
+            "entrypoint": {
+                "file": "xmllint.c",
+                "function": "main"
+            }
+        },
+        "output_dir_abspath": "/output",
+        "stack_trace": [
+            {
+                "depth": 0,
+                "function": "xmlDictAddString",
+                "source_file": "dict.c",
+                "line": 285
+            },
+            {
+                "depth": 1,
+                "function": "xmlDictLookup",
+                "source_file": "dict.c",
+                "line": 926
+            },
+            {
+                "depth": 2,
+                "function": "htmlParseNameComplex",
+                "source_file": "HTMLparser.c",
+                "line": 2517
+            },
+            {
+                "depth": 3,
+                "function": "htmlParseName",
+                "source_file": "HTMLparser.c",
+                "line": 2483
+            },
+            {
+                "depth": 4,
+                "function": "htmlParseEntityRef",
+                "source_file": "HTMLparser.c",
+                "line": 2682
+            },
+            {
+                "depth": 5,
+                "function": "htmlParseReference",
+                "source_file": "HTMLparser.c",
+                "line": 4044
+            },
+            {
+                "depth": 6,
+                "function": "htmlParseContentInternal",
+                "source_file": "HTMLparser.c",
+                "line": 4619
+            },
+            {
+                "depth": 7,
+                "function": "htmlParseDocument",
+                "source_file": "HTMLparser.c",
+                "line": 4769
+            },
+            {
+                "depth": 8,
+                "function": "htmlDoRead",
+                "source_file": "HTMLparser.c",
+                "line": 6741
+            },
+            {
+                "depth": 9,
+                "function": "htmlReadFile",
+                "source_file": "HTMLparser.c",
+                "line": 6799
+            },
+            {
+                "depth": 10,
+                "function": "parseAndPrintFile",
+                "source_file": "xmllint.c",
+                "line": 2255
+            },
+            {
+                "depth": 11,
+                "function": "main",
+                "source_file": "xmllint.c",
+                "line": 3767
+            }
         ]
-      }
-    ],
-    "failing_test": ["1.tif"],
-    "passing_test": [],
-    "count_neg": 1,
-    "count_pos": 0,
-    "binary_path": "tools/tiffcp",
-    "crash_input": "-i $POC out.tiff",
-    "exploit_file_list": [
-      "tests/1.tif"
-    ],
-    "crash_stack_trace": [
-      ["JPEGSetupEncode", "libtiff/tif_jpeg.c", 1646],
-      ["TIFFWriteEncodedStrip", "libtiff/tif_write.c", 234],
-      ["cpDecodedStrips", "tools/tiffcp.c", 997],
-      ["tiffcp", "tools/tiffcp.c", 814],
-      ["main", "tools/tiffcp.c", 303]
-    ],
-    "test_timeout": 5,
-    "language": "c",
-    "config_script": "config.sh",
-    "build_script": "build.sh",
-    "test_script": "test.sh",
-    "build_command": "make -j20 CFLAGS='-static' CPPFLAGS='-static' LDFLAGS='-static'",
-    "bug_type": "Integer Overflow"
-  },
-  {
-    "id": 36,
-    "subject": "libxml2",
-    "bug_id": "CVE-2012-5134",
-    "localization":[
-      {
-        "source_file": "parser.c",
-        "line_numbers": [
-          4079
+    },
+    {
+        "id": 39,
+        "subject": "libxml2",
+        "bug_id": "CVE-2017-5969",
+        "localization": [
+            {
+                "source_file": "valid.c",
+                "line_numbers": [
+                    1197
+                ]
+            }
+        ],
+        "failing_test_identifiers": [
+            "1.xml"
+        ],
+        "passing_test_identifiers": [],
+        "count_neg": 1,
+        "count_pos": 0,
+        "binary_path": "xmllint",
+        "binary_args": "--recover  $POC",
+        "exploit_file_list": [
+            "tests/1.xml"
+        ],
+        "crash_stack_trace": [
+            [
+                "xmlDumpElementContent",
+                "valid.c",
+                1181
+            ],
+            [
+                "xmlDumpElementContent",
+                "valid.c",
+                1177
+            ],
+            [
+                "xmlDumpElementDecl",
+                "valid.c",
+                1708
+            ],
+            [
+                "xmlBufDumpElementDecl",
+                "xmlsave.c",
+                501
+            ],
+            [
+                "xmlNodeDumpOutputInternal",
+                "xmlsave.c",
+                939
+            ],
+            [
+                "xmlNodeListDumpOutput",
+                "xmlsave.c",
+                825
+            ],
+            [
+                "xmlDtdDumpOutput",
+                "xmlsave.c",
+                749
+            ],
+            [
+                "xmlNodeDumpOutputInternal",
+                "xmlsave.c",
+                931
+            ],
+            [
+                "xmlDocContentDumpOutput",
+                "xmlsave.c",
+                1234
+            ],
+            [
+                "xmlSaveDoc",
+                "xmlsave.c",
+                1936
+            ],
+            [
+                "parseAndPrintFile",
+                "xmllint.c",
+                2712
+            ],
+            [
+                "main",
+                "xmllint.c",
+                3767
+            ]
+        ],
+        "test_timeout": 5,
+        "language": "c",
+        "config_script": "config.sh",
+        "build_script": "build.sh",
+        "test_script": "test.sh",
+        "build_command": "make -j20 CFLAGS='-static' CXXFLAGS='-static' LDFLAGS='-static'",
+        "bug_type": "Null Pointer Dereference",
+        "src": {
+            "root_abspath": "/experiment/libxml2/CVE-2017-5969/src",
+            "entrypoint": {
+                "file": "xmllint.c",
+                "function": "main"
+            }
+        },
+        "output_dir_abspath": "/output",
+        "stack_trace": [
+            {
+                "depth": 0,
+                "function": "xmlDumpElementContent",
+                "source_file": "valid.c",
+                "line": 1181
+            },
+            {
+                "depth": 1,
+                "function": "xmlDumpElementContent",
+                "source_file": "valid.c",
+                "line": 1177
+            },
+            {
+                "depth": 2,
+                "function": "xmlDumpElementDecl",
+                "source_file": "valid.c",
+                "line": 1708
+            },
+            {
+                "depth": 3,
+                "function": "xmlBufDumpElementDecl",
+                "source_file": "xmlsave.c",
+                "line": 501
+            },
+            {
+                "depth": 4,
+                "function": "xmlNodeDumpOutputInternal",
+                "source_file": "xmlsave.c",
+                "line": 939
+            },
+            {
+                "depth": 5,
+                "function": "xmlNodeListDumpOutput",
+                "source_file": "xmlsave.c",
+                "line": 825
+            },
+            {
+                "depth": 6,
+                "function": "xmlDtdDumpOutput",
+                "source_file": "xmlsave.c",
+                "line": 749
+            },
+            {
+                "depth": 7,
+                "function": "xmlNodeDumpOutputInternal",
+                "source_file": "xmlsave.c",
+                "line": 931
+            },
+            {
+                "depth": 8,
+                "function": "xmlDocContentDumpOutput",
+                "source_file": "xmlsave.c",
+                "line": 1234
+            },
+            {
+                "depth": 9,
+                "function": "xmlSaveDoc",
+                "source_file": "xmlsave.c",
+                "line": 1936
+            },
+            {
+                "depth": 10,
+                "function": "parseAndPrintFile",
+                "source_file": "xmllint.c",
+                "line": 2712
+            },
+            {
+                "depth": 11,
+                "function": "main",
+                "source_file": "xmllint.c",
+                "line": 3767
+            }
         ]
-      }
-    ],
-    "failing_test": ["1.xml"],
-    "passing_test": [],
-    "count_neg": 1,
-    "count_pos": 0,
-    "binary_path": "xmllint",
-    "crash_input": "$POC",
-    "exploit_file_list": [
-      "tests/1.xml"
-    ],
-    "crash_stack_trace": [
-      ["xmlParseAttValueComplex", "parser.c", 4079],
-      ["xmlParseAttValueInternal", "parser.c", 9009],
-      ["xmlParseAttribute2", "parser.c", 9065],
-      ["xmlParseStartTag2", "parser.c", 9223],
-      ["xmlParseElement", "parser.c", 9910],
-      ["xmlParseDocument", "parser.c", 10666],
-      ["xmlDoRead", "parser.c", 15066],
-      ["xmlReadFile", "parser.c", 15126],
-      ["parseAndPrintFile", "xmllint.c", 2381],
-      ["main", "xmllint.c", 3733]
-    ],
-    "test_timeout": 5,
-    "language": "c",
-    "config_script": "config.sh",
-    "build_script": "build.sh",
-    "test_script": "test.sh",
-    "build_command": "make -j20 CFLAGS='-static' CXXFLAGS='-static' LDFLAGS='-static'",
-    "bug_type": "Buffer Overflow"
-  },
-  {
-    "id": 37,
-    "subject": "libxml2",
-    "bug_id": "CVE-2016-1838",
-    "localization":[
-      {
-        "source_file": "parser.c",
-        "line_numbers": [
-          9837
+    },
+    {
+        "id": 40,
+        "subject": "potrace",
+        "bug_id": "CVE-2013-7437",
+        "localization": [
+            {
+                "source_file": "src/bitmap_io.c",
+                "line_numbers": [
+                    481
+                ]
+            }
+        ],
+        "failing_test_identifiers": [
+            "test_1"
+        ],
+        "passing_test_identifiers": [],
+        "count_neg": 1,
+        "count_pos": 0,
+        "binary_path": "src/potrace",
+        "binary_args": "$POC",
+        "exploit_file_list": [
+            "tests/test_1"
+        ],
+        "crash_stack_trace": [
+            [
+                "bm_readbody_bmp",
+                "src/bitmap_io.c",
+                615
+            ],
+            [
+                "bm_read",
+                "src/bitmap_io.c",
+                129
+            ],
+            [
+                "process_file",
+                "src/main.c",
+                1056
+            ],
+            [
+                "main",
+                "src/main.c",
+                1212
+            ]
+        ],
+        "test_timeout": 5,
+        "language": "c",
+        "config_script": "config.sh",
+        "build_script": "build.sh",
+        "test_script": "test.sh",
+        "build_command": "make -j20 CFLAGS='-static' LDFLAGS='-static'",
+        "bug_type": "Buffer Overflow",
+        "src": {
+            "root_abspath": "/experiment/potrace/CVE-2013-7437/src",
+            "entrypoint": {
+                "file": "src/potrace.c",
+                "function": "main"
+            }
+        },
+        "output_dir_abspath": "/output",
+        "stack_trace": [
+            {
+                "depth": 0,
+                "function": "bm_readbody_bmp",
+                "source_file": "src/bitmap_io.c",
+                "line": 615
+            },
+            {
+                "depth": 1,
+                "function": "bm_read",
+                "source_file": "src/bitmap_io.c",
+                "line": 129
+            },
+            {
+                "depth": 2,
+                "function": "process_file",
+                "source_file": "src/main.c",
+                "line": 1056
+            },
+            {
+                "depth": 3,
+                "function": "main",
+                "source_file": "src/main.c",
+                "line": 1212
+            }
         ]
-      }
-    ],
-    "failing_test": ["1.txt"],
-    "passing_test": [],
-    "count_neg": 1,
-    "count_pos": 0,
-    "binary_path": "xmllint",
-    "crash_input": "$POC",
-    "exploit_file_list": [
-      "tests/1.txt"
-    ],
-    "crash_stack_trace": [
-      ["xmlParseEndTag2", "parser.c", 9837],
-      ["xmlParseElement", "parser.c", 10247],
-      ["xmlParseDocument", "parser.c", 10921],
-      ["xmlDoRead", "parser.c", 15400],
-      ["xmlReadFile", "parser.c", 15462],
-      ["parseAndPrintFile", "xmllint.c", 2408],
-      ["main", "xmllint.c", 3767]
-    ],
-    "test_timeout": 5,
-    "language": "c",
-    "config_script": "config.sh",
-    "build_script": "build.sh",
-    "test_script": "test.sh",
-    "build_command": "make -j20 CFLAGS='-static' CXXFLAGS='-static' LDFLAGS='-static'",
-    "bug_type": "Buffer Overflow"
-  },
-  {
-    "id": 38,
-    "subject": "libxml2",
-    "bug_id": "CVE-2016-1839",
-    "localization":[
-      {
-        "source_file": "HTMLparser.c",
-        "line_numbers": [
-          2516
+    },
+    {
+        "id": 41,
+        "subject": "zziplib",
+        "bug_id": "CVE-2017-5974",
+        "localization": [
+            {
+                "source_file": "zzip/memdisk.c",
+                "line_numbers": [
+                    264
+                ]
+            }
+        ],
+        "failing_test_identifiers": [
+            "1.zip"
+        ],
+        "passing_test_identifiers": [],
+        "count_neg": 1,
+        "count_pos": 0,
+        "binary_path": "linux/bins/unzzipcat-mem",
+        "binary_args": "$POC",
+        "exploit_file_list": [
+            "tests/1.zip"
+        ],
+        "crash_stack_trace": [
+            [
+                "zzip_mem_entry_new",
+                "zzip/memdisk.c",
+                231
+            ],
+            [
+                "zzip_mem_disk_load",
+                "zzip/memdisk.c",
+                137
+            ],
+            [
+                "zzip_mem_disk_open",
+                "zzip/memdisk.c",
+                89
+            ],
+            [
+                "main",
+                "bins/unzzipcat-mem.c",
+                82
+            ]
+        ],
+        "test_timeout": 5,
+        "language": "c",
+        "config_script": "config.sh",
+        "build_script": "build.sh",
+        "test_script": "test.sh",
+        "build_command": "make -j20 CFLAGS='-static' CPPFLAGS='-static' LDFLAGS='-static'",
+        "bug_type": "Buffer Overflow",
+        "src": {
+            "root_abspath": "/experiment/zziplib/CVE-2017-5974/src",
+            "entrypoint": {
+                "file": "linux/bins/unzzipcat-mem.c",
+                "function": "main"
+            }
+        },
+        "output_dir_abspath": "/output",
+        "stack_trace": [
+            {
+                "depth": 0,
+                "function": "zzip_mem_entry_new",
+                "source_file": "zzip/memdisk.c",
+                "line": 231
+            },
+            {
+                "depth": 1,
+                "function": "zzip_mem_disk_load",
+                "source_file": "zzip/memdisk.c",
+                "line": 137
+            },
+            {
+                "depth": 2,
+                "function": "zzip_mem_disk_open",
+                "source_file": "zzip/memdisk.c",
+                "line": 89
+            },
+            {
+                "depth": 3,
+                "function": "main",
+                "source_file": "bins/unzzipcat-mem.c",
+                "line": 82
+            }
         ]
-      }
-    ],
-    "failing_test": ["1.txt"],
-    "passing_test": [],
-    "count_neg": 1,
-    "count_pos": 0,
-    "binary_path": "xmllint",
-    "crash_input": "-html $POC",
-    "exploit_file_list": [
-      "tests/1.txt"
-    ],
-    "crash_stack_trace": [
-      ["xmlDictAddString", "dict.c", 285],
-      ["xmlDictLookup", "dict.c", 926],
-      ["htmlParseNameComplex", "HTMLparser.c", 2517],
-      ["htmlParseName", "HTMLparser.c", 2483],
-      ["htmlParseEntityRef", "HTMLparser.c", 2682],
-      ["htmlParseReference", "HTMLparser.c", 4044],
-      ["htmlParseContentInternal", "HTMLparser.c", 4619],
-      ["htmlParseDocument", "HTMLparser.c", 4769],
-      ["htmlDoRead", "HTMLparser.c", 6741],
-      ["htmlReadFile", "HTMLparser.c", 6799],
-      ["parseAndPrintFile", "xmllint.c", 2255],
-      ["main", "xmllint.c", 3767]
-    ],
-    "test_timeout": 5,
-    "language": "c",
-    "config_script": "config.sh",
-    "build_script": "build.sh",
-    "test_script": "test.sh",
-    "build_command": "make -j20 CFLAGS='-static' CXXFLAGS='-static' LDFLAGS='-static'",
-    "bug_type": "Buffer Overflow"
-  },
-  {
-    "id": 39,
-    "subject": "libxml2",
-    "bug_id": "CVE-2017-5969",
-    "localization":[
-      {
-        "source_file": "valid.c",
-        "line_numbers": [
-          1197
+    },
+    {
+        "id": 42,
+        "subject": "zziplib",
+        "bug_id": "CVE-2017-5975",
+        "localization": [
+            {
+                "source_file": "zzip/memdisk.c",
+                "line_numbers": [
+                    175
+                ]
+            }
+        ],
+        "failing_test_identifiers": [
+            "1.zip"
+        ],
+        "passing_test_identifiers": [],
+        "count_neg": 1,
+        "count_pos": 0,
+        "binary_path": "linux/bins/unzzipcat-mem",
+        "binary_args": "$POC",
+        "exploit_file_list": [
+            "tests/1.zip"
+        ],
+        "crash_stack_trace": [
+            [
+                "zzip_mem_entry_new",
+                "zzip/memdisk.c",
+                182
+            ],
+            [
+                "zzip_mem_disk_load",
+                "zzip/memdisk.c",
+                137
+            ],
+            [
+                "zzip_mem_disk_open",
+                "zzip/memdisk.c",
+                89
+            ],
+            [
+                "main",
+                "bins/unzzipcat-mem.c",
+                82
+            ]
+        ],
+        "test_timeout": 5,
+        "language": "c",
+        "config_script": "config.sh",
+        "build_script": "build.sh",
+        "test_script": "test.sh",
+        "build_command": "make -j20 CFLAGS='-static' CPPFLAGS='-static' LDFLAGS='-static'",
+        "bug_type": "Null Pointer Dereference",
+        "src": {
+            "root_abspath": "/experiment/zziplib/CVE-2017-5975/src",
+            "entrypoint": {
+                "file": "linux/bins/unzzipcat-mem.c",
+                "function": "main"
+            }
+        },
+        "output_dir_abspath": "/output",
+        "stack_trace": [
+            {
+                "depth": 0,
+                "function": "zzip_mem_entry_new",
+                "source_file": "zzip/memdisk.c",
+                "line": 182
+            },
+            {
+                "depth": 1,
+                "function": "zzip_mem_disk_load",
+                "source_file": "zzip/memdisk.c",
+                "line": 137
+            },
+            {
+                "depth": 2,
+                "function": "zzip_mem_disk_open",
+                "source_file": "zzip/memdisk.c",
+                "line": 89
+            },
+            {
+                "depth": 3,
+                "function": "main",
+                "source_file": "bins/unzzipcat-mem.c",
+                "line": 82
+            }
         ]
-      }
-    ],
-    "failing_test": ["1.xml"],
-    "passing_test": [],
-    "count_neg": 1,
-    "count_pos": 0,
-    "binary_path": "xmllint",
-    "crash_input": "--recover  $POC",
-    "exploit_file_list": [
-      "tests/1.xml"
-    ],
-    "crash_stack_trace": [
-      ["xmlDumpElementContent", "valid.c", 1181],
-      ["xmlDumpElementContent", "valid.c", 1177],
-      ["xmlDumpElementDecl", "valid.c", 1708],
-      ["xmlBufDumpElementDecl", "xmlsave.c", 501],
-      ["xmlNodeDumpOutputInternal", "xmlsave.c", 939],
-      ["xmlNodeListDumpOutput", "xmlsave.c", 825],
-      ["xmlDtdDumpOutput", "xmlsave.c", 749],
-      ["xmlNodeDumpOutputInternal", "xmlsave.c", 931],
-      ["xmlDocContentDumpOutput", "xmlsave.c", 1234],
-      ["xmlSaveDoc", "xmlsave.c", 1936],
-      ["parseAndPrintFile", "xmllint.c", 2712],
-      ["main", "xmllint.c", 3767]
-    ],
-    "test_timeout": 5,
-    "language": "c",
-    "config_script": "config.sh",
-    "build_script": "build.sh",
-    "test_script": "test.sh",
-    "build_command": "make -j20 CFLAGS='-static' CXXFLAGS='-static' LDFLAGS='-static'",
-    "bug_type": "Null Pointer Dereference"
-  },
-  {
-    "id": 40,
-    "subject": "potrace",
-    "bug_id": "CVE-2013-7437",
-    "localization":[
-      {
-        "source_file": "src/bitmap_io.c",
-        "line_numbers": [
-          481
+    },
+    {
+        "id": 43,
+        "subject": "zziplib",
+        "bug_id": "CVE-2017-5976",
+        "localization": [
+            {
+                "source_file": "zzip/memdisk.c",
+                "line_numbers": [
+                    208
+                ]
+            }
+        ],
+        "failing_test_identifiers": [
+            "1.zip"
+        ],
+        "passing_test_identifiers": [],
+        "count_neg": 1,
+        "count_pos": 0,
+        "binary_path": "linux/bins/unzzipcat-mem",
+        "binary_args": "$POC",
+        "exploit_file_list": [
+            "tests/1.zip"
+        ],
+        "crash_stack_trace": [
+            [
+                "zzip_mem_entry_extra_block",
+                "zzip/memdisk.c",
+                248
+            ],
+            [
+                "zzip_mem_entry_new",
+                "zzip/memdisk.c",
+                217
+            ],
+            [
+                "zzip_mem_disk_load",
+                "zzip/memdisk.c",
+                137
+            ],
+            [
+                "zzip_mem_disk_open",
+                "zzip/memdisk.c",
+                89
+            ],
+            [
+                "main",
+                "bins/unzzipcat-mem.c",
+                82
+            ]
+        ],
+        "test_timeout": 5,
+        "language": "c",
+        "config_script": "config.sh",
+        "build_script": "build.sh",
+        "test_script": "test.sh",
+        "build_command": "make -j20 CFLAGS='-static' CPPFLAGS='-static' LDFLAGS='-static'",
+        "bug_type": "Buffer Overflow",
+        "src": {
+            "root_abspath": "/experiment/zziplib/CVE-2017-5976/src",
+            "entrypoint": {
+                "file": "linux/bins/unzzipcat-mem.c",
+                "function": "main"
+            }
+        },
+        "output_dir_abspath": "/output",
+        "stack_trace": [
+            {
+                "depth": 0,
+                "function": "zzip_mem_entry_extra_block",
+                "source_file": "zzip/memdisk.c",
+                "line": 248
+            },
+            {
+                "depth": 1,
+                "function": "zzip_mem_entry_new",
+                "source_file": "zzip/memdisk.c",
+                "line": 217
+            },
+            {
+                "depth": 2,
+                "function": "zzip_mem_disk_load",
+                "source_file": "zzip/memdisk.c",
+                "line": 137
+            },
+            {
+                "depth": 3,
+                "function": "zzip_mem_disk_open",
+                "source_file": "zzip/memdisk.c",
+                "line": 89
+            },
+            {
+                "depth": 4,
+                "function": "main",
+                "source_file": "bins/unzzipcat-mem.c",
+                "line": 82
+            }
         ]
-      }
-    ],
-    "failing_test": ["test_1"],
-    "passing_test": [],
-    "count_neg": 1,
-    "count_pos": 0,
-    "binary_path": "src/potrace",
-    "crash_input": "$POC",
-    "exploit_file_list": [
-      "tests/test_1"
-    ],
-    "crash_stack_trace": [
-      ["bm_readbody_bmp", "src/bitmap_io.c", 615],
-      ["bm_read", "src/bitmap_io.c", 129],
-      ["process_file", "src/main.c", 1056],
-      ["main", "src/main.c", 1212]
-    ],
-    "test_timeout": 5,
-    "language": "c",
-    "config_script": "config.sh",
-    "build_script": "build.sh",
-    "test_script": "test.sh",
-    "build_command": "make -j20 CFLAGS='-static' LDFLAGS='-static'",
-    "bug_type": "Buffer Overflow"
-  },
-  {
-    "id": 41,
-    "subject": "zziplib",
-    "bug_id": "CVE-2017-5974",
-    "localization":[
-      {
-        "source_file": "zzip/memdisk.c",
-        "line_numbers": [
-          264
-        ]
-      }
-    ],
-    "failing_test": ["1.zip"],
-    "passing_test": [],
-    "count_neg": 1,
-    "count_pos": 0,
-    "binary_path": "linux/bins/unzzipcat-mem",
-    "crash_input": "$POC",
-    "exploit_file_list": [
-      "tests/1.zip"
-    ],
-    "crash_stack_trace": [
-      ["zzip_mem_entry_new", "zzip/memdisk.c", 231],
-      ["zzip_mem_disk_load", "zzip/memdisk.c", 137],
-      ["zzip_mem_disk_open", "zzip/memdisk.c", 89],
-      ["main", "bins/unzzipcat-mem.c", 82]
-    ],
-    "test_timeout": 5,
-    "language": "c",
-    "config_script": "config.sh",
-    "build_script": "build.sh",
-    "test_script": "test.sh",
-    "build_command": "make -j20 CFLAGS='-static' CPPFLAGS='-static' LDFLAGS='-static'",
-    "bug_type": "Buffer Overflow"
-  },
-  {
-    "id": 42,
-    "subject": "zziplib",
-    "bug_id": "CVE-2017-5975",
-    "localization":[
-      {
-        "source_file": "zzip/memdisk.c",
-        "line_numbers": [
-          175
-        ]
-      }
-    ],
-    "failing_test": ["1.zip"],
-    "passing_test": [],
-    "count_neg": 1,
-    "count_pos": 0,
-    "binary_path": "linux/bins/unzzipcat-mem",
-    "crash_input": "$POC",
-    "exploit_file_list": [
-      "tests/1.zip"
-    ],
-    "crash_stack_trace": [
-      ["zzip_mem_entry_new", "zzip/memdisk.c", 182],
-      ["zzip_mem_disk_load", "zzip/memdisk.c", 137],
-      ["zzip_mem_disk_open", "zzip/memdisk.c", 89],
-      ["main", "bins/unzzipcat-mem.c", 82]
-    ],
-    "test_timeout": 5,
-    "language": "c",
-    "config_script": "config.sh",
-    "build_script": "build.sh",
-    "test_script": "test.sh",
-    "build_command": "make -j20 CFLAGS='-static' CPPFLAGS='-static' LDFLAGS='-static'",
-    "bug_type": "Null Pointer Dereference"
-  },
-  {
-    "id": 43,
-    "subject": "zziplib",
-    "bug_id": "CVE-2017-5976",
-    "localization":[
-      {
-        "source_file": "zzip/memdisk.c",
-        "line_numbers": [
-          208
-        ]
-      }
-    ],
-    "failing_test": ["1.zip"],
-    "passing_test": [],
-    "count_neg": 1,
-    "count_pos": 0,
-    "binary_path": "linux/bins/unzzipcat-mem",
-    "crash_input": "$POC",
-    "exploit_file_list": [
-      "tests/1.zip"
-    ],
-    "crash_stack_trace": [
-      ["zzip_mem_entry_extra_block", "zzip/memdisk.c", 248],
-      ["zzip_mem_entry_new", "zzip/memdisk.c", 217],
-      ["zzip_mem_disk_load", "zzip/memdisk.c", 137],
-      ["zzip_mem_disk_open", "zzip/memdisk.c", 89],
-      ["main", "bins/unzzipcat-mem.c", 82]
-    ],
-    "test_timeout": 5,
-    "language": "c",
-    "config_script": "config.sh",
-    "build_script": "build.sh",
-    "test_script": "test.sh",
-    "build_command": "make -j20 CFLAGS='-static' CPPFLAGS='-static' LDFLAGS='-static'",
-    "bug_type": "Buffer Overflow"
-  }
+    }
 ]

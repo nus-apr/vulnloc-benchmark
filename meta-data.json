@@ -67,7 +67,7 @@
         "build_command": "make -j20 CFLAGS='-Wno-error' CXXFLAGS='-Wno-error' LDFLAGS='-ldl -lutil'",
         "bug_type": "Integer Overflow",
         "src": {
-            "root_abspath": "/experiment/binutils/CVE-2017-14745/src",
+            "root_abspath": "/experiment/vulnloc/binutils/CVE-2017-14745/src",
             "entrypoint": {
                 "file": "binutils/objdump.c",
                 "function": "main"
@@ -192,7 +192,7 @@
         "build_command": "make -j20 CFLAGS='-Wno-error' CXXFLAGS='-Wno-error' LDFLAGS='-ldl -lutil'",
         "bug_type": "Buffer Overflow",
         "src": {
-            "root_abspath": "/experiment/binutils/CVE-2017-15020/src",
+            "root_abspath": "/experiment/vulnloc/binutils/CVE-2017-15020/src",
             "entrypoint": {
                 "file": "binutils/nm-new.c",
                 "function": "main"
@@ -333,7 +333,7 @@
         "build_command": "make -j20 CFLAGS='-Wno-error' CXXFLAGS='-Wno-error'",
         "bug_type": "Divide by Zero",
         "src": {
-            "root_abspath": "/experiment/binutils/CVE-2017-15025/src",
+            "root_abspath": "/experiment/vulnloc/binutils/CVE-2017-15025/src",
             "entrypoint": {
                 "file": "binutils/nm-new.c",
                 "function": "main"
@@ -481,7 +481,7 @@
         "build_command": "make -j20 CFLAGS='-Wno-error' CXXFLAGS='-Wno-error' LDFLAGS='-ldl'",
         "bug_type": "Buffer Overflow",
         "src": {
-            "root_abspath": "/experiment/binutils/CVE-2017-6965/src",
+            "root_abspath": "/experiment/vulnloc/binutils/CVE-2017-6965/src",
             "entrypoint": {
                 "file": "binutils/readelf.c",
                 "function": "main"
@@ -583,7 +583,7 @@
         "build_command": "make -j20 CFLAGS='-fPIC -fPIE -Wno-error' CXXFLAGS='-fPIC -fPIE -Wno-error' LDFLAGS='-pie' src/make-prime-list",
         "bug_type": "Buffer Overflow",
         "src": {
-            "root_abspath": "/experiment/coreutils/gnubug-19784/src",
+            "root_abspath": "/experiment/vulnloc/coreutils/gnubug-19784/src",
             "entrypoint": {
                 "file": "src/make-prime-list.c",
                 "function": "main"
@@ -642,7 +642,7 @@
         "build_command": "make -j20 CFLAGS='-Wno-error' CXXFLAGS='-Wno-error' src/split",
         "bug_type": "Integer Overflow",
         "src": {
-            "root_abspath": "/experiment/coreutils/gnubug-25003/src",
+            "root_abspath": "/experiment/vulnloc/coreutils/gnubug-25003/src",
             "entrypoint": {
                 "file": "src/split.c",
                 "function": "main"
@@ -722,7 +722,7 @@
         "build_command": "make -j20 CFLAGS='-Wno-error' CXXFLAGS='-Wno-error' src/pr",
         "bug_type": "Buffer Overflow",
         "src": {
-            "root_abspath": "/experiment/coreutils/gnubug-25023/src",
+            "root_abspath": "/experiment/vulnloc/coreutils/gnubug-25023/src",
             "entrypoint": {
                 "file": "src/pr.c",
                 "function": "main"
@@ -816,7 +816,7 @@
         "build_command": "make -j20 CFLAGS='-Wno-error' CXXFLAGS='-Wno-error' src/shred",
         "bug_type": "Integer Overflow",
         "src": {
-            "root_abspath": "/experiment/coreutils/gnubug-26545/src",
+            "root_abspath": "/experiment/vulnloc/coreutils/gnubug-26545/src",
             "entrypoint": {
                 "file": "src/shred.c",
                 "function": "main"
@@ -887,7 +887,7 @@
         "test_script": "test.sh",
         "bug_type": "Integer Overflow",
         "src": {
-            "root_abspath": "/experiment/ffmpeg/bugchrom-1404/src",
+            "root_abspath": "/experiment/vulnloc/ffmpeg/bugchrom-1404/src",
             "entrypoint": {
                 "file": "tools/target_dec_cavs_fuzzer.c",
                 "function": "main"
@@ -927,7 +927,7 @@
         "test_script": "test.sh",
         "bug_type": "Buffer Overflow",
         "src": {
-            "root_abspath": "/experiment/ffmpeg/CVE-2017-9992/src",
+            "root_abspath": "/experiment/vulnloc/ffmpeg/CVE-2017-9992/src",
             "entrypoint": {
                 "file": "tools/target_dec_cavs_fuzzer.c",
                 "function": "main"
@@ -994,7 +994,7 @@
         "build_command": "make -j20 CFLAGS='-static' CXXFLAGS='-static' LDFLAGS='-static'",
         "bug_type": "Divide by Zero",
         "src": {
-            "root_abspath": "/experiment/jasper/CVE-2016-8691/src",
+            "root_abspath": "/experiment/vulnloc/jasper/CVE-2016-8691/src",
             "entrypoint": {
                 "file": "src/appl/imginfo.c",
                 "function": "main"
@@ -1102,7 +1102,7 @@
         "build_command": "make -j20 CFLAGS='-static' CXXFLAGS='-static' LDFLAGS='-static'",
         "bug_type": "Integer Overflow",
         "src": {
-            "root_abspath": "/experiment/jasper/CVE-2016-9557/src",
+            "root_abspath": "/experiment/vulnloc/jasper/CVE-2016-9557/src",
             "entrypoint": {
                 "file": "src/appl/imginfo.c",
                 "function": "main"
@@ -1227,7 +1227,7 @@
         "build_command": "make -j20 CFLAGS='-static' CXXFLAGS='-static' LDFLAGS='-static'",
         "bug_type": "Integer Overflow",
         "src": {
-            "root_abspath": "/experiment/libarchive/CVE-2016-5844/src",
+            "root_abspath": "/experiment/vulnloc/libarchive/CVE-2016-5844/src",
             "entrypoint": {
                 "file": "bsdtar.c",
                 "function": "main"
@@ -1349,7 +1349,7 @@
         "build_command": "make -j20 CFLAGS='-static' CXXFLAGS='-static' LDFLAGS='-static'",
         "bug_type": "Buffer Overflow",
         "src": {
-            "root_abspath": "/experiment/libjpeg/CVE-2012-2806/src",
+            "root_abspath": "/experiment/vulnloc/libjpeg/CVE-2012-2806/src",
             "entrypoint": {
                 "file": "djpeg.c",
                 "function": "main"
@@ -1468,7 +1468,7 @@
         "build_command": "make -j20 CFLAGS='-static' CXXFLAGS='-static' LDFLAGS='-static'",
         "bug_type": "Null Pointer Dereference",
         "src": {
-            "root_abspath": "/experiment/libjpeg/CVE-2017-15232/src",
+            "root_abspath": "/experiment/vulnloc/libjpeg/CVE-2017-15232/src",
             "entrypoint": {
                 "file": "djpeg.c",
                 "function": "main"
@@ -1582,7 +1582,7 @@
         "build_command": "make -j20 CFLAGS='-static' CXXFLAGS='-static' LDFLAGS='-static'",
         "bug_type": "Buffer Overflow",
         "src": {
-            "root_abspath": "/experiment/libjpeg/CVE-2018-14498/src",
+            "root_abspath": "/experiment/vulnloc/libjpeg/CVE-2018-14498/src",
             "entrypoint": {
                 "file": "cjpeg.c",
                 "function": "main"
@@ -1653,7 +1653,7 @@
         "build_command": "make -j20 CFLAGS='-static' CXXFLAGS='-static' LDFLAGS='-static'",
         "bug_type": "Buffer Overflow",
         "src": {
-            "root_abspath": "/experiment/libjpeg/CVE-2018-19664/src",
+            "root_abspath": "/experiment/vulnloc/libjpeg/CVE-2018-19664/src",
             "entrypoint": {
                 "file": "build/djpeg.c",
                 "function": "main"
@@ -1718,7 +1718,7 @@
         "build_command": "make CFLAGS='-static' CXXFLAGS='-static' LDFLAGS='-static'",
         "bug_type": "Buffer Overflow",
         "src": {
-            "root_abspath": "/experiment/libming/CVE-2016-9264/src",
+            "root_abspath": "/experiment/vulnloc/libming/CVE-2016-9264/src",
             "entrypoint": {
                 "file": "util/listmp3.c",
                 "function": "main"
@@ -1821,7 +1821,7 @@
         "build_command": "make CFLAGS='-static' CXXFLAGS='-static' LDFLAGS='-static'",
         "bug_type": "Use after Free",
         "src": {
-            "root_abspath": "/experiment/libming/CVE-2018-8806/src",
+            "root_abspath": "/experiment/vulnloc/libming/CVE-2018-8806/src",
             "entrypoint": {
                 "file": "util/swftophp.c",
                 "function": "main"
@@ -1966,7 +1966,7 @@
         "build_command": "make CFLAGS='-static' CXXFLAGS='-static' LDFLAGS='-static'",
         "bug_type": "Use after Free",
         "src": {
-            "root_abspath": "/experiment/libming/CVE-2018-8964/src",
+            "root_abspath": "/experiment/vulnloc/libming/CVE-2018-8964/src",
             "entrypoint": {
                 "file": "util/swftophp.c",
                 "function": "main"
@@ -2088,7 +2088,7 @@
         "build_command": "make -j20 CFLAGS='-static' CPPFLAGS='-static' LDFLAGS='-static'",
         "bug_type": "Divide by Zero",
         "src": {
-            "root_abspath": "/experiment/libtiff/bugzilla-2611/src",
+            "root_abspath": "/experiment/vulnloc/libtiff/bugzilla-2611/src",
             "entrypoint": {
                 "file": "tools/tiffmedian.c",
                 "function": "main"
@@ -2182,7 +2182,7 @@
         "build_command": "make -j20 CFLAGS='-static' CPPFLAGS='-static' LDFLAGS='-static'",
         "bug_type": "Buffer Overflow",
         "src": {
-            "root_abspath": "/experiment/libtiff/bugzilla-2633/src",
+            "root_abspath": "/experiment/vulnloc/libtiff/bugzilla-2633/src",
             "entrypoint": {
                 "file": "tools/tiff2ps.c",
                 "function": "main"
@@ -2279,7 +2279,7 @@
         "build_command": "make -j20 CFLAGS='-static' CPPFLAGS='-static' LDFLAGS='-static'",
         "bug_type": "Buffer Overflow",
         "src": {
-            "root_abspath": "/experiment/libtiff/CVE-2016-10092/src",
+            "root_abspath": "/experiment/vulnloc/libtiff/CVE-2016-10092/src",
             "entrypoint": {
                 "file": "tools/tiffcrop.c",
                 "function": "main"
@@ -2378,7 +2378,7 @@
         "build_command": "make -j20 CFLAGS='-static' CPPFLAGS='-static' LDFLAGS='-static'",
         "bug_type": "Buffer Overflow",
         "src": {
-            "root_abspath": "/experiment/libtiff/CVE-2016-10094/src",
+            "root_abspath": "/experiment/vulnloc/libtiff/CVE-2016-10094/src",
             "entrypoint": {
                 "file": "tools/tiff2pdf.c",
                 "function": "main"
@@ -2475,7 +2475,7 @@
         "build_command": "make -j20 CFLAGS='-static' CPPFLAGS='-static' LDFLAGS='-static'",
         "bug_type": "Buffer Overflow",
         "src": {
-            "root_abspath": "/experiment/libtiff/CVE-2016-10272/src",
+            "root_abspath": "/experiment/vulnloc/libtiff/CVE-2016-10272/src",
             "entrypoint": {
                 "file": "tools/tiffcrop.c",
                 "function": "main"
@@ -2569,7 +2569,7 @@
         "build_command": "make -j20 CFLAGS='-static' CPPFLAGS='-static' LDFLAGS='-static'",
         "bug_type": "Buffer Overflow",
         "src": {
-            "root_abspath": "/experiment/libtiff/CVE-2016-3186/src",
+            "root_abspath": "/experiment/vulnloc/libtiff/CVE-2016-3186/src",
             "entrypoint": {
                 "file": "tools/gif2tiff.c",
                 "function": "main"
@@ -2630,7 +2630,7 @@
         "build_command": "make -j20 CFLAGS='-static' CPPFLAGS='-static' LDFLAGS='-static'",
         "bug_type": "Buffer Overflow",
         "src": {
-            "root_abspath": "/experiment/libtiff/CVE-2016-5314/src",
+            "root_abspath": "/experiment/vulnloc/libtiff/CVE-2016-5314/src",
             "entrypoint": {
                 "file": "tools/rgb2ycbcr.c",
                 "function": "main"
@@ -2643,7 +2643,7 @@
         "id": 28,
         "subject": "libtiff",
         "src": {
-            "root_abspath": "/experiment/libtiff/CVE-2016-5321/src",
+            "root_abspath": "/experiment/vulnloc/libtiff/CVE-2016-5321/src",
             "entrypoint": {
                 "file": "tools/tiffcrop.c",
                 "function": "main"
@@ -2763,7 +2763,7 @@
         "build_command": "make -j20 CFLAGS='-static' CPPFLAGS='-static' LDFLAGS='-static'",
         "bug_type": "Buffer Overflow",
         "src": {
-            "root_abspath": "/experiment/libtiff/CVE-2016-9273/src",
+            "root_abspath": "/experiment/vulnloc/libtiff/CVE-2016-9273/src",
             "entrypoint": {
                 "file": "tools/tiffsplit.c",
                 "function": "main"
@@ -2849,7 +2849,7 @@
         "build_command": "make -j20 CFLAGS='-static' CPPFLAGS='-static' LDFLAGS='-static'",
         "bug_type": "Buffer Overflow",
         "src": {
-            "root_abspath": "/experiment/libtiff/CVE-2016-9532/src",
+            "root_abspath": "/experiment/vulnloc/libtiff/CVE-2016-9532/src",
             "entrypoint": {
                 "file": "tools/tiffcrop.c",
                 "function": "main"
@@ -2937,7 +2937,7 @@
         "build_command": "make -j20 CFLAGS='-static' CPPFLAGS='-static' LDFLAGS='-static'",
         "bug_type": "Buffer Overflow",
         "src": {
-            "root_abspath": "/experiment/libtiff/CVE-2017-5225/src",
+            "root_abspath": "/experiment/vulnloc/libtiff/CVE-2017-5225/src",
             "entrypoint": {
                 "file": "tools/tiffcp.c",
                 "function": "main"
@@ -3038,7 +3038,7 @@
         "build_command": "make -j20 CFLAGS='-static' CPPFLAGS='-static' LDFLAGS='-static'",
         "bug_type": "Divide by Zero",
         "src": {
-            "root_abspath": "/experiment/libtiff/CVE-2017-7595/src",
+            "root_abspath": "/experiment/vulnloc/libtiff/CVE-2017-7595/src",
             "entrypoint": {
                 "file": "tools/tiffcp.c",
                 "function": "main"
@@ -3149,7 +3149,7 @@
         "build_command": "make -j20 CFLAGS='-static' CPPFLAGS='-static' LDFLAGS='-static'",
         "bug_type": "Data Type Overflow",
         "src": {
-            "root_abspath": "/experiment/libtiff/CVE-2017-7599/src",
+            "root_abspath": "/experiment/vulnloc/libtiff/CVE-2017-7599/src",
             "entrypoint": {
                 "file": "tools/tiffcp.c",
                 "function": "main"
@@ -3236,7 +3236,7 @@
         "build_command": "make -j20 CFLAGS='-static' CPPFLAGS='-static' LDFLAGS='-static'",
         "bug_type": "Data Type Overflow",
         "src": {
-            "root_abspath": "/experiment/libtiff/CVE-2017-7600/src",
+            "root_abspath": "/experiment/vulnloc/libtiff/CVE-2017-7600/src",
             "entrypoint": {
                 "file": "tools/tiffcp.c",
                 "function": "main"
@@ -3328,7 +3328,7 @@
         "build_command": "make -j20 CFLAGS='-static' CPPFLAGS='-static' LDFLAGS='-static'",
         "bug_type": "Integer Overflow",
         "src": {
-            "root_abspath": "/experiment/libtiff/CVE-2017-7601/src",
+            "root_abspath": "/experiment/vulnloc/libtiff/CVE-2017-7601/src",
             "entrypoint": {
                 "file": "tools/tiffcp.c",
                 "function": "main"
@@ -3451,7 +3451,7 @@
         "build_command": "make -j20 CFLAGS='-static' CXXFLAGS='-static' LDFLAGS='-static'",
         "bug_type": "Buffer Overflow",
         "src": {
-            "root_abspath": "/experiment/libxml2/CVE-2012-5134/src",
+            "root_abspath": "/experiment/vulnloc/libxml2/CVE-2012-5134/src",
             "entrypoint": {
                 "file": "xmllint.c",
                 "function": "main"
@@ -3589,7 +3589,7 @@
         "build_command": "make -j20 CFLAGS='-static' CXXFLAGS='-static' LDFLAGS='-static'",
         "bug_type": "Buffer Overflow",
         "src": {
-            "root_abspath": "/experiment/libxml2/CVE-2016-1838/src",
+            "root_abspath": "/experiment/vulnloc/libxml2/CVE-2016-1838/src",
             "entrypoint": {
                 "file": "xmllint.c",
                 "function": "main"
@@ -3734,7 +3734,7 @@
         "build_command": "make -j20 CFLAGS='-static' CXXFLAGS='-static' LDFLAGS='-static'",
         "bug_type": "Buffer Overflow",
         "src": {
-            "root_abspath": "/experiment/libxml2/CVE-2016-1839/src",
+            "root_abspath": "/experiment/vulnloc/libxml2/CVE-2016-1839/src",
             "entrypoint": {
                 "file": "xmllint.c",
                 "function": "main"
@@ -3909,7 +3909,7 @@
         "build_command": "make -j20 CFLAGS='-static' CXXFLAGS='-static' LDFLAGS='-static'",
         "bug_type": "Null Pointer Dereference",
         "src": {
-            "root_abspath": "/experiment/libxml2/CVE-2017-5969/src",
+            "root_abspath": "/experiment/vulnloc/libxml2/CVE-2017-5969/src",
             "entrypoint": {
                 "file": "xmllint.c",
                 "function": "main"
@@ -4044,7 +4044,7 @@
         "build_command": "make -j20 CFLAGS='-static' LDFLAGS='-static'",
         "bug_type": "Buffer Overflow",
         "src": {
-            "root_abspath": "/experiment/potrace/CVE-2013-7437/src",
+            "root_abspath": "/experiment/vulnloc/potrace/CVE-2013-7437/src",
             "entrypoint": {
                 "file": "src/potrace.c",
                 "function": "main"
@@ -4131,7 +4131,7 @@
         "build_command": "make -j20 CFLAGS='-static' CPPFLAGS='-static' LDFLAGS='-static'",
         "bug_type": "Buffer Overflow",
         "src": {
-            "root_abspath": "/experiment/zziplib/CVE-2017-5974/src",
+            "root_abspath": "/experiment/vulnloc/zziplib/CVE-2017-5974/src",
             "entrypoint": {
                 "file": "linux/bins/unzzipcat-mem.c",
                 "function": "main"
@@ -4218,7 +4218,7 @@
         "build_command": "make -j20 CFLAGS='-static' CPPFLAGS='-static' LDFLAGS='-static'",
         "bug_type": "Null Pointer Dereference",
         "src": {
-            "root_abspath": "/experiment/zziplib/CVE-2017-5975/src",
+            "root_abspath": "/experiment/vulnloc/zziplib/CVE-2017-5975/src",
             "entrypoint": {
                 "file": "linux/bins/unzzipcat-mem.c",
                 "function": "main"
@@ -4310,7 +4310,7 @@
         "build_command": "make -j20 CFLAGS='-static' CPPFLAGS='-static' LDFLAGS='-static'",
         "bug_type": "Buffer Overflow",
         "src": {
-            "root_abspath": "/experiment/zziplib/CVE-2017-5976/src",
+            "root_abspath": "/experiment/vulnloc/zziplib/CVE-2017-5976/src",
             "entrypoint": {
                 "file": "linux/bins/unzzipcat-mem.c",
                 "function": "main"

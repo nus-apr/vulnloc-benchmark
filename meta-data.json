@@ -774,7 +774,7 @@
                 ]
             }
         ],
-        "failing_test_identifiers": "1",
+        "failing_test_identifiers": ["1"],
         "passing_test_identifiers": [],
         "count_neg": 1,
         "count_pos": 0,

@@ -31,10 +31,6 @@ config_path=$dir_name/vulnfix/config
 
 cat > $config_path <<EOL
 cmd=
-fix-location=shred.c:290
-crash-location=shred.c:293
 input-from-stdin=true
-fix-file-path=src/shred.c
-fix-line=290
 build-cmd=make clean && make CFLAGS="-Wno-error -fsanitize=address -ggdb" CXXFLAGS="-Wno-error -fsanitize=address -ggdb" LDFLAGS="-fsanitize=address" -j10
 EOL

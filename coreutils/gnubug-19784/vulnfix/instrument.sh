@@ -21,10 +21,6 @@ config_path=$dir_name/vulnfix/config
 
 cat > $config_path <<EOL
 cmd=
-fix-location=0x2d46
-crash-location=0x2d46
 input-from-stdin=true
-fix-file-path=src/make-prime-list.c
-fix-line=216
 build-cmd=export FORCE_UNSAFE_CONFIGURE=1 && make clean && make CFLAGS="-Wno-error -fsanitize=address -g" src/make-prime-list
 EOL

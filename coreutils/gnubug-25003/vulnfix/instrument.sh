@@ -29,10 +29,6 @@ config_path=$dir_name/vulnfix/config
 
 cat > $config_path <<EOL
 cmd=
-fix-location=split.c:988
-crash-location=split.c:988
 input-from-stdin=true
-fix-file-path=src/split.c
-fix-line=986
 build-cmd=make clean && make CFLAGS="-Wno-error -fsanitize=address -fsanitize=undefined -g" CXXFLAGS="-Wno-error -fsanitize=address -fsanitize=undefined -g" -j10
 EOL

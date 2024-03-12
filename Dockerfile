@@ -20,7 +20,6 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-ins
     libfreetype6 \
     libfreetype6-dev \
     libjpeg-dev \
-    liblzma-dev \
     libnuma-dev \
     libpciaccess-dev \
     libpython-dev \

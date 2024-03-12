@@ -16,7 +16,7 @@ DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
   libfreetype6 \
   libfreetype6-dev \
   libjpeg-dev \
-  liblzma-dev \
+ \
   libnuma-dev \
   libpciaccess-dev \
   libpython3-dev \

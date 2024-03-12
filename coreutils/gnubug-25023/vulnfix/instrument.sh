@@ -27,10 +27,6 @@ config_path=$dir_name/vulnfix/config
 
 cat > $config_path <<EOL
 cmd=
-fix-location=pr.c:1239
-crash-location=pr.c:2243
 input-from-stdin=true
-fix-file-path=src/pr.c
-fix-line=1238
 build-cmd=make clean && make CFLAGS="-Wno-error -fsanitize=address -fsanitize=undefined -g" CXXFLAGS="-Wno-error -fsanitize=address -fsanitize=undefined -g" -j10
 EOL

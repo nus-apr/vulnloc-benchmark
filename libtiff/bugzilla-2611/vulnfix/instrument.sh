@@ -15,9 +15,5 @@ make CFLAGS="-static -fsanitize=address -fsanitize=undefined -g" CXXFLAGS="-stat
 config_path=$dir_name/vulnfix/config
 
 cat > $config_path <<EOL
-fix-location=tif_ojpeg.c:816
-crash-location=tif_ojpeg.c:816
-fix-file-path=libtiff/tif_ojpeg.c
-fix-line=816
 build-cmd=make clean && make CFLAGS="-static -fsanitize=address -fsanitize=undefined -g" CXXFLAGS="-static -fsanitize=address -fsanitize=undefined -g" -j10
 EOL

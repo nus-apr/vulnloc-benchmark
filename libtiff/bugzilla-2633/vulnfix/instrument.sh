@@ -15,10 +15,6 @@ make CFLAGS="-static -fsanitize=address -fsanitize=undefined -g" CXXFLAGS="-stat
 config_path=$dir_name/vulnfix/config
 
 cat > $config_path <<EOL
-fix-location=tiff2ps.c:2437
-crash-location=tiff2ps.c:2470
 afl-skip-deterministic=false
-fix-file-path=tools/tiff2ps.c
-fix-line=2437
 build-cmd=make clean && make CFLAGS="-static -fsanitize=address -fsanitize=undefined -g" CXXFLAGS="-static -fsanitize=address -fsanitize=undefined -g" -j10
 EOL
